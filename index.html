@@ -212,8 +212,8 @@
 
     .tap-circle{
 
-  width:120px;
-  height:120px;
+  width:140px;
+  height:140px;
 
   display:flex;
   align-items:center;
@@ -221,33 +221,61 @@
 
   margin:auto;
 
-  font-size:72px;
+  font-size:58px;
+  font-weight:300;
 
-  color:rgba(255,255,255,0.55);
+  color:#ffe7b3;
+
+  border-radius:50%;
 
   background:
     radial-gradient(
       circle,
       rgba(255,215,120,0.22),
-      rgba(255,255,255,0.05)
+      rgba(255,255,255,0.04)
     );
 
-  border:1px solid rgba(255,255,255,0.15);
+  border:
+    1px solid rgba(255,230,180,0.28);
 
-  border-radius:50%;
-
-  backdrop-filter:blur(8px);
+  backdrop-filter:blur(10px);
 
   box-shadow:
-    0 0 25px rgba(255,215,120,0.25),
-    inset 0 0 18px rgba(255,255,255,0.08);
+    0 0 18px rgba(255,215,120,0.18),
+    0 0 50px rgba(255,215,120,0.12),
+    inset 0 0 22px rgba(255,255,255,0.08);
 
   text-shadow:
-    0 0 18px rgba(255,220,150,0.35);
+    0 0 14px rgba(255,220,150,0.55);
 
-  animation: handGlow 2.5s ease-in-out infinite;
+  animation:
+    royalPulse 3s ease-in-out infinite;
 }
 
+@keyframes royalPulse{
+
+  0%{
+    transform:scale(1);
+    box-shadow:
+      0 0 18px rgba(255,215,120,0.18),
+      0 0 50px rgba(255,215,120,0.12);
+  }
+
+  50%{
+    transform:scale(1.06);
+    box-shadow:
+      0 0 28px rgba(255,215,120,0.32),
+      0 0 80px rgba(255,215,120,0.18);
+  }
+
+  100%{
+    transform:scale(1);
+    box-shadow:
+      0 0 18px rgba(255,215,120,0.18),
+      0 0 50px rgba(255,215,120,0.12);
+  }
+
+}
 @keyframes handGlow{
 
   0%{
@@ -708,8 +736,10 @@
     <div class="curtain right-curtain"></div>
 
     <div class="tap-text">
-<div class="tap-circle">🤚</div>
-      <p>Tap to Open</p>
+<div class="tap-circle">
+  ❈
+</div>
+<p>Open Invitation</p>
     </div>
 
   </div>
