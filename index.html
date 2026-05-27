@@ -87,7 +87,7 @@
       transparent 28px
     );
 
-  opacity:0.9;
+  opacity:0.35;
 }
 
     .left-curtain{
@@ -101,25 +101,6 @@
     }
 /* curtain tie */
 
-.left-curtain::after,
-.right-curtain::after{
-  content:'';
-  position:absolute;
-  width:14px;
-  height:140px;
-  top:40%;
-  border-radius:30px;
-  z-index:10;
-
-  background: linear-gradient(
-    to bottom,
-    #f7d774,
-    #caa12e,
-    #f7d774
-  );
-
-  box-shadow:0 0 12px rgba(255,215,0,0.4);
-}
 
 .left-curtain{
   transform-origin: left center;
@@ -129,22 +110,17 @@
   transform-origin: right center;
 }
 
-.left-curtain::after{
-  right:18px;
-}
-
-.right-curtain::after{
-  left:18px;
-}
 
 /* curtains tied at sides */
 
+/* curtains fully tied to sides */
+
 .opening-screen.open .left-curtain{
-  transform: translateX(-38%) rotate(-1.5deg);
+  transform: translateX(-92%) rotate(-6deg);
 }
 
 .opening-screen.open .right-curtain{
-  transform: translateX(38%) rotate(1.5deg);
+  transform: translateX(92%) rotate(6deg);
 }
 
     /* Tap Text */
