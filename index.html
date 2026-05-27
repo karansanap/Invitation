@@ -42,12 +42,34 @@
   top:0;
   width:52%;
   height:100%;
-  background: linear-gradient(
-    to right,
-    #6b0000,
-    #8b0000,
-    #5a0000
-  );
+  background:
+linear-gradient(
+  to right,
+  #4d0000,
+  #7a0000,
+  #a00000,
+  #6b0000;
+background-size:200% 200%;
+animation:
+  fabricWave 6s ease-in-out infinite,
+  curtainGlow 10s ease infinite;
+);
+
+@keyframes curtainGlow{
+
+  0%{
+    background-position:0% 50%;
+  }
+
+  50%{
+    background-position:100% 50%;
+  }
+
+  100%{
+    background-position:0% 50%;
+  }
+
+}
 
 @keyframes fabricWave {
   0%{
@@ -110,7 +132,6 @@
   transform-origin: right center;
 }
 
-
 /* curtains tied at sides */
 
 /* curtains fully tied to sides */
@@ -150,8 +171,8 @@
 
     .tap-circle{
 
-  width:110px;
-  height:110px;
+  width:120px;
+  height:120px;
 
   display:flex;
   align-items:center;
@@ -159,26 +180,97 @@
 
   margin:auto;
 
-  font-size:70px;
+  font-size:72px;
 
-  color:rgba(255,255,255,0.35);
+  color:rgba(255,255,255,0.55);
 
-  background:rgba(255,255,255,0.04);
+  background:
+    radial-gradient(
+      circle,
+      rgba(255,215,120,0.22),
+      rgba(255,255,255,0.05)
+    );
 
-  border:1px solid rgba(255,255,255,0.08);
+  border:1px solid rgba(255,255,255,0.15);
 
   border-radius:50%;
 
-  backdrop-filter:blur(4px);
+  backdrop-filter:blur(8px);
+
+  box-shadow:
+    0 0 25px rgba(255,215,120,0.25),
+    inset 0 0 18px rgba(255,255,255,0.08);
 
   text-shadow:
-    0 0 12px rgba(255,255,255,0.2);
+    0 0 18px rgba(255,220,150,0.35);
+
+  animation: handGlow 2.5s ease-in-out infinite;
+}
+
+@keyframes handGlow{
+
+  0%{
+    transform:scale(1);
+    box-shadow:
+      0 0 18px rgba(255,215,120,0.18);
+  }
+
+  50%{
+    transform:scale(1.06);
+    box-shadow:
+      0 0 38px rgba(255,215,120,0.38);
+  }
+
+  100%{
+    transform:scale(1);
+    box-shadow:
+      0 0 18px rgba(255,215,120,0.18);
+  }
+
+}
+.opening-screen::after{
+
+  content:'';
+
+  position:absolute;
+
+  top:0;
+  left:50%;
+
+  transform:translateX(-50%);
+
+  width:120px;
+  height:100%;
+
+  background:
+    linear-gradient(
+      to bottom,
+      rgba(255,215,120,0.18),
+      transparent,
+      rgba(255,215,120,0.12)
+    );
+
+  filter:blur(18px);
+
+  z-index:9998;
+
+  pointer-events:none;
 }
     .tap-text p{
-      margin-top:12px;
-      font-size:18px;
-      letter-spacing:2px;
-    }
+
+  margin-top:18px;
+
+  font-size:24px;
+
+  letter-spacing:4px;
+
+  color:#fff8e8;
+
+  text-shadow:
+    0 0 12px rgba(255,255,255,0.35);
+
+  font-family:'Cormorant Garamond', serif;
+}
 
     @keyframes pulse{
       0%{
