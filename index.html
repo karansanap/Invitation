@@ -249,10 +249,16 @@
   position:absolute;
   top:-80px;
   font-size:28px;
-  opacity:0.9;
+
+  opacity:0;
+
   z-index:10000;
-will-change: transform;
+
+  will-change: transform;
+
   animation: falling linear infinite;
+
+  transition:opacity 1.5s ease;
 }
 
 /* More flowers with slower elegant motion */
@@ -354,13 +360,6 @@ will-change: transform;
   pointer-events:none;
 
   animation: butterflyFly 16s ease-in-out infinite alternate;
-}
-/* Hidden before curtain opens */
-
-.flower,
-.butterfly{
-  opacity:0;
-  transition:opacity 1.5s ease;
 }
 
 /* Show after opening */
