@@ -40,7 +40,7 @@
     .curtain{
       position:absolute;
       top:0;
-      width:52%;
+      width:50%;
       height:100%;
       background:#8b0000;
       transition:transform 2s ease-in-out;
@@ -57,16 +57,14 @@
 
   background:
     repeating-linear-gradient(
-      92deg,
-      rgba(255,255,255,0.55) 0px,
-      rgba(255,255,255,0.55) 2px,
-      transparent 2px,
-      transparent 26px
+      90deg,
+      rgba(255,255,255,0.38) 0px,
+      rgba(255,255,255,0.38) 3px,
+      transparent 3px,
+      transparent 28px
     );
 
-  opacity:0.95;
-
-  transform:scaleX(1.2) skewX(-3deg);
+  opacity:0.9;
 }
 
     .left-curtain{
@@ -79,39 +77,14 @@
       border-left:2px solid rgba(255,255,255,0.2);
     }
 
-/* tie ropes */
-
-.left-curtain::after,
-.right-curtain::after{
-  content:'';
-  position:absolute;
-  width:10px;
-  height:120px;
-  background:gold;
-  top:42%;
-  border-radius:20px;
-  z-index:20;
-}
-
-.left-curtain::after{
-  right:12px;
-}
-
-.right-curtain::after{
-  left:12px;
-}
-    /* curtains remain tied at sides */
+    /* curtains stop at sides */
 
 .opening-screen.open .left-curtain{
   transform:translateX(-78%);
-  border-top-right-radius:120px;
-  border-bottom-right-radius:120px;
 }
 
 .opening-screen.open .right-curtain{
   transform:translateX(78%);
-  border-top-left-radius:120px;
-  border-bottom-left-radius:120px;
 }
 
     /* Tap Text */
