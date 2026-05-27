@@ -172,14 +172,37 @@
     /* ---------------- MAIN INVITE ---------------- */
 
     .main-content{
-      min-height:100vh;
-      width:100%;
-      background:#f7f1e8;
-      position:relative;
-      overflow:hidden;
-      padding:40px 25px 80px;
-      text-align:center;
-    }
+  height:100vh;
+  width:100%;
+  background:#f7f1e8;
+  position:relative;
+  overflow:hidden;
+
+  padding:20px 18px 140px;
+
+  text-align:center;
+
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+}
+.main-content::before{
+  content:'';
+  position:absolute;
+  inset:14px;
+
+  border:1px solid rgba(120,70,70,0.15);
+
+  background:
+    rgba(255,255,255,0.35);
+
+  z-index:0;
+}
+
+.main-content > *{
+  position:relative;
+  z-index:2;
+}
 
     /* Floral top border */
 
@@ -200,100 +223,104 @@
     /* Floating flowers */
 
     .flower{
-      position:absolute;
-      font-size:28px;
-      animation:float 6s infinite ease-in-out;
-      opacity:0.9;
-    }
+  position:absolute;
+  top:-80px;
+  font-size:28px;
+  opacity:0.9;
 
-    .flower1{
-      top:120px;
-      left:20px;
-    }
+  animation: falling linear infinite;
+}
 
-    .flower2{
-      top:220px;
-      right:30px;
-      animation-delay:1s;
-    }
+.flower1{
+  left:10%;
+  animation-duration:10s;
+}
 
-    .flower3{
-      bottom:180px;
-      left:40px;
-      animation-delay:2s;
-    }
+.flower2{
+  left:30%;
+  animation-duration:14s;
+  animation-delay:2s;
+}
 
-    .flower4{
-      bottom:100px;
-      right:25px;
-      animation-delay:3s;
-    }
+.flower3{
+  left:60%;
+  animation-duration:12s;
+  animation-delay:4s;
+}
 
-    @keyframes float{
-      0%{
-        transform:translateY(0px) rotate(0deg);
-      }
-      50%{
-        transform:translateY(-12px) rotate(8deg);
-      }
-      100%{
-        transform:translateY(0px) rotate(0deg);
-      }
-    }
+.flower4{
+  left:85%;
+  animation-duration:16s;
+  animation-delay:1s;
+}
+
+@keyframes falling{
+
+  0%{
+    transform:
+      translateY(-100px)
+      rotate(0deg);
+  }
+
+  100%{
+    transform:
+      translateY(120vh)
+      rotate(360deg);
+  }
+
+}
+    
 
     /* Ganpati */
 
     .ganpati{
-      width:120px;
-      margin-top:70px;
-      animation:fadeIn 2s ease;
-    }
+  width:90px;
+  margin-top:40px;
+}
 
     .ganesh-text{
-      margin-top:15px;
-      font-size:28px;
-      color:#8b1e3f;
-      font-weight:500;
-    }
+  margin-top:8px;
+  font-size:22px;
+  color:#8b1e3f;
+}
 
     /* Invite text */
 
     .invite-text{
-      margin-top:50px;
-      font-size:22px;
-      line-height:1.7;
-      color:#6e4b4b;
-      padding:0 10px;
-    }
+  margin-top:22px;
+  font-size:18px;
+  line-height:1.5;
+  color:#6e4b4b;
+  padding:0 8px;
+}
 
     /* Names */
 
     .names{
-      margin-top:40px;
-      line-height:1.2;
-    }
+  margin-top:18px;
+  line-height:1;
+}
 
     .names h1{
-      font-family:'Great Vibes', cursive;
-      font-size:90px;
-      color:#b21e4b;
-      font-weight:400;
-    }
+  font-family:'Great Vibes', cursive;
+  font-size:72px;
+  color:#b21e4b;
+  font-weight:400;
+}
 
     .with-text{
-      font-size:45px;
-      margin:20px 0;
-      font-family:'Great Vibes', cursive;
-    }
+  font-size:34px;
+  margin:10px 0;
+}
 
     /* Parents */
 
     .parents{
-      margin-top:20px;
-      font-size:26px;
-      line-height:1.6;
-      color:#5b4a4a;
-    }
+  margin-top:8px;
+  font-size:18px;
+  line-height:1.4;
+  color:#5b4a4a;
+}
 
     /* Scroll indicator */
 
@@ -312,6 +339,17 @@
       }
     }
 
+.bottom-decor{
+  position:absolute;
+  bottom:0;
+  left:0;
+  width:100%;
+}
+
+.bottom-decor img{
+  width:100%;
+  display:block;
+}
     /* Music Button */
 
     .music-btn{
@@ -433,11 +471,9 @@
 
     </div>
 
-    <!-- Scroll -->
-
-    <div class="scroll">
-      Scroll ↓
-    </div>
+<div class="bottom-decor">
+  <img src="https://i.imgur.com/q6cB7sP.png" alt="">
+</div>
 
   </section>
 
