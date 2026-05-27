@@ -311,6 +311,20 @@ will-change: transform;
 
   animation: butterflyFly 16s ease-in-out infinite alternate;
 }
+/* Hidden before curtain opens */
+
+.flower,
+.butterfly{
+  opacity:0;
+  transition:opacity 1.5s ease;
+}
+
+/* Show after opening */
+
+.main-content.show-animations .flower,
+.main-content.show-animations .butterfly{
+  opacity:1;
+}
 
 /* Natural butterfly movement */
 
@@ -588,10 +602,16 @@ function openCurtains(){
     .querySelector(".tap-text")
     .style.display = "none";
 
-document
-  .querySelector(".music-btn")
-  .style.cssText =
-  "opacity:1; visibility:visible;";
+  document
+    .querySelector(".music-btn")
+    .style.cssText =
+    "opacity:1; visibility:visible;";
+
+  /* show flowers + butterfly */
+
+  document
+    .querySelector(".main-content")
+    .classList.add("show-animations");
 }
 
 </script>
