@@ -250,31 +250,26 @@
   top:-80px;
   font-size:28px;
   opacity:0.9;
-
+  z-index:10000;
+will-change: transform;
   animation: falling linear infinite;
 }
 
 .flower1{
-  left:10%;
-  animation-duration:10s;
+  left:5%;
+  animation-duration:4s;
 }
 
 .flower2{
-  left:30%;
-  animation-duration:14s;
-  animation-delay:2s;
+  left:25%;
+  animation-duration:5s;
+  animation-delay:1s;
 }
 
 .flower3{
-  left:60%;
-  animation-duration:12s;
-  animation-delay:4s;
-}
-
-.flower4{
-  left:85%;
-  animation-duration:16s;
-  animation-delay:1s;
+  left:50%;
+  animation-duration:4.5s;
+  animation-delay:2s;
 }
 
 @keyframes falling{
@@ -472,8 +467,8 @@
 
     <div class="flower flower1">🌸</div>
     <div class="butterfly">🦋</div>
-    <div class="flower flower3">🌼</div>
-    <div class="flower flower4">🍃</div>
+    <div class="flower flower2">🌼</div>
+    <div class="flower flower3">🍃</div>
     <div class="curtain left-curtain"></div>
     <div class="curtain right-curtain"></div>
 
