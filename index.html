@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+  <title>Wedding Invitation</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600&family=Great+Vibes&display=swap" rel="stylesheet">
+
+  <style>
+
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+    }
+
+    body{
+      overflow-x:hidden;
+      font-family:'Cormorant Garamond', serif;
+      background:#f8f3eb;
+      color:#5c2c2c;
+    }
+
+    /* ---------------- CURTAIN SCREEN ---------------- */
+
+    .opening-screen{
+      position:fixed;
+      width:100%;
+      height:100vh;
+      top:0;
+      left:0;
+      z-index:9999;
+      overflow:hidden;
+    }
+
+    .curtain{
+      position:absolute;
+      top:0;
+      width:50%;
+      height:100%;
+      background:#8b0000;
+      transition:transform 2s ease-in-out;
+      overflow:hidden;
+    }
+
+    /* curtain texture lines */
+
+    .curtain::before{
+      content:'';
+      position:absolute;
+      width:100%;
+      height:100%;
+      background:
+      repeating-linear-gradient(
+        90deg,
+        rgba(255,255,255,0.15) 0px,
+        rgba(255,255,255,0.15) 2px,
+        transparent 2px,
+        transparent 30px
+      );
+      opacity:0.5;
+    }
+
+    .left-curtain{
+      left:0;
+      border-right:2px solid rgba(255,255,255,0.2);
+    }
+
+    .right-curtain{
+      right:0;
+      border-left:2px solid rgba(255,255,255,0.2);
+    }
+
+    .opening-screen.open .left-curtain{
+      transform:translateX(-100%);
+    }
+
+    .opening-screen.open .right-curtain{
+      transform:translateX(100%);
+    }
+
+    /* Tap Text */
+
+    .tap-text{
+      position:absolute;
+      top:50%;
+      left:50%;
+      transform:translate(-50%,-50%);
+      z-index:10000;
+      color:white;
+      text-align:center;
+      cursor:pointer;
+      animation:pulse 2s infinite;
+    }
+
+    .tap-circle{
+      width:80px;
+      height:80px;
+      border:2px solid rgba(255,255,255,0.5);
+      border-radius:50%;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      margin:auto;
+      font-size:30px;
+      backdrop-filter:blur(5px);
+    }
+
+    .tap-text p{
+      margin-top:12px;
+      font-size:18px;
+      letter-spacing:2px;
+    }
+
+    @keyframes pulse{
+      0%{
+        transform:translate(-50%,-50%) scale(1);
+      }
+      50%{
+        transform:translate(-50%,-50%) scale(1.05);
+      }
+      100%{
+        transform:translate(-50%,-50%) scale(1);
+      }
+    }
+
+    /* ---------------- MAIN INVITE ---------------- */
+
+    .main-content{
+      min-height:100vh;
+      width:100%;
+      background:#f7f1e8;
+      position:relative;
+      overflow:hidden;
+      padding:40px 25px 80px;
+      text-align:center;
+    }
+
+    /* Floral top border */
+
+    .top-border{
+      width:100%;
+      position:absolute;
+      top:0;
+      left:0;
+      display:flex;
+      justify-content:center;
+    }
+
+    .top-border img{
+      width:100%;
+      max-width:500px;
+    }
+
+    /* Floating flowers */
+
+    .flower{
+      position:absolute;
+      font-size:28px;
+      animation:float 6s infinite ease-in-out;
+      opacity:0.9;
+    }
+
+    .flower1{
+      top:120px;
+      left:20px;
+    }
+
+    .flower2{
+      top:220px;
+      right:30px;
+      animation-delay:1s;
+    }
+
+    .flower3{
+      bottom:180px;
+      left:40px;
+      animation-delay:2s;
+    }
+
+    .flower4{
+      bottom:100px;
+      right:25px;
+      animation-delay:3s;
+    }
+
+    @keyframes float{
+      0%{
+        transform:translateY(0px) rotate(0deg);
+      }
+      50%{
+        transform:translateY(-12px) rotate(8deg);
+      }
+      100%{
+        transform:translateY(0px) rotate(0deg);
+      }
+    }
+
+    /* Ganpati */
+
+    .ganpati{
+      width:120px;
+      margin-top:70px;
+      animation:fadeIn 2s ease;
+    }
+
+    .ganesh-text{
+      margin-top:15px;
+      font-size:28px;
+      color:#8b1e3f;
+      font-weight:500;
+    }
+
+    /* Invite text */
+
+    .invite-text{
+      margin-top:50px;
+      font-size:22px;
+      line-height:1.7;
+      color:#6e4b4b;
+      padding:0 10px;
+    }
+
+    /* Names */
+
+    .names{
+      margin-top:40px;
+      line-height:1.2;
+    }
+
+    .names h1{
+      font-family:'Great Vibes', cursive;
+      font-size:90px;
+      color:#b21e4b;
+      font-weight:400;
+    }
+
+    .with-text{
+      font-size:45px;
+      margin:20px 0;
+      font-family:'Great Vibes', cursive;
+    }
+
+    /* Parents */
+
+    .parents{
+      margin-top:20px;
+      font-size:26px;
+      line-height:1.6;
+      color:#5b4a4a;
+    }
+
+    /* Scroll indicator */
+
+    .scroll{
+      margin-top:60px;
+      font-size:20px;
+      animation:bounce 2s infinite;
+    }
+
+    @keyframes bounce{
+      0%,100%{
+        transform:translateY(0);
+      }
+      50%{
+        transform:translateY(10px);
+      }
+    }
+
+    /* Music Button */
+
+    .music-btn{
+      position:fixed;
+      right:20px;
+      bottom:25px;
+      width:65px;
+      height:65px;
+      border-radius:50%;
+      background:#6b2d2d;
+      color:white;
+      border:none;
+      font-size:28px;
+      z-index:500;
+      cursor:pointer;
+      box-shadow:0 4px 10px rgba(0,0,0,0.2);
+    }
+
+    @keyframes fadeIn{
+      from{
+        opacity:0;
+        transform:translateY(20px);
+      }
+      to{
+        opacity:1;
+        transform:translateY(0);
+      }
+    }
+
+    /* Mobile */
+
+    @media(max-width:768px){
+
+      .names h1{
+        font-size:72px;
+      }
+
+      .invite-text{
+        font-size:20px;
+      }
+
+      .parents{
+        font-size:22px;
+      }
+
+      .ganesh-text{
+        font-size:24px;
+      }
+
+    }
+
+  </style>
+</head>
+
+<body>
+
+  <!-- CURTAIN SCREEN -->
+
+  <div class="opening-screen" id="openingScreen">
+
+    <div class="curtain left-curtain"></div>
+    <div class="curtain right-curtain"></div>
+
+    <div class="tap-text" onclick="openCurtains()">
+      <div class="tap-circle">☝</div>
+      <p>Tap to Open</p>
+    </div>
+
+  </div>
+
+  <!-- MAIN CONTENT -->
+
+  <section class="main-content">
+
+    <!-- floating flowers -->
+
+    <div class="flower flower1">🌸</div>
+    <div class="flower flower2">🦋</div>
+    <div class="flower flower3">🌺</div>
+    <div class="flower flower4">🍃</div>
+
+    <!-- Ganpati -->
+
+    <img 
+      class="ganpati"
+      src="https://cdn-icons-png.flaticon.com/512/720/720106.png"
+      alt="Ganpati"
+    >
+
+    <div class="ganesh-text">
+      ॥ Shree Ganeshaya Namah ॥
+    </div>
+
+    <!-- Invite -->
+
+    <div class="invite-text">
+      We cordially invite you to witness the beginning of our forever and celebrate the wedding ceremony of
+    </div>
+
+    <!-- Names -->
+
+    <div class="names">
+
+      <h1>Rushikesh</h1>
+
+      <div class="parents">
+        S/o Mr. Sanjay Deshmukh <br>
+        & Mrs. Seema Deshmukh
+      </div>
+
+      <div class="with-text">with</div>
+
+      <h1>Prajakta</h1>
+
+      <div class="parents">
+        D/o Mr. Dasharath Yadav <br>
+        & Mrs. Ujjwala Yadav
+      </div>
+
+    </div>
+
+    <!-- Scroll -->
+
+    <div class="scroll">
+      Scroll ↓
+    </div>
+
+  </section>
+
+  <!-- MUSIC BUTTON -->
+
+  <button class="music-btn">
+    🔊
+  </button>
+
+  <!-- SCRIPT -->
+
+  <script>
+
+    function openCurtains(){
+
+      document
+        .getElementById("openingScreen")
+        .classList.add("open");
+
+      setTimeout(() => {
+
+        document
+          .getElementById("openingScreen")
+          .style.display = "none";
+
+      }, 2200);
+
+    }
+
+  </script>
+
+</body>
+  </html>
