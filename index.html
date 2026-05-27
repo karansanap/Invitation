@@ -49,21 +49,25 @@
 
     /* curtain texture lines */
 
-    .curtain::before{
-      content:'';
-      position:absolute;
-      width:100%;
-      height:100%;
-      background:
-      repeating-linear-gradient(
-        90deg,
-        rgba(255,255,255,0.15) 0px,
-        rgba(255,255,255,0.15) 2px,
-        transparent 2px,
-        transparent 30px
-      );
-      opacity:0.5;
-    }
+.curtain::before{
+  content:'';
+  position:absolute;
+  width:100%;
+  height:100%;
+
+  background:
+    repeating-linear-gradient(
+      92deg,
+      rgba(255,255,255,0.55) 0px,
+      rgba(255,255,255,0.55) 2px,
+      transparent 2px,
+      transparent 26px
+    );
+
+  opacity:0.95;
+
+  transform:scaleX(1.2) skewX(-3deg);
+}
 
     .left-curtain{
       left:0;
@@ -75,13 +79,40 @@
       border-left:2px solid rgba(255,255,255,0.2);
     }
 
-    .opening-screen.open .left-curtain{
-      transform:translateX(-100%);
-    }
+/* tie ropes */
 
-    .opening-screen.open .right-curtain{
-      transform:translateX(100%);
-    }
+.left-curtain::after,
+.right-curtain::after{
+  content:'';
+  position:absolute;
+  width:10px;
+  height:120px;
+  background:gold;
+  top:42%;
+  border-radius:20px;
+  z-index:20;
+}
+
+.left-curtain::after{
+  right:12px;
+}
+
+.right-curtain::after{
+  left:12px;
+}
+    /* curtains remain tied at sides */
+
+.opening-screen.open .left-curtain{
+  transform:translateX(-72%);
+  border-top-right-radius:120px;
+  border-bottom-right-radius:120px;
+}
+
+.opening-screen.open .right-curtain{
+  transform:translateX(72%);
+  border-top-left-radius:120px;
+  border-bottom-left-radius:120px;
+}
 
     /* Tap Text */
 
@@ -412,17 +443,15 @@
 
     function openCurtains(){
 
-      document
-        .getElementById("openingScreen")
-        .classList.add("open");
+  document
+    .getElementById("openingScreen")
+    .classList.add("open");
 
-      setTimeout(() => {
+  document
+    .querySelector(".tap-text")
+    .style.display = "none";
 
-        document
-          .getElementById("openingScreen")
-          .style.display = "none";
-
-      }, 2200);
+}
 
     }
 
