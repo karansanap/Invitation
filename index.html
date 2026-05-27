@@ -457,6 +457,11 @@ will-change: transform;
 
   box-shadow:
     0 4px 14px rgba(0,0,0,0.25);
+
+  opacity:0;
+  visibility:hidden;
+
+  transition:0.5s;
 }
 
     @keyframes fadeIn{
@@ -583,6 +588,10 @@ function openCurtains(){
     .querySelector(".tap-text")
     .style.display = "none";
 
+document
+  .querySelector(".music-btn")
+  .style.cssText =
+  "opacity:1; visibility:visible;";
 }
 
 </script>
