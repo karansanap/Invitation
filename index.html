@@ -707,7 +707,7 @@
     <div class="curtain left-curtain"></div>
     <div class="curtain right-curtain"></div>
 
-    <div class="tap-text" onclick="openCurtains()">
+    <div class="tap-text">
 <div class="tap-circle">🤚</div>
       <p>Tap to Open</p>
     </div>
@@ -796,12 +796,14 @@ function openCurtains(){
     .style.cssText =
     "opacity:1; visibility:visible;";
 
-  /* show flowers + butterfly */
-
   document
     .querySelector(".main-content")
     .classList.add("show-animations");
 }
+
+document
+  .getElementById("openingScreen")
+  .addEventListener("click", openCurtains);
 
 </script>
 
