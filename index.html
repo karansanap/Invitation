@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
@@ -8,7 +10,8 @@
 
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600&family=Great+Vibes&display=swap" rel="stylesheet">
+
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Great+Vibes&display=swap" rel="stylesheet">
 
   <style>
 
@@ -18,6 +21,10 @@
       box-sizing:border-box;
     }
 
+    html{
+      scroll-behavior:smooth;
+    }
+
     body{
       overflow-x:hidden;
       font-family:'Cormorant Garamond', serif;
@@ -25,7 +32,9 @@
       color:#5c2c2c;
     }
 
-    /* ---------------- CURTAIN SCREEN ---------------- */
+    /* =======================================================
+       CURTAIN SCREEN
+    ======================================================= */
 
     .opening-screen{
       position:fixed;
@@ -35,55 +44,111 @@
       left:0;
       z-index:9999;
       overflow:hidden;
+      background:#250000;
     }
 
     .curtain{
       position:absolute;
       top:0;
-      width:50%;
+      width:52%;
       height:100%;
-      background:#8b0000;
-      transition:transform 2s ease-in-out;
+      background:linear-gradient(
+        to right,
+        #5b0000,
+        #8b0000,
+        #6d0000
+      );
+
+      transition:transform 2.2s ease-in-out;
       overflow:hidden;
     }
 
-    /* curtain texture lines */
+    /* Velvet folds */
 
     .curtain::before{
       content:'';
       position:absolute;
-      width:100%;
-      height:100%;
+      inset:0;
+
       background:
-      repeating-linear-gradient(
-        90deg,
-        rgba(255,255,255,0.15) 0px,
-        rgba(255,255,255,0.15) 2px,
-        transparent 2px,
-        transparent 30px
+      repeating-radial-gradient(
+        ellipse at center,
+        rgba(255,255,255,0.35) 0px,
+        rgba(255,255,255,0.35) 2px,
+        transparent 4px,
+        transparent 38px
       );
-      opacity:0.5;
+
+      opacity:0.95;
+
+      transform:scaleX(0.35);
+
+      filter:blur(0.4px);
+    }
+
+    /* Light reflection */
+
+    .curtain::after{
+      content:'';
+      position:absolute;
+      inset:0;
+
+      background:
+      linear-gradient(
+        to right,
+        rgba(255,255,255,0.18),
+        transparent 20%,
+        transparent 80%,
+        rgba(255,255,255,0.08)
+      );
     }
 
     .left-curtain{
       left:0;
-      border-right:2px solid rgba(255,255,255,0.2);
+      border-right:3px solid rgba(255,255,255,0.25);
+      border-top-right-radius:20px;
+      border-bottom-right-radius:20px;
     }
 
     .right-curtain{
       right:0;
-      border-left:2px solid rgba(255,255,255,0.2);
+      border-left:3px solid rgba(255,255,255,0.25);
+      border-top-left-radius:20px;
+      border-bottom-left-radius:20px;
     }
 
+    /* OPEN ANIMATION */
+
     .opening-screen.open .left-curtain{
-      transform:translateX(-100%);
+      transform:translateX(-72%);
     }
 
     .opening-screen.open .right-curtain{
-      transform:translateX(100%);
+      transform:translateX(72%);
     }
 
-    /* Tap Text */
+    /* Curtain tie ropes */
+
+    .rope{
+      position:absolute;
+      width:14px;
+      height:120px;
+      background:gold;
+      border-radius:20px;
+      top:42%;
+      z-index:5;
+      box-shadow:0 0 10px rgba(255,215,0,0.5);
+    }
+
+    .rope-left{
+      right:18px;
+    }
+
+    .rope-right{
+      left:18px;
+    }
+
+    /* TAP TEXT */
 
     .tap-text{
       position:absolute;
@@ -98,71 +163,80 @@
     }
 
     .tap-circle{
-      width:80px;
-      height:80px;
-      border:2px solid rgba(255,255,255,0.5);
+      width:90px;
+      height:90px;
+      border:2px solid rgba(255,255,255,0.6);
       border-radius:50%;
       display:flex;
       align-items:center;
       justify-content:center;
       margin:auto;
-      font-size:30px;
-      backdrop-filter:blur(5px);
+      font-size:34px;
+      backdrop-filter:blur(6px);
+      background:rgba(255,255,255,0.05);
     }
 
     .tap-text p{
-      margin-top:12px;
+      margin-top:14px;
       font-size:18px;
-      letter-spacing:2px;
+      letter-spacing:3px;
+      text-transform:uppercase;
     }
 
     @keyframes pulse{
+
       0%{
         transform:translate(-50%,-50%) scale(1);
       }
+
       50%{
         transform:translate(-50%,-50%) scale(1.05);
       }
+
       100%{
         transform:translate(-50%,-50%) scale(1);
       }
     }
 
-    /* ---------------- MAIN INVITE ---------------- */
+    /* =======================================================
+       MAIN CONTENT
+    ======================================================= */
 
     .main-content{
       min-height:100vh;
       width:100%;
-      background:#f7f1e8;
+      background:#f8f3eb;
       position:relative;
       overflow:hidden;
-      padding:40px 25px 80px;
+      padding:50px 25px 90px;
       text-align:center;
     }
 
-    /* Floral top border */
+    /* Floral top */
 
-    .top-border{
-      width:100%;
+    .top-flowers{
       position:absolute;
       top:0;
       left:0;
+      width:100%;
       display:flex;
       justify-content:center;
+      pointer-events:none;
     }
 
-    .top-border img{
+    .top-flowers img{
       width:100%;
-      max-width:500px;
+      max-width:550px;
+      opacity:0.9;
     }
 
-    /* Floating flowers */
+    /* Floating decorations */
 
     .flower{
       position:absolute;
       font-size:28px;
       animation:float 6s infinite ease-in-out;
-      opacity:0.9;
+      opacity:0.95;
     }
 
     .flower1{
@@ -171,30 +245,45 @@
     }
 
     .flower2{
-      top:220px;
-      right:30px;
+      top:250px;
+      right:20px;
       animation-delay:1s;
     }
 
     .flower3{
-      bottom:180px;
-      left:40px;
+      bottom:240px;
+      left:20px;
       animation-delay:2s;
     }
 
     .flower4{
-      bottom:100px;
+      bottom:120px;
       right:25px;
       animation-delay:3s;
     }
 
+    .flower5{
+      top:420px;
+      left:45px;
+      animation-delay:4s;
+    }
+
+    .flower6{
+      bottom:330px;
+      right:50px;
+      animation-delay:2s;
+    }
+
     @keyframes float{
+
       0%{
         transform:translateY(0px) rotate(0deg);
       }
+
       50%{
-        transform:translateY(-12px) rotate(8deg);
+        transform:translateY(-14px) rotate(8deg);
       }
+
       100%{
         transform:translateY(0px) rotate(0deg);
       }
@@ -204,13 +293,13 @@
 
     .ganpati{
       width:120px;
-      margin-top:70px;
+      margin-top:40px;
       animation:fadeIn 2s ease;
     }
 
     .ganesh-text{
-      margin-top:15px;
-      font-size:28px;
+      margin-top:16px;
+      font-size:30px;
       color:#8b1e3f;
       font-weight:500;
     }
@@ -218,7 +307,7 @@
     /* Invite text */
 
     .invite-text{
-      margin-top:50px;
+      margin-top:55px;
       font-size:22px;
       line-height:1.7;
       color:#6e4b4b;
@@ -228,57 +317,62 @@
     /* Names */
 
     .names{
-      margin-top:40px;
+      margin-top:45px;
       line-height:1.2;
     }
 
     .names h1{
       font-family:'Great Vibes', cursive;
-      font-size:90px;
+      font-size:95px;
       color:#b21e4b;
       font-weight:400;
+      animation:fadeInUp 2s ease;
     }
 
     .with-text{
-      font-size:45px;
-      margin:20px 0;
+      font-size:48px;
+      margin:18px 0;
       font-family:'Great Vibes', cursive;
+      color:#7c2342;
     }
 
     /* Parents */
 
     .parents{
       margin-top:20px;
-      font-size:26px;
-      line-height:1.6;
+      font-size:28px;
+      line-height:1.7;
       color:#5b4a4a;
     }
 
-    /* Scroll indicator */
+    /* Scroll */
 
     .scroll{
-      margin-top:60px;
-      font-size:20px;
+      margin-top:70px;
+      font-size:24px;
+      color:#6a3a3a;
       animation:bounce 2s infinite;
     }
 
     @keyframes bounce{
+
       0%,100%{
         transform:translateY(0);
       }
+
       50%{
         transform:translateY(10px);
       }
     }
 
-    /* Music Button */
+    /* Music button */
 
     .music-btn{
       position:fixed;
-      right:20px;
+      right:18px;
       bottom:25px;
-      width:65px;
-      height:65px;
+      width:68px;
+      height:68px;
       border-radius:50%;
       background:#6b2d2d;
       color:white;
@@ -286,21 +380,69 @@
       font-size:28px;
       z-index:500;
       cursor:pointer;
-      box-shadow:0 4px 10px rgba(0,0,0,0.2);
+      box-shadow:0 4px 14px rgba(0,0,0,0.25);
     }
 
+    /* Decorative corners */
+
+    .corner{
+      position:absolute;
+      font-size:60px;
+      opacity:0.25;
+      pointer-events:none;
+    }
+
+    .corner1{
+      top:20px;
+      left:10px;
+    }
+
+    .corner2{
+      top:20px;
+      right:10px;
+    }
+
+    .corner3{
+      bottom:20px;
+      left:10px;
+    }
+
+    .corner4{
+      bottom:20px;
+      right:10px;
+    }
+
+    /* Animations */
+
     @keyframes fadeIn{
+
       from{
         opacity:0;
         transform:translateY(20px);
       }
+
       to{
         opacity:1;
         transform:translateY(0);
       }
     }
 
-    /* Mobile */
+    @keyframes fadeInUp{
+
+      from{
+        opacity:0;
+        transform:translateY(40px);
+      }
+
+      to{
+        opacity:1;
+        transform:translateY(0);
+      }
+    }
+
+    /* =======================================================
+       MOBILE
+    ======================================================= */
 
     @media(max-width:768px){
 
@@ -320,54 +462,93 @@
         font-size:24px;
       }
 
+      .with-text{
+        font-size:40px;
+      }
+
+      .tap-circle{
+        width:80px;
+        height:80px;
+      }
+
     }
 
   </style>
+
 </head>
 
 <body>
 
-  <!-- CURTAIN SCREEN -->
+  <!-- =======================================================
+       CURTAIN SCREEN
+  ======================================================== -->
 
   <div class="opening-screen" id="openingScreen">
 
-    <div class="curtain left-curtain"></div>
-    <div class="curtain right-curtain"></div>
+    <div class="curtain left-curtain">
+      <div class="rope rope-left"></div>
+    </div>
+
+    <div class="curtain right-curtain">
+      <div class="rope rope-right"></div>
+    </div>
+
+    <!-- Tap text -->
 
     <div class="tap-text" onclick="openCurtains()">
-      <div class="tap-circle">☝</div>
+
+      <div class="tap-circle">
+        ☝
+      </div>
+
       <p>Tap to Open</p>
+
     </div>
 
   </div>
 
-  <!-- MAIN CONTENT -->
+  <!-- =======================================================
+       MAIN INVITATION
+  ======================================================== -->
 
   <section class="main-content">
 
-    <!-- floating flowers -->
+    <!-- Decorative Corners -->
+
+    <div class="corner corner1">❀</div>
+    <div class="corner corner2">❀</div>
+    <div class="corner corner3">❀</div>
+    <div class="corner corner4">❀</div>
+
+    <!-- Floating flowers -->
 
     <div class="flower flower1">🌸</div>
     <div class="flower flower2">🦋</div>
     <div class="flower flower3">🌺</div>
     <div class="flower flower4">🍃</div>
+    <div class="flower flower5">🌷</div>
+    <div class="flower flower6">🦋</div>
 
     <!-- Ganpati -->
 
-    <img 
+    <img
       class="ganpati"
       src="https://cdn-icons-png.flaticon.com/512/720/720106.png"
       alt="Ganpati"
     >
 
+    <!-- Shree Ganesh -->
+
     <div class="ganesh-text">
       ॥ Shree Ganeshaya Namah ॥
     </div>
 
-    <!-- Invite -->
+    <!-- Invite text -->
 
     <div class="invite-text">
+
       We cordially invite you to witness the beginning of our forever and celebrate the wedding ceremony of
+
     </div>
 
     <!-- Names -->
@@ -377,17 +558,25 @@
       <h1>Rushikesh</h1>
 
       <div class="parents">
-        S/o Mr. Sanjay Deshmukh <br>
+
+        S/o Mr. Sanjay Deshmukh
+        <br>
         & Mrs. Seema Deshmukh
+
       </div>
 
-      <div class="with-text">with</div>
+      <div class="with-text">
+        with
+      </div>
 
       <h1>Prajakta</h1>
 
       <div class="parents">
-        D/o Mr. Dasharath Yadav <br>
+
+        D/o Mr. Dasharath Yadav
+        <br>
         & Mrs. Ujjwala Yadav
+
       </div>
 
     </div>
@@ -400,13 +589,17 @@
 
   </section>
 
-  <!-- MUSIC BUTTON -->
+  <!-- =======================================================
+       MUSIC BUTTON
+  ======================================================== -->
 
   <button class="music-btn">
     🔊
   </button>
 
-  <!-- SCRIPT -->
+  <!-- =======================================================
+       SCRIPT
+  ======================================================== -->
 
   <script>
 
@@ -416,17 +609,13 @@
         .getElementById("openingScreen")
         .classList.add("open");
 
-      setTimeout(() => {
-
-        document
-          .getElementById("openingScreen")
-          .style.display = "none";
-
-      }, 2200);
+      document
+        .querySelector(".tap-text")
+        .style.display = "none";
 
     }
 
   </script>
 
 </body>
-  </html>
+</html>
