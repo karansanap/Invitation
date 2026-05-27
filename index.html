@@ -76,15 +76,37 @@
       right:0;
       border-left:2px solid rgba(255,255,255,0.2);
     }
+/* curtain tie */
 
-    /* curtains stop at sides */
+.left-curtain::after,
+.right-curtain::after{
+  content:'';
+  position:absolute;
+  width:12px;
+  height:140px;
+  background:#d4af37;
+  top:42%;
+  border-radius:20px;
+  z-index:10;
+  box-shadow:0 0 8px rgba(255,215,0,0.5);
+}
+
+.left-curtain::after{
+  right:18px;
+}
+
+.right-curtain::after{
+  left:18px;
+}
+
+/* curtains tied at sides */
 
 .opening-screen.open .left-curtain{
-  transform:translateX(-78%);
+  transform:translateX(-82%);
 }
 
 .opening-screen.open .right-curtain{
-  transform:translateX(78%);
+  transform:translateX(82%);
 }
 
     /* Tap Text */
@@ -102,17 +124,18 @@
     }
 
     .tap-circle{
-      width:80px;
-      height:80px;
-      border:2px solid rgba(255,255,255,0.5);
-      border-radius:50%;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      margin:auto;
-      font-size:30px;
-      backdrop-filter:blur(5px);
-    }
+  width:90px;
+  height:90px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  margin:auto;
+  font-size:65px;
+  color:rgba(255,255,255,0.75);
+  background:transparent;
+  border:none;
+  text-shadow:0 0 12px rgba(255,255,255,0.25);
+}
 
     .tap-text p{
       margin-top:12px;
@@ -339,7 +362,7 @@
     <div class="curtain right-curtain"></div>
 
     <div class="tap-text" onclick="openCurtains()">
-      <div class="tap-circle">☝</div>
+<div class="tap-circle">☞</div>
       <p>Tap to Open</p>
     </div>
 
