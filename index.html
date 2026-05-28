@@ -89,47 +89,40 @@ body{
 
 /* OPEN ANIMATION */
 
+/* =========================
+   REAL CURTAIN OPENING
+========================= */
+
 .opening-screen.open .left-curtain{
 
-  width:26%;
+  width:18%;
 
   transform:
-    translateX(-38%)
-    scaleX(0.92);
+    translateX(-52%)
+    scaleX(0.88);
 
-  clip-path: polygon(
-    0 0,
-    100% 0,
-    86% 10%,
-    76% 24%,
-    70% 42%,
-    76% 58%,
-    84% 76%,
-    100% 100%,
-    0 100%
-  );
+  border-right:
+    2px solid rgba(255,245,220,0.22);
+
+  filter:
+    brightness(0.95);
 }
 
 .opening-screen.open .right-curtain{
 
-  width:26%;
+  width:18%;
 
   transform:
-    translateX(38%)
-    scaleX(0.92);
+    translateX(52%)
+    scaleX(0.88);
 
-  clip-path: polygon(
-    0 0,
-    100% 0,
-    100% 100%,
-    0 100%,
-    16% 76%,
-    24% 58%,
-    30% 42%,
-    24% 24%,
-    14% 10%
-  );
+  border-left:
+    2px solid rgba(255,245,220,0.22);
+
+  filter:
+    brightness(0.95);
 }
+
 /* REMOVE SCREEN AFTER OPEN */
 
 /* KEEP CURTAINS VISIBLE */
