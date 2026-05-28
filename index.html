@@ -199,14 +199,16 @@
 
 .opening-screen.open .left-curtain{
   transform:
-    translateX(-82%)
-    rotate(-8deg);
+    translateX(-80%)
+    rotate(-9deg)
+    scaleX(0.92);
 }
 
 .opening-screen.open .right-curtain{
   transform:
-    translateX(82%)
-    rotate(8deg);
+    translateX(80%)
+    rotate(9deg)
+    scaleX(0.92);
 }
 
 /* FABRIC MOVEMENT */
@@ -225,6 +227,132 @@
     filter:brightness(1);
   }
 }   
+
+/* =========================
+   TOP DRAPED CURTAINS
+========================= */
+
+.top-drape{
+  position:absolute;
+
+  top:0;
+
+  width:120px;
+  height:55%;
+
+  z-index:3;
+
+  background:
+    linear-gradient(
+      to right,
+      #4b0000,
+      #8e0000,
+      #5c0000
+    );
+
+  overflow:hidden;
+
+  box-shadow:
+    inset -12px 0 18px rgba(0,0,0,0.35),
+    inset 10px 0 12px rgba(255,255,255,0.04);
+}
+
+/* fabric lines */
+
+.top-drape::before{
+  content:'';
+
+  position:absolute;
+  inset:0;
+
+  background:
+    repeating-linear-gradient(
+      96deg,
+      rgba(255,255,255,0.16) 0px,
+      rgba(255,255,255,0.16) 2px,
+      transparent 2px,
+      transparent 22px
+    );
+
+  opacity:0.7;
+
+  transform:scaleX(1.5);
+}
+
+/* LEFT */
+
+.left-drape{
+  left:-30px;
+
+  border-radius:
+    0 0 80px 0;
+
+  clip-path: polygon(
+    0 0,
+    100% 0,
+    82% 42%,
+    88% 72%,
+    100% 100%,
+    0 100%
+  );
+
+  transform:
+    skewY(4deg);
+}
+
+/* RIGHT */
+
+.right-drape{
+  right:-30px;
+
+  border-radius:
+    0 0 0 80px;
+
+  clip-path: polygon(
+    0 0,
+    100% 0,
+    100% 100%,
+    0 100%,
+    12% 72%,
+    18% 42%
+  );
+
+  transform:
+    skewY(-4deg);
+}
+
+/* GOLD TIE */
+
+.top-drape::after{
+  content:'';
+
+  position:absolute;
+
+  top:48%;
+
+  width:26px;
+  height:26px;
+
+  background:
+    radial-gradient(
+      circle,
+      #f5d27a,
+      #b8860b
+    );
+
+  border-radius:50%;
+
+  box-shadow:
+    0 0 10px rgba(255,215,120,0.5);
+}
+
+.left-drape::after{
+  right:8px;
+}
+
+.right-drape::after{
+  left:8px;
+}
 
 
     /* Tap Text */
@@ -407,9 +535,9 @@
   overflow:hidden;
 
   padding:
-    60px
-    55px
-    120px;
+  70px
+  65px
+  120px;
 
   text-align:center;
 
@@ -794,6 +922,10 @@
   <!-- MAIN CONTENT -->
 
   <section class="main-content">
+<!-- TOP SIDE CURTAINS -->
+
+<div class="top-drape left-drape"></div>
+<div class="top-drape right-drape"></div>
 <div class="side-curtain left-side"></div>
 <div class="side-curtain right-side"></div>
 <div class="flower flower1">🌸</div>
