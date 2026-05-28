@@ -44,73 +44,50 @@
   );
 }
 
-    .curtain{
+ /* =========================
+   REALISTIC ROYAL CURTAINS
+========================= */
+
+.opening-screen{
+  position:fixed;
+  inset:0;
+  z-index:9999;
+  overflow:hidden;
+  background:#120000;
+}
+
+/* MAIN CURTAINS */
+
+.curtain{
   position:absolute;
   top:0;
-  width:54%;
+  width:55%;
   height:100%;
-
-  background:
-    linear-gradient(
-      to right,
-      #520000 0%,
-      #7d0000 18%,
-      #b30000 40%,
-      #7d0000 65%,
-      #520000 100%
-    );
 
   overflow:hidden;
 
   transition:
     transform 2.8s cubic-bezier(0.77,0,0.175,1);
 
+  background:
+    linear-gradient(
+      to right,
+      #3f0000 0%,
+      #6f0000 15%,
+      #b10000 35%,
+      #760000 55%,
+      #420000 100%
+    );
+
+  box-shadow:
+    inset -25px 0 40px rgba(0,0,0,0.45),
+    inset 20px 0 30px rgba(255,255,255,0.05);
+
   animation:
-    curtainWave 6s ease-in-out infinite;
+    curtainMove 7s ease-in-out infinite;
 }
 
-  background-size:200% 200%;
-
-  
-
-@keyframes curtainGlow{
-
-  0%{
-    background-position:0% 50%;
-  }
-
-  50%{
-    background-position:100% 50%;
-  }
-
-  100%{
-    background-position:0% 50%;
-  }
-
-}
-
-@keyframes fabricWave {
-  0%{
-    filter: brightness(1);
-    transform: translateY(0px);
-  }
-  50%{
-    filter: brightness(1.05);
-    transform: translateY(-2px);
-  }
-  100%{
-    filter: brightness(1);
-    transform: translateY(0px);
-  }
-}
-  transition: transform 2.4s cubic-bezier(0.77, 0, 0.175, 1);
-  overflow:hidden;
-
-  /* subtle fabric movement */
-  animation: fabricWave 6s ease-in-out infinite;
-}
-
-    /* curtain texture lines */
+/* FABRIC LINES */
 
 .curtain::before{
   content:'';
@@ -120,19 +97,21 @@
 
   background:
     repeating-linear-gradient(
-      90deg,
-      rgba(255,255,255,0.22) 0px,
-      rgba(255,255,255,0.22) 2px,
+      94deg,
+      rgba(255,255,255,0.18) 0px,
+      rgba(255,255,255,0.18) 2px,
       transparent 2px,
-      transparent 34px
+      transparent 26px
     );
 
-  opacity:0.55;
+  opacity:0.6;
 
-  transform:skewX(-4deg);
+  transform:scaleX(1.4);
 
   mix-blend-mode:screen;
 }
+
+/* FABRIC DEPTH */
 
 .curtain::after{
   content:'';
@@ -141,90 +120,98 @@
   inset:0;
 
   background:
-    linear-gradient(
-      to right,
-      rgba(0,0,0,0.35),
-      transparent 25%,
-      transparent 75%,
-      rgba(0,0,0,0.28)
+    radial-gradient(
+      circle at 30% 50%,
+      rgba(255,255,255,0.08),
+      transparent 40%
+    ),
+    radial-gradient(
+      circle at 70% 50%,
+      rgba(0,0,0,0.28),
+      transparent 45%
     );
 
   pointer-events:none;
 }
-@keyframes curtainShine{
 
-  0%{
-    left:-60%;
-  }
+/* LEFT CURTAIN */
 
-  100%{
-    left:120%;
-  }
-
-}
-    .left-curtain{
+.left-curtain{
   left:0;
 
-  border-right:1px solid rgba(255,255,255,0.15);
+  clip-path: polygon(
+    0 0,
+    100% 0,
+    82% 35%,
+    88% 68%,
+    100% 100%,
+    0 100%
+  );
 
-  border-radius:
-    0 0 35% 0;
+  border-right:
+    1px solid rgba(255,255,255,0.12);
 
   transform-origin:left center;
 }
 
+/* RIGHT CURTAIN */
+
 .right-curtain{
   right:0;
 
-  border-left:1px solid rgba(255,255,255,0.15);
+  clip-path: polygon(
+    0 0,
+    100% 0,
+    100% 100%,
+    0 100%,
+    12% 68%,
+    18% 35%
+  );
 
-  border-radius:
-    0 0 0 35%;
+  border-left:
+    1px solid rgba(255,255,255,0.12);
 
   transform-origin:right center;
 }
 
-/* curtains tied at sides */
+/* TIE EFFECT */
 
-/* curtains fully tied to sides */
+.left-curtain .tie,
+.right-curtain .tie{
+  position:absolute;
+  top:60%;
+  width:24px;
+  height:120px;
+
+  background:
+    linear-gradient(
+      to bottom,
+      #e8c46d,
+      #b8860b
+    );
+
+  border-radius:20px;
+
+  z-index:20;
+}
+
+/* OPEN ANIMATION */
 
 .opening-screen.open .left-curtain{
   transform:
-    translateX(-78%)
-    skewY(6deg)
-    scaleX(0.92);
+    translateX(-82%)
+    rotate(-8deg);
 }
 
 .opening-screen.open .right-curtain{
   transform:
-    translateX(78%)
-    skewY(-6deg)
-    scaleX(0.92);
+    translateX(82%)
+    rotate(8deg);
 }
 
-.left-curtain::marker,
-.right-curtain::marker{
-  display:none;
-}
-.left-curtain{
-  clip-path: polygon(
-    0 0,
-    100% 0,
-    88% 100%,
-    0 100%
-  );
-}
+/* FABRIC MOVEMENT */
 
-.right-curtain{
-  clip-path: polygon(
-    12% 0,
-    100% 0,
-    100% 100%,
-    0 100%
-  );
-}
-
-@keyframes curtainWave{
+@keyframes curtainMove{
 
   0%{
     filter:brightness(1);
@@ -237,41 +224,8 @@
   100%{
     filter:brightness(1);
   }
-}
+}   
 
-.side-curtain{
-  position:absolute;
-  top:0;
-  width:70px;
-  height:100%;
-
-  background:
-    linear-gradient(
-      to right,
-      #5a0000,
-      #9b0000
-    );
-
-  z-index:1;
-
-  opacity:0.95;
-}
-
-.left-side{
-  left:-25px;
-
-  border-radius:0 0 60px 0;
-
-  transform:skewY(4deg);
-}
-
-.right-side{
-  right:-25px;
-
-  border-radius:0 0 0 60px;
-
-  transform:skewY(-4deg);
-}
 
     /* Tap Text */
 
@@ -444,22 +398,26 @@
     /* ---------------- MAIN INVITE ---------------- */
 
     .main-content{
-  height:100vh;
-  width:100%;
-  background:#f7f1e8;
+  min-height:100vh;
+
   position:relative;
+
+  background:#f7f2ea;
+
   overflow:hidden;
 
-  padding:20px 18px 140px;
+  padding:
+    60px
+    55px
+    120px;
 
   text-align:center;
 
-  display:flex;
-  flex-direction:column;
-  align-items:center;
-max-width:420px;
-margin:auto;
+  max-width:520px;
+
+  margin:auto;
 }
+
 .main-content::before{
   content:'';
   position:absolute;
@@ -821,9 +779,8 @@ margin:auto;
   <!-- CURTAIN SCREEN -->
 
   <div class="opening-screen" id="openingScreen" onclick="openCurtains()">
-
-    <div class="curtain left-curtain"></div>
-    <div class="curtain right-curtain"></div>
+<div class="curtain left-curtain"></div>
+<div class="curtain right-curtain"></div>
 
     <div class="tap-text">
 <div class="tap-circle">
