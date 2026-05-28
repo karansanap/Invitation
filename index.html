@@ -46,7 +46,7 @@ body{
 .curtain{
   position:absolute;
   top:0;
-  width:55%;
+  width:50%;
   height:100%;
 
   overflow:hidden;
@@ -112,26 +112,28 @@ backface-visibility:hidden;
    REAL CURTAIN OPENING
 ========================= */
 
-./* =========================
+/* =========================
    REAL THEATER OPENING
 ========================= */
 
 .opening-screen.open .left-curtain{
 
   transform:
-    translateX(-78%)
-    rotateY(12deg);
+    translateX(-82%);
 
-  filter:brightness(0.92);
+  filter:
+    brightness(0.92)
+    saturate(0.95);
 }
 
 .opening-screen.open .right-curtain{
 
   transform:
-    translateX(78%)
-    rotateY(-12deg);
+    translateX(82%);
 
-  filter:brightness(0.92);
+  filter:
+    brightness(0.92)
+    saturate(0.95);
 }
 
 /* REMOVE SCREEN AFTER OPEN */
