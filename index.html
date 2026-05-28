@@ -172,23 +172,26 @@ body{
    REAL TIED CURTAIN EFFECT
 ========================= */
 
+/* =========================
+   REAL SIDE TIED CURTAINS
+========================= */
+
 .opening-screen.open .left-curtain{
 
-  width:18%;
+  width:26%;
 
   transform:
-    translateX(-12%)
-    scaleX(0.9);
+    translateX(-38%)
+    scaleX(0.92);
 
   clip-path: polygon(
     0 0,
     100% 0,
-    72% 12%,
-    58% 28%,
-    66% 46%,
-    52% 60%,
-    68% 76%,
-    60% 88%,
+    86% 10%,
+    76% 24%,
+    70% 42%,
+    76% 58%,
+    84% 76%,
     100% 100%,
     0 100%
   );
@@ -196,29 +199,27 @@ body{
 
 .opening-screen.open .right-curtain{
 
-  width:18%;
+  width:26%;
 
   transform:
-    translateX(12%)
-    scaleX(0.9);
+    translateX(38%)
+    scaleX(0.92);
 
   clip-path: polygon(
     0 0,
     100% 0,
     100% 100%,
     0 100%,
-    40% 88%,
-    32% 76%,
-    48% 60%,
-    34% 46%,
-    42% 28%,
-    28% 12%
+    16% 76%,
+    24% 58%,
+    30% 42%,
+    24% 24%,
+    14% 10%
   );
 }
-
 /* REMOVE SCREEN AFTER OPEN */
 
-./* KEEP CURTAINS VISIBLE */
+/* KEEP CURTAINS VISIBLE */
 
 .opening-screen.open{
   pointer-events:none;
