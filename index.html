@@ -232,32 +232,37 @@
    TOP DRAPED CURTAINS
 ========================= */
 
+/* =========================
+   ROYAL TOP TIED DRAPES
+========================= */
+
 .top-drape{
   position:absolute;
-
   top:0;
 
-  width:120px;
-  height:55%;
+  width:180px;
+  height:48vh;
 
-  z-index:3;
+  z-index:10000;
+
+  overflow:hidden;
 
   background:
     linear-gradient(
       to right,
-      #4b0000,
-      #8e0000,
-      #5c0000
+      #3f0000 0%,
+      #760000 18%,
+      #b30000 40%,
+      #760000 65%,
+      #3b0000 100%
     );
 
-  overflow:hidden;
-
   box-shadow:
-    inset -12px 0 18px rgba(0,0,0,0.35),
-    inset 10px 0 12px rgba(255,255,255,0.04);
+    inset -20px 0 30px rgba(0,0,0,0.4),
+    inset 12px 0 18px rgba(255,255,255,0.05);
 }
 
-/* fabric lines */
+/* curtain folds */
 
 .top-drape::before{
   content:'';
@@ -271,7 +276,7 @@
       rgba(255,255,255,0.16) 0px,
       rgba(255,255,255,0.16) 2px,
       transparent 2px,
-      transparent 22px
+      transparent 24px
     );
 
   opacity:0.7;
@@ -279,49 +284,7 @@
   transform:scaleX(1.5);
 }
 
-/* LEFT */
-
-.left-drape{
-  left:-30px;
-
-  border-radius:
-    0 0 80px 0;
-
-  clip-path: polygon(
-    0 0,
-    100% 0,
-    82% 42%,
-    88% 72%,
-    100% 100%,
-    0 100%
-  );
-
-  transform:
-    skewY(4deg);
-}
-
-/* RIGHT */
-
-.right-drape{
-  right:-30px;
-
-  border-radius:
-    0 0 0 80px;
-
-  clip-path: polygon(
-    0 0,
-    100% 0,
-    100% 100%,
-    0 100%,
-    12% 72%,
-    18% 42%
-  );
-
-  transform:
-    skewY(-4deg);
-}
-
-/* GOLD TIE */
+/* golden tie */
 
 .top-drape::after{
   content:'';
@@ -330,30 +293,69 @@
 
   top:48%;
 
-  width:26px;
-  height:26px;
+  width:28px;
+  height:28px;
+
+  border-radius:50%;
 
   background:
     radial-gradient(
       circle,
-      #f5d27a,
+      #ffe39b,
       #b8860b
     );
 
-  border-radius:50%;
-
   box-shadow:
-    0 0 10px rgba(255,215,120,0.5);
+    0 0 16px rgba(255,215,120,0.5);
+}
+
+/* LEFT */
+
+.left-drape{
+  left:-55px;
+
+  clip-path: polygon(
+    0 0,
+    100% 0,
+    86% 35%,
+    74% 50%,
+    84% 70%,
+    100% 100%,
+    0 100%
+  );
+
+  border-bottom-right-radius:120px;
 }
 
 .left-drape::after{
-  right:8px;
+  right:12px;
+}
+
+/* RIGHT */
+
+.right-drape{
+  right:-55px;
+
+  clip-path: polygon(
+    0 0,
+    100% 0,
+    100% 100%,
+    0 100%,
+    16% 70%,
+    26% 50%,
+    14% 35%
+  );
+
+  border-bottom-left-radius:120px;
 }
 
 .right-drape::after{
-  left:8px;
+  left:12px;
 }
 
+.opening-screen.open{
+  pointer-events:none;
+}
 
     /* Tap Text */
 
@@ -544,6 +546,8 @@
   max-width:520px;
 
   margin:auto;
+position:relative;
+  z-index:1;
 }
 
 .main-content::before{
@@ -907,27 +911,25 @@
   <!-- CURTAIN SCREEN -->
 
   <div class="opening-screen" id="openingScreen" onclick="openCurtains()">
-<div class="curtain left-curtain"></div>
-<div class="curtain right-curtain"></div>
 
-    <div class="tap-text">
-<div class="tap-circle">
-  ❈
-</div>
-<p>Open Invitation</p>
-    </div>
+  <div class="curtain left-curtain"></div>
+  <div class="curtain right-curtain"></div>
 
+  <!-- ADD HERE -->
+  <div class="top-drape left-drape"></div>
+  <div class="top-drape right-drape"></div>
+
+  <div class="tap-text">
+    <div class="tap-circle">❈</div>
+    <p>Open Invitation</p>
   </div>
+
+</div>
 
   <!-- MAIN CONTENT -->
 
   <section class="main-content">
 <!-- TOP SIDE CURTAINS -->
-
-<div class="top-drape left-drape"></div>
-<div class="top-drape right-drape"></div>
-<div class="side-curtain left-side"></div>
-<div class="side-curtain right-side"></div>
 <div class="flower flower1">🌸</div>
 <div class="flower flower2">🌼</div>
 <div class="flower flower3">🍃</div>
