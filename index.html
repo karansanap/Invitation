@@ -22,6 +22,8 @@ body{
   font-family:'Cormorant Garamond', serif;
   background:#f8f3eb;
   color:#5c2c2c;
+
+  -webkit-tap-highlight-color: transparent;
 }
 
 /* =========================
@@ -118,16 +120,16 @@ body{
   left:0;
 
   clip-path: polygon(
-    0 0,
-    100% 0,
-    92% 12%,
-    86% 28%,
-    80% 45%,
-    86% 62%,
-    92% 82%,
-    100% 100%,
-    0 100%
-  );
+  0 0,
+  100% 0,
+  86% 10%,
+  76% 24%,
+  70% 42%,
+  76% 58%,
+  84% 76%,
+  100% 100%,
+  0 100%
+);
 
   border-right:
     1px solid rgba(255,255,255,0.14);
@@ -141,16 +143,16 @@ body{
   right:0;
 
   clip-path: polygon(
-    0 0,
-    100% 0,
-    100% 100%,
-    0 100%,
-    8% 82%,
-    14% 62%,
-    20% 45%,
-    14% 28%,
-    8% 12%
-  );
+  0 0,
+  100% 0,
+  100% 100%,
+  0 100%,
+  16% 76%,
+  24% 58%,
+  30% 42%,
+  24% 24%,
+  14% 10%
+);
 
   border-left:
     1px solid rgba(255,255,255,0.14);
@@ -162,23 +164,22 @@ body{
 
 .opening-screen.open .left-curtain{
   transform:
-    translateX(-82%)
-    rotate(-8deg)
-    scaleX(0.9);
+    translateX(-68%)
+    rotate(-4deg)
+    scaleX(0.72);
 }
 
 .opening-screen.open .right-curtain{
   transform:
-    translateX(82%)
-    rotate(8deg)
-    scaleX(0.9);
+    translateX(68%)
+    rotate(4deg)
+    scaleX(0.72);
 }
 
 /* REMOVE SCREEN AFTER OPEN */
 
 .opening-screen.open{
   opacity:0;
-  visibility:hidden;
 
   transition:
     opacity 1s ease 2.1s,
@@ -254,8 +255,6 @@ body{
 
   border:
     1px solid rgba(255,230,180,0.28);
-
-  backdrop-filter:blur(10px);
 
   box-shadow:
     0 0 18px rgba(255,215,120,0.18),
