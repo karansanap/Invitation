@@ -374,6 +374,19 @@ body{
   max-width:520px;
 
   margin:auto;
+
+  opacity:0;
+
+  transform:scale(1.02);
+
+  transition:
+    opacity 2.2s ease,
+    transform 2.2s ease;
+}
+
+.main-content.visible{
+  opacity:1;
+  transform:scale(1);
 }
 
 .main-content::before{
@@ -710,9 +723,18 @@ function openCurtains(){
     .style.cssText =
     "opacity:1; visibility:visible;";
 
+  setTimeout(() => {
+
+  document
+    .querySelector(".main-content")
+    .classList.add("visible");
+
   document
     .querySelector(".main-content")
     .classList.add("show-animations");
+
+}, 900);
+
 }
 
 document
