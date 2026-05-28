@@ -1,51 +1,31 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
-  <title>Wedding Invitation</title>
+<title>Wedding Invitation</title>
 
-  <!-- Google Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600&family=Great+Vibes&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600&family=Great+Vibes&display=swap" rel="stylesheet">
 
-  <style>
+<style>
 
-    *{
-      margin:0;
-      padding:0;
-      box-sizing:border-box;
-    }
-
-    body{
-      overflow-x:hidden;
-      font-family:'Cormorant Garamond', serif;
-      background:#f8f3eb;
-      color:#5c2c2c;
-    }
-
-    /* ---------------- CURTAIN SCREEN ---------------- */
-
-    .opening-screen{
-  position:fixed;
-  width:100%;
-  height:100vh;
-  top:0;
-  left:0;
-  z-index:9999;
-  overflow:hidden;
-
-  background:
-  radial-gradient(
-    circle at center,
-    rgba(255,215,120,0.08),
-    transparent 70%
-  );
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
 }
 
- /* =========================
-   REALISTIC ROYAL CURTAINS
+body{
+  overflow-x:hidden;
+  font-family:'Cormorant Garamond', serif;
+  background:#f8f3eb;
+  color:#5c2c2c;
+}
+
+/* =========================
+   OPENING SCREEN
 ========================= */
 
 .opening-screen{
@@ -54,9 +34,12 @@
   z-index:9999;
   overflow:hidden;
   background:#120000;
+  cursor:pointer;
 }
 
-/* MAIN CURTAINS */
+/* =========================
+   REALISTIC ROYAL CURTAINS
+========================= */
 
 .curtain{
   position:absolute;
@@ -72,22 +55,22 @@
   background:
     linear-gradient(
       to right,
-      #3f0000 0%,
-      #6f0000 15%,
-      #b10000 35%,
-      #760000 55%,
-      #420000 100%
+      #2b0000 0%,
+      #5e0000 12%,
+      #a10000 30%,
+      #7c0000 52%,
+      #3a0000 100%
     );
 
   box-shadow:
-    inset -25px 0 40px rgba(0,0,0,0.45),
-    inset 20px 0 30px rgba(255,255,255,0.05);
+    inset -30px 0 45px rgba(0,0,0,0.45),
+    inset 20px 0 25px rgba(255,255,255,0.06);
 
   animation:
     curtainMove 7s ease-in-out infinite;
 }
 
-/* FABRIC LINES */
+/* FABRIC FOLDS */
 
 .curtain::before{
   content:'';
@@ -97,21 +80,19 @@
 
   background:
     repeating-linear-gradient(
-      94deg,
-      rgba(255,255,255,0.18) 0px,
-      rgba(255,255,255,0.18) 2px,
-      transparent 2px,
-      transparent 26px
+      90deg,
+      rgba(255,255,255,0.16) 0px,
+      rgba(255,255,255,0.16) 3px,
+      transparent 3px,
+      transparent 24px
     );
 
-  opacity:0.6;
-
-  transform:scaleX(1.4);
+  opacity:0.75;
 
   mix-blend-mode:screen;
 }
 
-/* FABRIC DEPTH */
+/* VELVET SHADING */
 
 .curtain::after{
   content:'';
@@ -120,15 +101,12 @@
   inset:0;
 
   background:
-    radial-gradient(
-      circle at 30% 50%,
-      rgba(255,255,255,0.08),
-      transparent 40%
-    ),
-    radial-gradient(
-      circle at 70% 50%,
-      rgba(0,0,0,0.28),
-      transparent 45%
+    linear-gradient(
+      to bottom,
+      rgba(255,255,255,0.12),
+      transparent 20%,
+      transparent 80%,
+      rgba(0,0,0,0.35)
     );
 
   pointer-events:none;
@@ -142,14 +120,17 @@
   clip-path: polygon(
     0 0,
     100% 0,
-    82% 35%,
-    88% 68%,
+    92% 12%,
+    86% 28%,
+    80% 45%,
+    86% 62%,
+    92% 82%,
     100% 100%,
     0 100%
   );
 
   border-right:
-    1px solid rgba(255,255,255,0.12);
+    1px solid rgba(255,255,255,0.14);
 
   transform-origin:left center;
 }
@@ -164,54 +145,47 @@
     100% 0,
     100% 100%,
     0 100%,
-    12% 68%,
-    18% 35%
+    8% 82%,
+    14% 62%,
+    20% 45%,
+    14% 28%,
+    8% 12%
   );
 
   border-left:
-    1px solid rgba(255,255,255,0.12);
+    1px solid rgba(255,255,255,0.14);
 
   transform-origin:right center;
-}
-
-/* TIE EFFECT */
-
-.left-curtain .tie,
-.right-curtain .tie{
-  position:absolute;
-  top:60%;
-  width:24px;
-  height:120px;
-
-  background:
-    linear-gradient(
-      to bottom,
-      #e8c46d,
-      #b8860b
-    );
-
-  border-radius:20px;
-
-  z-index:20;
 }
 
 /* OPEN ANIMATION */
 
 .opening-screen.open .left-curtain{
   transform:
-    translateX(-80%)
-    rotate(-9deg)
-    scaleX(0.92);
+    translateX(-82%)
+    rotate(-8deg)
+    scaleX(0.9);
 }
 
 .opening-screen.open .right-curtain{
   transform:
-    translateX(80%)
-    rotate(9deg)
-    scaleX(0.92);
+    translateX(82%)
+    rotate(8deg)
+    scaleX(0.9);
 }
 
-/* FABRIC MOVEMENT */
+/* REMOVE SCREEN AFTER OPEN */
+
+.opening-screen.open{
+  opacity:0;
+  visibility:hidden;
+
+  transition:
+    opacity 1s ease 2.1s,
+    visibility 1s ease 2.1s;
+}
+
+/* FABRIC ANIMATION */
 
 @keyframes curtainMove{
 
@@ -226,140 +200,13 @@
   100%{
     filter:brightness(1);
   }
-}   
+}
 
 /* =========================
-   TOP DRAPED CURTAINS
+   CENTER TAP AREA
 ========================= */
 
-/* =========================
-   ROYAL TOP TIED DRAPES
-========================= */
-
-.top-drape{
-  position:absolute;
-  top:0;
-
-  width:180px;
-  height:48vh;
-
-  z-index:10000;
-
-  overflow:hidden;
-
-  background:
-    linear-gradient(
-      to right,
-      #3f0000 0%,
-      #760000 18%,
-      #b30000 40%,
-      #760000 65%,
-      #3b0000 100%
-    );
-
-  box-shadow:
-    inset -20px 0 30px rgba(0,0,0,0.4),
-    inset 12px 0 18px rgba(255,255,255,0.05);
-}
-
-/* curtain folds */
-
-.top-drape::before{
-  content:'';
-
-  position:absolute;
-  inset:0;
-
-  background:
-    repeating-linear-gradient(
-      96deg,
-      rgba(255,255,255,0.16) 0px,
-      rgba(255,255,255,0.16) 2px,
-      transparent 2px,
-      transparent 24px
-    );
-
-  opacity:0.7;
-
-  transform:scaleX(1.5);
-}
-
-/* golden tie */
-
-.top-drape::after{
-  content:'';
-
-  position:absolute;
-
-  top:48%;
-
-  width:28px;
-  height:28px;
-
-  border-radius:50%;
-
-  background:
-    radial-gradient(
-      circle,
-      #ffe39b,
-      #b8860b
-    );
-
-  box-shadow:
-    0 0 16px rgba(255,215,120,0.5);
-}
-
-/* LEFT */
-
-.left-drape{
-  left:-55px;
-
-  clip-path: polygon(
-    0 0,
-    100% 0,
-    86% 35%,
-    74% 50%,
-    84% 70%,
-    100% 100%,
-    0 100%
-  );
-
-  border-bottom-right-radius:120px;
-}
-
-.left-drape::after{
-  right:12px;
-}
-
-/* RIGHT */
-
-.right-drape{
-  right:-55px;
-
-  clip-path: polygon(
-    0 0,
-    100% 0,
-    100% 100%,
-    0 100%,
-    16% 70%,
-    26% 50%,
-    14% 35%
-  );
-
-  border-bottom-left-radius:120px;
-}
-
-.right-drape::after{
-  left:12px;
-}
-
-.opening-screen.open{
-  pointer-events:none;
-}
-
-    /* Tap Text */
-
-    .tap-text{
+.tap-text{
   position:absolute;
   top:50%;
   left:50%;
@@ -372,8 +219,6 @@
 
   text-align:center;
 
-  cursor:pointer;
-
   animation:pulse 2s infinite;
 
   display:flex;
@@ -382,7 +227,7 @@
   justify-content:center;
 }
 
-    .tap-circle{
+.tap-circle{
 
   width:140px;
   height:140px;
@@ -424,80 +269,7 @@
     royalPulse 3s ease-in-out infinite;
 }
 
-@keyframes royalPulse{
-
-  0%{
-    transform:scale(1);
-    box-shadow:
-      0 0 18px rgba(255,215,120,0.18),
-      0 0 50px rgba(255,215,120,0.12);
-  }
-
-  50%{
-    transform:scale(1.06);
-    box-shadow:
-      0 0 28px rgba(255,215,120,0.32),
-      0 0 80px rgba(255,215,120,0.18);
-  }
-
-  100%{
-    transform:scale(1);
-    box-shadow:
-      0 0 18px rgba(255,215,120,0.18),
-      0 0 50px rgba(255,215,120,0.12);
-  }
-
-}
-@keyframes handGlow{
-
-  0%{
-    transform:scale(1);
-    box-shadow:
-      0 0 18px rgba(255,215,120,0.18);
-  }
-
-  50%{
-    transform:scale(1.06);
-    box-shadow:
-      0 0 38px rgba(255,215,120,0.38);
-  }
-
-  100%{
-    transform:scale(1);
-    box-shadow:
-      0 0 18px rgba(255,215,120,0.18);
-  }
-
-}
-.opening-screen::after{
-
-  content:'';
-
-  position:absolute;
-
-  top:0;
-  left:50%;
-
-  transform:translateX(-50%);
-
-  width:120px;
-  height:100%;
-
-  background:
-    linear-gradient(
-      to bottom,
-      rgba(255,215,120,0.18),
-      transparent,
-      rgba(255,215,120,0.12)
-    );
-
-  filter:blur(18px);
-
-  z-index:9998;
-
-  pointer-events:none;
-}
-    .tap-text p{
+.tap-text p{
 
   margin-top:18px;
 
@@ -509,25 +281,42 @@
 
   text-shadow:
     0 0 12px rgba(255,255,255,0.35);
-
-  font-family:'Cormorant Garamond', serif;
 }
 
-    @keyframes pulse{
-      0%{
-        transform:translate(-50%,-50%) scale(1);
-      }
-      50%{
-        transform:translate(-50%,-50%) scale(1.05);
-      }
-      100%{
-        transform:translate(-50%,-50%) scale(1);
-      }
-    }
+@keyframes royalPulse{
 
-    /* ---------------- MAIN INVITE ---------------- */
+  0%{
+    transform:scale(1);
+  }
 
-    .main-content{
+  50%{
+    transform:scale(1.06);
+  }
+
+  100%{
+    transform:scale(1);
+  }
+}
+
+@keyframes pulse{
+  0%{
+    transform:translate(-50%,-50%) scale(1);
+  }
+
+  50%{
+    transform:translate(-50%,-50%) scale(1.05);
+  }
+
+  100%{
+    transform:translate(-50%,-50%) scale(1);
+  }
+}
+
+/* =========================
+   MAIN CONTENT
+========================= */
+
+.main-content{
   min-height:100vh;
 
   position:relative;
@@ -538,7 +327,7 @@
 
   padding:
   70px
-  65px
+  35px
   120px;
 
   text-align:center;
@@ -546,8 +335,6 @@
   max-width:520px;
 
   margin:auto;
-position:relative;
-  z-index:1;
 }
 
 .main-content::before{
@@ -568,25 +355,9 @@ position:relative;
   z-index:2;
 }
 
-    /* Floral top border */
+/* FLOWERS */
 
-    .top-border{
-      width:100%;
-      position:absolute;
-      top:0;
-      left:0;
-      display:flex;
-      justify-content:center;
-    }
-
-    .top-border img{
-      width:100%;
-      max-width:500px;
-    }
-
-    /* Floating flowers */
-
-    .flower{
+.flower{
   position:absolute;
   top:-80px;
   font-size:28px;
@@ -597,62 +368,19 @@ position:relative;
 
   pointer-events:none;
 
-  will-change: transform;
-
   animation: falling linear infinite;
 
   transition:opacity 1.5s ease;
 }
 
-/* More flowers with slower elegant motion */
-
-.flower1{
-  left:4%;
-  animation-duration:8s;
-  animation-delay:0s;
-}
-
-.flower2{
-  left:15%;
-  animation-duration:10s;
-  animation-delay:2s;
-}
-
-.flower3{
-  left:28%;
-  animation-duration:9s;
-  animation-delay:1s;
-}
-
-.flower4{
-  left:40%;
-  animation-duration:11s;
-  animation-delay:3s;
-}
-
-.flower5{
-  left:52%;
-  animation-duration:8.5s;
-  animation-delay:1.5s;
-}
-
-.flower6{
-  left:65%;
-  animation-duration:10s;
-  animation-delay:4s;
-}
-
-.flower7{
-  left:78%;
-  animation-duration:9.5s;
-  animation-delay:2.5s;
-}
-
-.flower8{
-  left:90%;
-  animation-duration:11s;
-  animation-delay:1s;
-}
+.flower1{ left:4%; animation-duration:8s; }
+.flower2{ left:15%; animation-duration:10s; }
+.flower3{ left:28%; animation-duration:9s; }
+.flower4{ left:40%; animation-duration:11s; }
+.flower5{ left:52%; animation-duration:8.5s; }
+.flower6{ left:65%; animation-duration:10s; }
+.flower7{ left:78%; animation-duration:9.5s; }
+.flower8{ left:90%; animation-duration:11s; }
 
 @keyframes falling{
 
@@ -684,12 +412,9 @@ position:relative;
 
     opacity:0.9;
   }
-
 }
-    
-/* Butterfly Flying */
 
-/* Butterfly Flying */
+/* BUTTERFLY */
 
 .butterfly{
 
@@ -711,14 +436,10 @@ position:relative;
   transition:opacity 1.5s ease;
 }
 
-/* Show after opening */
-
 .main-content.show-animations .flower,
 .main-content.show-animations .butterfly{
   opacity:1;
 }
-
-/* Natural butterfly movement */
 
 @keyframes butterflyFly{
 
@@ -728,33 +449,21 @@ position:relative;
       rotate(0deg);
   }
 
-  15%{
+  25%{
     transform:
-      translate(18vw, -8vh)
+      translate(25vw, -10vh)
       rotate(8deg);
   }
 
-  30%{
+  50%{
     transform:
-      translate(35vw, 6vh)
+      translate(55vw, 8vh)
       rotate(-10deg);
-  }
-
-  45%{
-    transform:
-      translate(55vw, -10vh)
-      rotate(12deg);
-  }
-
-  60%{
-    transform:
-      translate(70vw, 4vh)
-      rotate(-8deg);
   }
 
   75%{
     transform:
-      translate(45vw, 12vh)
+      translate(35vw, 12vh)
       rotate(10deg);
   }
 
@@ -763,24 +472,22 @@ position:relative;
       translate(10vw, -5vh)
       rotate(0deg);
   }
-
 }
-    /* Ganpati */
 
-    .ganpati{
+/* CONTENT */
+
+.ganpati{
   width:90px;
   margin-top:40px;
 }
 
-    .ganesh-text{
+.ganesh-text{
   margin-top:8px;
   font-size:22px;
   color:#8b1e3f;
 }
 
-    /* Invite text */
-
-    .invite-text{
+.invite-text{
   margin-top:22px;
   font-size:18px;
   line-height:1.5;
@@ -788,54 +495,33 @@ position:relative;
   padding:0 8px;
 }
 
-    /* Names */
-
-    .names{
+.names{
   margin-top:18px;
   line-height:1;
 }
 
-    .names h1{
+.names h1{
   font-family:'Great Vibes', cursive;
   font-size:72px;
   color:#b21e4b;
   font-weight:400;
 }
 
-    .with-text{
+.with-text{
   font-size:34px;
   margin:10px 0;
 }
 
-    /* Parents */
-
-    .parents{
+.parents{
   margin-top:8px;
   font-size:18px;
   line-height:1.4;
   color:#5b4a4a;
 }
 
-    /* Scroll indicator */
+/* MUSIC BUTTON */
 
-    .scroll{
-      margin-top:60px;
-      font-size:20px;
-      animation:bounce 2s infinite;
-    }
-
-    @keyframes bounce{
-      0%,100%{
-        transform:translateY(0);
-      }
-      50%{
-        transform:translateY(10px);
-      }
-    }
-
-    /* Music Button */
-
-    .music-btn{
+.music-btn{
 
   position:fixed;
 
@@ -870,54 +556,38 @@ position:relative;
   transition:0.5s;
 }
 
-    @keyframes fadeIn{
-      from{
-        opacity:0;
-        transform:translateY(20px);
-      }
-      to{
-        opacity:1;
-        transform:translateY(0);
-      }
-    }
+/* MOBILE */
 
-    /* Mobile */
+@media(max-width:768px){
 
-    @media(max-width:768px){
+  .names h1{
+    font-size:72px;
+  }
 
-      .names h1{
-        font-size:72px;
-      }
+  .invite-text{
+    font-size:20px;
+  }
 
-      .invite-text{
-        font-size:20px;
-      }
+  .parents{
+    font-size:22px;
+  }
 
-      .parents{
-        font-size:22px;
-      }
+  .ganesh-text{
+    font-size:24px;
+  }
+}
 
-      .ganesh-text{
-        font-size:24px;
-      }
-
-    }
-
-  </style>
+</style>
 </head>
 
 <body>
 
-  <!-- CURTAIN SCREEN -->
+<!-- OPENING SCREEN -->
 
-  <div class="opening-screen" id="openingScreen" onclick="openCurtains()">
+<div class="opening-screen" id="openingScreen">
 
   <div class="curtain left-curtain"></div>
   <div class="curtain right-curtain"></div>
-
-  <!-- ADD HERE -->
-  <div class="top-drape left-drape"></div>
-  <div class="top-drape right-drape"></div>
 
   <div class="tap-text">
     <div class="tap-circle">❈</div>
@@ -926,10 +596,10 @@ position:relative;
 
 </div>
 
-  <!-- MAIN CONTENT -->
+<!-- MAIN CONTENT -->
 
-  <section class="main-content">
-<!-- TOP SIDE CURTAINS -->
+<section class="main-content">
+
 <div class="flower flower1">🌸</div>
 <div class="flower flower2">🌼</div>
 <div class="flower flower3">🍃</div>
@@ -939,59 +609,52 @@ position:relative;
 <div class="flower flower6">🌼</div>
 <div class="flower flower7">🍃</div>
 <div class="flower flower8">🌹</div>
+
 <div class="butterfly">🦋</div>
 
-    <!-- Ganpati -->
+<img 
+class="ganpati"
+src="https://cdn-icons-png.flaticon.com/512/720/720106.png"
+alt="Ganpati"
+>
 
-    <img 
-      class="ganpati"
-      src="https://cdn-icons-png.flaticon.com/512/720/720106.png"
-      alt="Ganpati"
-    >
+<div class="ganesh-text">
+॥ Shree Ganeshaya Namah ॥
+</div>
 
-    <div class="ganesh-text">
-      ॥ Shree Ganeshaya Namah ॥
-    </div>
+<div class="invite-text">
+We cordially invite you to witness the beginning of our forever and celebrate the wedding ceremony of
+</div>
 
-    <!-- Invite -->
+<div class="names">
 
-    <div class="invite-text">
-      We cordially invite you to witness the beginning of our forever and celebrate the wedding ceremony of
-    </div>
+<h1>Karan</h1>
 
-    <!-- Names -->
+<div class="parents">
+S/o Mr. Sudhir Sanap <br>
+& Mrs. Sneha Sanap
+</div>
 
-    <div class="names">
+<div class="with-text">with</div>
 
-      <h1>Karan</h1>
+<h1>Pankti</h1>
 
-      <div class="parents">
-        S/o Mr. Sudhir Sanap <br>
-        & Mrs. Sneha Sanap
-      </div>
+<div class="parents">
+D/o Mr. Rakesh Jhaveri <br>
+& Mrs. Alpa Jhaveri
+</div>
 
-      <div class="with-text">with</div>
+</div>
 
-      <h1>Pankti</h1>
+</section>
 
-      <div class="parents">
-        D/o Mr. Rakesh Jhaveri <br>
-        & Mrs. Alpa Jhaveri
-      </div>
+<!-- MUSIC BUTTON -->
 
-    </div>
+<button class="music-btn">
+🔊
+</button>
 
-  </section>
-
-  <!-- MUSIC BUTTON -->
-
-  <button class="music-btn">
-    🔊
-  </button>
-
-  <!-- SCRIPT -->
-
-  <script>
+<script>
 
 function openCurtains(){
 
