@@ -47,16 +47,27 @@
     .curtain{
   position:absolute;
   top:0;
-  width:52%;
+  width:54%;
   height:100%;
 
-  background: linear-gradient(
-    to right,
-    #4d0000,
-    #7a0000,
-    #a00000,
-    #6b0000
-  );
+  background:
+    linear-gradient(
+      to right,
+      #520000 0%,
+      #7d0000 18%,
+      #b30000 40%,
+      #7d0000 65%,
+      #520000 100%
+    );
+
+  overflow:hidden;
+
+  transition:
+    transform 2.8s cubic-bezier(0.77,0,0.175,1);
+
+  animation:
+    curtainWave 6s ease-in-out infinite;
+}
 
   background-size:200% 200%;
 
@@ -103,9 +114,9 @@
 
 .curtain::before{
   content:'';
+
   position:absolute;
-  width:100%;
-  height:100%;
+  inset:0;
 
   background:
     repeating-linear-gradient(
@@ -118,29 +129,27 @@
 
   opacity:0.55;
 
+  transform:skewX(-4deg);
+
   mix-blend-mode:screen;
 }
+
 .curtain::after{
   content:'';
 
   position:absolute;
-  top:0;
-  left:-40%;
-
-  width:60%;
-  height:100%;
+  inset:0;
 
   background:
     linear-gradient(
-      90deg,
-      transparent,
-      rgba(255,255,255,0.12),
-      transparent
+      to right,
+      rgba(0,0,0,0.35),
+      transparent 25%,
+      transparent 75%,
+      rgba(0,0,0,0.28)
     );
 
-  transform:skewX(-12deg);
-
-  animation: curtainShine 7s linear infinite;
+  pointer-events:none;
 }
 @keyframes curtainShine{
 
@@ -154,23 +163,25 @@
 
 }
     .left-curtain{
-      left:0;
-      border-right:2px solid rgba(255,255,255,0.2);
-    }
+  left:0;
 
-    .right-curtain{
-      right:0;
-      border-left:2px solid rgba(255,255,255,0.2);
-    }
-/* curtain tie */
+  border-right:1px solid rgba(255,255,255,0.15);
 
+  border-radius:
+    0 0 35% 0;
 
-.left-curtain{
-  transform-origin: left center;
+  transform-origin:left center;
 }
 
 .right-curtain{
-  transform-origin: right center;
+  right:0;
+
+  border-left:1px solid rgba(255,255,255,0.15);
+
+  border-radius:
+    0 0 0 35%;
+
+  transform-origin:right center;
 }
 
 /* curtains tied at sides */
@@ -178,11 +189,88 @@
 /* curtains fully tied to sides */
 
 .opening-screen.open .left-curtain{
-  transform: translateX(-92%) rotate(-6deg);
+  transform:
+    translateX(-78%)
+    skewY(6deg)
+    scaleX(0.92);
 }
 
 .opening-screen.open .right-curtain{
-  transform: translateX(92%) rotate(6deg);
+  transform:
+    translateX(78%)
+    skewY(-6deg)
+    scaleX(0.92);
+}
+
+.left-curtain::marker,
+.right-curtain::marker{
+  display:none;
+}
+.left-curtain{
+  clip-path: polygon(
+    0 0,
+    100% 0,
+    88% 100%,
+    0 100%
+  );
+}
+
+.right-curtain{
+  clip-path: polygon(
+    12% 0,
+    100% 0,
+    100% 100%,
+    0 100%
+  );
+}
+
+@keyframes curtainWave{
+
+  0%{
+    filter:brightness(1);
+  }
+
+  50%{
+    filter:brightness(1.08);
+  }
+
+  100%{
+    filter:brightness(1);
+  }
+}
+
+.side-curtain{
+  position:absolute;
+  top:0;
+  width:70px;
+  height:100%;
+
+  background:
+    linear-gradient(
+      to right,
+      #5a0000,
+      #9b0000
+    );
+
+  z-index:1;
+
+  opacity:0.95;
+}
+
+.left-side{
+  left:-25px;
+
+  border-radius:0 0 60px 0;
+
+  transform:skewY(4deg);
+}
+
+.right-side{
+  right:-25px;
+
+  border-radius:0 0 0 60px;
+
+  transform:skewY(-4deg);
 }
 
     /* Tap Text */
@@ -369,6 +457,8 @@
   display:flex;
   flex-direction:column;
   align-items:center;
+max-width:420px;
+margin:auto;
 }
 .main-content::before{
   content:'';
@@ -730,7 +820,7 @@
 
   <!-- CURTAIN SCREEN -->
 
-  <div class="opening-screen" id="openingScreen">
+  <div class="opening-screen" id="openingScreen" onclick="openCurtains()">
 
     <div class="curtain left-curtain"></div>
     <div class="curtain right-curtain"></div>
@@ -747,7 +837,8 @@
   <!-- MAIN CONTENT -->
 
   <section class="main-content">
-
+<div class="side-curtain left-side"></div>
+<div class="side-curtain right-side"></div>
 <div class="flower flower1">🌸</div>
 <div class="flower flower2">🌼</div>
 <div class="flower flower3">🍃</div>
