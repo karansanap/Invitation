@@ -168,64 +168,61 @@ body{
    REAL TIED CURTAIN EFFECT
 ========================= */
 
+/* =========================
+   REAL TIED CURTAIN EFFECT
+========================= */
+
 .opening-screen.open .left-curtain{
 
-  width:22%;
+  width:18%;
 
   transform:
-    translateX(-8%)
-    skewY(-2deg);
+    translateX(-12%)
+    scaleX(0.9);
 
   clip-path: polygon(
     0 0,
     100% 0,
-    78% 10%,
-    62% 22%,
-    70% 36%,
-    58% 50%,
-    72% 66%,
-    64% 82%,
+    72% 12%,
+    58% 28%,
+    66% 46%,
+    52% 60%,
+    68% 76%,
+    60% 88%,
     100% 100%,
     0 100%
   );
-
-  filter:
-    brightness(0.95);
 }
 
 .opening-screen.open .right-curtain{
 
-  width:22%;
+  width:18%;
 
   transform:
-    translateX(8%)
-    skewY(2deg);
+    translateX(12%)
+    scaleX(0.9);
 
   clip-path: polygon(
     0 0,
     100% 0,
     100% 100%,
     0 100%,
-    36% 82%,
-    28% 66%,
-    42% 50%,
-    30% 36%,
-    38% 22%,
-    22% 10%
+    40% 88%,
+    32% 76%,
+    48% 60%,
+    34% 46%,
+    42% 28%,
+    28% 12%
   );
-
-  filter:
-    brightness(0.95);
 }
 
 /* REMOVE SCREEN AFTER OPEN */
 
-.opening-screen.open{
-  opacity:0;
+./* KEEP CURTAINS VISIBLE */
 
-  transition:
-    opacity 1s ease 2.1s,
-    visibility 1s ease 2.1s;
+.opening-screen.open{
+  pointer-events:none;
+  background:transparent;
 }
 
 /* FABRIC ANIMATION */
