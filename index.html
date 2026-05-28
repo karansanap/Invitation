@@ -52,24 +52,31 @@ body{
   overflow:hidden;
 
   transition:
-    transform 2.8s cubic-bezier(0.77,0,0.175,1),
-    clip-path 2.8s cubic-bezier(0.77,0,0.175,1),
-    width 2.8s cubic-bezier(0.77,0,0.175,1);
+  transform 2.8s cubic-bezier(0.77,0,0.175,1),
+  filter 2.8s ease;
 
   background:
-    linear-gradient(
-      to right,
-      #2b0000 0%,
-      #7a0000 20%,
-      #b10000 38%,
-      #870000 58%,
-      #5c0000 78%,
-      #240000 100%
+linear-gradient(
+  90deg,
+  #140000 0%,
+  #3a0000 8%,
+  #8c0000 18%,
+  #d10000 28%,
+  #7c0000 38%,
+  #240000 48%,
+  #990000 60%,
+  #e00000 72%,
+  #720000 84%,
+  #1a0000 100%
+);
     );
 
   box-shadow:
-    inset -45px 0 65px rgba(0,0,0,0.45),
-    inset 20px 0 30px rgba(255,255,255,0.06);
+  inset -40px 0 60px rgba(0,0,0,0.45),
+  inset 40px 0 60px rgba(255,255,255,0.05),
+  inset 0 0 40px rgba(0,0,0,0.35);
+will-change: transform;
+backface-visibility:hidden;
 
   animation:
     curtainMove 7s ease-in-out infinite;
@@ -85,7 +92,19 @@ body{
   pointer-events:none;
 }
 
+/* LEFT CURTAIN */
 
+.left-curtain{
+  left:0;
+  transform-origin:left center;
+}
+
+/* RIGHT CURTAIN */
+
+.right-curtain{
+  right:0;
+  transform-origin:right center;
+}
 
 /* OPEN ANIMATION */
 
@@ -93,34 +112,26 @@ body{
    REAL CURTAIN OPENING
 ========================= */
 
+./* =========================
+   REAL THEATER OPENING
+========================= */
+
 .opening-screen.open .left-curtain{
 
-  width:18%;
-
   transform:
-    translateX(-52%)
-    scaleX(0.88);
+    translateX(-78%)
+    rotateY(12deg);
 
-  border-right:
-    2px solid rgba(255,245,220,0.22);
-
-  filter:
-    brightness(0.95);
+  filter:brightness(0.92);
 }
 
 .opening-screen.open .right-curtain{
 
-  width:18%;
-
   transform:
-    translateX(52%)
-    scaleX(0.88);
+    translateX(78%)
+    rotateY(-12deg);
 
-  border-left:
-    2px solid rgba(255,245,220,0.22);
-
-  filter:
-    brightness(0.95);
+  filter:brightness(0.92);
 }
 
 /* REMOVE SCREEN AFTER OPEN */
@@ -281,11 +292,11 @@ body{
 
   margin:auto;
 
-  opacity:0;
+  opacity:0.01;
 
   filter:
-    brightness(0.7)
-    blur(14px);
+    brightness(0.2)
+    blur(24px);
 
   transform:scale(1.04);
 
@@ -558,30 +569,34 @@ body{
 
 <svg viewBox="0 0 300 1000" preserveAspectRatio="none">
 
-  <path d="M20 0 C40 120 10 240 35 360 C60 500 25 650 40 1000"
-        stroke="rgba(255,245,220,0.7)"
-        stroke-width="2"
-        fill="none"/>
+<defs>
+  <linearGradient id="goldLine" x1="0" x2="1">
+    <stop offset="0%" stop-color="rgba(255,255,255,0.15)"/>
+    <stop offset="50%" stop-color="rgba(255,248,220,0.9)"/>
+    <stop offset="100%" stop-color="rgba(255,255,255,0.12)"/>
+  </linearGradient>
+</defs>
 
-  <path d="M70 0 C95 180 60 340 90 520 C110 700 80 860 95 1000"
-        stroke="rgba(255,245,220,0.55)"
-        stroke-width="2"
-        fill="none"/>
+<path d="M15 0 C35 180 5 320 28 520 C48 700 18 860 35 1000"
+stroke="url(#goldLine)" stroke-width="2.4" fill="none"/>
 
-  <path d="M130 0 C150 140 115 300 145 480 C165 680 135 860 150 1000"
-        stroke="rgba(255,245,220,0.7)"
-        stroke-width="2"
-        fill="none"/>
+<path d="M55 0 C80 150 45 320 70 520 C90 730 60 860 82 1000"
+stroke="url(#goldLine)" stroke-width="1.7" fill="none"/>
 
-  <path d="M190 0 C220 160 175 340 205 520 C230 720 200 900 215 1000"
-        stroke="rgba(255,245,220,0.5)"
-        stroke-width="2"
-        fill="none"/>
+<path d="M95 0 C120 160 85 330 110 530 C130 760 102 900 120 1000"
+stroke="url(#goldLine)" stroke-width="2.5" fill="none"/>
 
-  <path d="M250 0 C275 140 240 300 270 520 C290 760 260 920 280 1000"
-        stroke="rgba(255,245,220,0.65)"
-        stroke-width="2"
-        fill="none"/>
+<path d="M140 0 C162 190 130 350 152 560 C170 770 145 920 162 1000"
+stroke="url(#goldLine)" stroke-width="1.6" fill="none"/>
+
+<path d="M185 0 C210 170 178 340 202 545 C220 770 192 920 212 1000"
+stroke="url(#goldLine)" stroke-width="2.3" fill="none"/>
+
+<path d="M235 0 C260 150 228 320 250 520 C270 740 240 900 262 1000"
+stroke="url(#goldLine)" stroke-width="1.7" fill="none"/>
+
+<path d="M280 0 C300 170 270 350 292 560 C305 770 285 920 300 1000"
+stroke="url(#goldLine)" stroke-width="2.2" fill="none"/>
 
 </svg>
 
@@ -591,30 +606,34 @@ body{
 
 <svg viewBox="0 0 300 1000" preserveAspectRatio="none">
 
-  <path d="M20 0 C40 120 10 240 35 360 C60 500 25 650 40 1000"
-        stroke="rgba(255,245,220,0.7)"
-        stroke-width="2"
-        fill="none"/>
+<defs>
+  <linearGradient id="goldLine" x1="0" x2="1">
+    <stop offset="0%" stop-color="rgba(255,255,255,0.15)"/>
+    <stop offset="50%" stop-color="rgba(255,248,220,0.9)"/>
+    <stop offset="100%" stop-color="rgba(255,255,255,0.12)"/>
+  </linearGradient>
+</defs>
 
-  <path d="M70 0 C95 180 60 340 90 520 C110 700 80 860 95 1000"
-        stroke="rgba(255,245,220,0.55)"
-        stroke-width="2"
-        fill="none"/>
+<path d="M15 0 C35 180 5 320 28 520 C48 700 18 860 35 1000"
+stroke="url(#goldLine)" stroke-width="2.4" fill="none"/>
 
-  <path d="M130 0 C150 140 115 300 145 480 C165 680 135 860 150 1000"
-        stroke="rgba(255,245,220,0.7)"
-        stroke-width="2"
-        fill="none"/>
+<path d="M55 0 C80 150 45 320 70 520 C90 730 60 860 82 1000"
+stroke="url(#goldLine)" stroke-width="1.7" fill="none"/>
 
-  <path d="M190 0 C220 160 175 340 205 520 C230 720 200 900 215 1000"
-        stroke="rgba(255,245,220,0.5)"
-        stroke-width="2"
-        fill="none"/>
+<path d="M95 0 C120 160 85 330 110 530 C130 760 102 900 120 1000"
+stroke="url(#goldLine)" stroke-width="2.5" fill="none"/>
 
-  <path d="M250 0 C275 140 240 300 270 520 C290 760 260 920 280 1000"
-        stroke="rgba(255,245,220,0.65)"
-        stroke-width="2"
-        fill="none"/>
+<path d="M140 0 C162 190 130 350 152 560 C170 770 145 920 162 1000"
+stroke="url(#goldLine)" stroke-width="1.6" fill="none"/>
+
+<path d="M185 0 C210 170 178 340 202 545 C220 770 192 920 212 1000"
+stroke="url(#goldLine)" stroke-width="2.3" fill="none"/>
+
+<path d="M235 0 C260 150 228 320 250 520 C270 740 240 900 262 1000"
+stroke="url(#goldLine)" stroke-width="1.7" fill="none"/>
+
+<path d="M280 0 C300 170 270 350 292 560 C305 770 285 920 300 1000"
+stroke="url(#goldLine)" stroke-width="2.2" fill="none"/>
 
 </svg>
 
