@@ -377,15 +377,25 @@ body{
 
   opacity:0;
 
-  transform:scale(1.02);
+  filter:
+    brightness(0.7)
+    blur(14px);
+
+  transform:scale(1.04);
 
   transition:
-    opacity 2.2s ease,
-    transform 2.2s ease;
+    opacity 2.8s ease,
+    transform 2.8s ease,
+    filter 2.8s ease;
 }
 
 .main-content.visible{
   opacity:1;
+
+  filter:
+    brightness(1)
+    blur(0px);
+
   transform:scale(1);
 }
 
@@ -733,7 +743,7 @@ function openCurtains(){
     .querySelector(".main-content")
     .classList.add("show-animations");
 
-}, 900);
+}, 1400);
 
 }
 
