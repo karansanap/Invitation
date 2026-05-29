@@ -64,32 +64,34 @@ opacity 0.8s ease;
   height:100%;
   z-index:5;
 
-  transform 2.2s cubic-bezier(0.65,0,0.35,1),
-width 2.2s cubic-bezier(0.65,0,0.35,1),
-filter 2.2s ease;
+  transition:
+    transform 1.8s cubic-bezier(0.65,0,0.35,1),
+    opacity 0.8s ease;
 
-background:
-repeating-linear-gradient(
-  90deg,
+  background:
+  repeating-linear-gradient(
+    90deg,
+    #3f0008 0px,
+    #5a000d 8px,
+    #740012 16px,
+    #8a0018 24px,
+    #690010 30px,
+    #4d000b 36px
+  );
 
-  #3f0008 0px,
-#5a000d 8px,
-#740012 16px,
-#8a0018 24px,
-#690010 30px,
-#4d000b 36px
-);
-
-background-size:32px 100%;
+  background-size:32px 100%;
 
   box-shadow:
-  inset -5px 0 10px rgba(0,0,0,0.14),
-  inset 15px 0 12px rgba(255,255,255,0.02);
-filter:
-  contrast(1.02)
-  saturate(0.92);
+    inset -5px 0 10px rgba(0,0,0,0.14),
+    inset 15px 0 12px rgba(255,255,255,0.02);
+
+  filter:
+    contrast(1.02)
+    saturate(0.92);
+
   overflow:hidden;
-will-change:transform, opacity;
+
+  will-change:transform, opacity;
 }
 
 /* FABRIC FOLDS */
@@ -133,13 +135,11 @@ will-change:transform, opacity;
 /* OPEN EFFECT */
 
 .opening-screen.open .left-curtain{
-
-  transform:translateX(-55%);
+  transform:translateX(-105%);
 }
 
 .opening-screen.open .right-curtain{
-
-  transform:translateX(55%);
+  transform:translateX(105%);
 }
 
 /* =========================
@@ -280,7 +280,7 @@ radial-gradient(
 
   margin:auto;
 
-  opacity:0;
+  opacity:1;
 
   filter:
     brightness(0.7)
@@ -294,15 +294,7 @@ transform 1.2s ease,
 filter 1.2s ease;
 }
 
-.main-content.visible{
-  opacity:1;
 
-  filter:
-    brightness(1)
-    blur(0px);
-
-  transform:scale(1);
-}
 
 .main-content::before{
   content:'';
@@ -626,52 +618,43 @@ D/o Mr. Rakesh Jhaveri <br>
 
 function openCurtains(){
 
-  document
-    .getElementById("openingScreen")
-    .classList.add("open");
+  const screen = document.getElementById("openingScreen");
 
-setTimeout(() => {
+  screen.classList.add("open");
 
-  document
-    .getElementById("openingScreen")
-    .classList.add("fade-out");
+  document.querySelector(".tap-text").style.display = "none";
 
-}, 1200);
-
-setTimeout(() => {
-
-  document
-    .getElementById("openingScreen")
-    .style.display = "none";
-
-}, 2000);
-
-  document
-    .querySelector(".tap-text")
-    .style.display = "none";
-
-  document
-    .querySelector(".music-btn")
-    .style.cssText =
+  document.querySelector(".music-btn").style.cssText =
     "opacity:1; visibility:visible;";
 
+  /* SHOW MAIN CONTENT QUICKLY */
   setTimeout(() => {
 
-  document
-    .querySelector(".main-content")
-    .classList.add("visible");
+    document
+      .querySelector(".main-content")
+      .classList.add("visible");
 
-  document
-    .querySelector(".main-content")
-    .classList.add("show-animations");
+    document
+      .querySelector(".main-content")
+      .classList.add("show-animations");
 
-}, 350);
+  }, 180);
+
+  /* FADE BLACK OVERLAY */
+  setTimeout(() => {
+
+    screen.classList.add("fade-out");
+
+  }, 900);
+
+  /* REMOVE COMPLETELY */
+  setTimeout(() => {
+
+    screen.style.display = "none";
+
+  }, 1600);
 
 }
-
-document
-  .getElementById("openingScreen")
-  .addEventListener("click", openCurtains);
 
 </script>
 
