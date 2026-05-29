@@ -57,7 +57,8 @@ inset 0 80px 120px rgba(0,0,0,0.7);
   height:100%;
   z-index:5;
 
-  transition:all 2.5s ease-in-out;
+  transition:
+all 3.8s cubic-bezier(0.77,0,0.175,1);
 
 background:
 repeating-linear-gradient(
@@ -80,6 +81,7 @@ filter:
   contrast(1.02)
   saturate(0.92);
   overflow:hidden;
+padding-top:22px;
 }
 
 /* FABRIC FOLDS */
@@ -98,6 +100,29 @@ linear-gradient(
 );
 
   mix-blend-mode:soft-light;
+}
+
+
+.curtain::after{
+  content:'';
+
+  position:absolute;
+
+  top:0;
+  left:0;
+  width:100%;
+  height:28px;
+
+  background:
+  repeating-linear-gradient(
+    90deg,
+    #3d0000 0px,
+    #680000 10px,
+    #2a0000 20px
+  );
+
+  box-shadow:
+    0 4px 10px rgba(0,0,0,0.35);
 }
 
 /* LEFT */
