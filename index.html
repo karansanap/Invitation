@@ -282,16 +282,8 @@ radial-gradient(
 
   opacity:1;
 
-  filter:
-    brightness(0.7)
-    blur(10px);
-
-  transform:scale(1.04);
-
-  transition:
-opacity 1.2s ease,
-transform 1.2s ease,
-filter 1.2s ease;
+  filter:none;
+transform:none;
 }
 
 
@@ -655,6 +647,10 @@ function openCurtains(){
   }, 1600);
 
 }
+
+document
+  .getElementById("openingScreen")
+  .addEventListener("click", openCurtains);
 
 </script>
 
