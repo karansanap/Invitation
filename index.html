@@ -54,92 +54,120 @@ opacity 0.8s ease;
 }
 
 /* =========================
-   REAL THEATER CURTAINS
+   REAL THEATRE CURTAINS
 ========================= */
 
 .curtain{
+
   position:absolute;
   top:0;
   width:50%;
   height:100%;
   z-index:5;
 
-  transition:
-    transform 1.8s cubic-bezier(0.65,0,0.35,1),
-    opacity 0.8s ease;
-
-  background:
-  repeating-linear-gradient(
-    90deg,
-    #3f0008 0px,
-    #5a000d 8px,
-    #740012 16px,
-    #8a0018 24px,
-    #690010 30px,
-    #4d000b 36px
-  );
-
-  background-size:32px 100%;
-
-  box-shadow:
-    inset -5px 0 10px rgba(0,0,0,0.14),
-    inset 15px 0 12px rgba(255,255,255,0.02);
-
-  filter:
-    contrast(1.02)
-    saturate(0.92);
-
   overflow:hidden;
 
-  will-change:transform, opacity;
+  transition:
+    transform 2.4s cubic-bezier(0.22,1,0.36,1),
+    width 2.4s cubic-bezier(0.22,1,0.36,1),
+    filter 2s ease;
+
+  background:
+    repeating-linear-gradient(
+      90deg,
+      #2b0005 0px,
+      #4d000b 12px,
+      #740012 24px,
+      #950018 36px,
+      #6e0011 48px,
+      #430008 60px
+    );
+
+  background-size:60px 100%;
+
+  box-shadow:
+    inset -8px 0 18px rgba(0,0,0,0.35),
+    inset 10px 0 12px rgba(255,255,255,0.04);
+
+  will-change:transform,width;
 }
 
-/* FABRIC FOLDS */
+/* HEAVY FABRIC DEPTH */
 
 .curtain::before{
+
   content:'';
   position:absolute;
   inset:0;
 
   background:
-  radial-gradient(
-    circle at center,
-    rgba(0,0,0,0.22) 0%,
-    rgba(0,0,0,0.08) 28%,
-    rgba(255,255,255,0.03) 48%,
-    rgba(0,0,0,0.12) 70%,
-    transparent 100%
-  );
+    repeating-linear-gradient(
+      90deg,
+      rgba(255,255,255,0.06) 0px,
+      rgba(255,255,255,0.01) 14px,
+      rgba(0,0,0,0.16) 28px,
+      rgba(255,255,255,0.03) 42px
+    );
 
   mix-blend-mode:soft-light;
-
-  transition:all 2.8s ease;
 }
 
-/* LEFT */
+/* EXTRA SHADOW FOR FOLDS */
+
+.curtain::after{
+
+  content:'';
+  position:absolute;
+  inset:0;
+
+  background:
+    linear-gradient(
+      to right,
+      rgba(0,0,0,0.28),
+      transparent 18%,
+      transparent 82%,
+      rgba(0,0,0,0.28)
+    );
+}
+
+/* LEFT CURTAIN */
 
 .left-curtain{
   left:0;
-  border-radius:0 0 60px 0;
   transform-origin:left center;
 }
 
-/* RIGHT */
+/* RIGHT CURTAIN */
 
 .right-curtain{
   right:0;
-  border-radius:0 0 0 60px;
   transform-origin:right center;
 }
 
-/* OPEN EFFECT */
+/* =========================
+   OPENING ANIMATION
+========================= */
 
 .opening-screen.open .left-curtain{
-  transform:translateX(-105%);
+
+  width:14%;
+
+  transform:
+    translateX(-8%)
+    skewY(2deg);
+
+  filter:brightness(0.82);
 }
 
 .opening-screen.open .right-curtain{
-  transform:translateX(105%);
+
+  width:14%;
+
+  transform:
+    translateX(8%)
+    skewY(-2deg);
+
+  filter:brightness(0.82);
 }
 
 /* =========================
@@ -683,14 +711,14 @@ function openCurtains(){
 
     screen.classList.add("fade-out");
 
-  }, 900);
+  }, 1700);
 
   /* REMOVE COMPLETELY */
   setTimeout(() => {
 
     screen.style.display = "none";
 
-  }, 1600);
+  }, 2600);
 
 }
 
