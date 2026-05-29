@@ -58,9 +58,9 @@ inset 0 80px 120px rgba(0,0,0,0.7);
   z-index:5;
 
   transition:
-transform 1.8s cubic-bezier(0.22,1,0.36,1),
-opacity 1.5s ease,
-filter 1.5s ease;
+transform 1.6s cubic-bezier(0.77,0,0.18,1),
+width 1.6s cubic-bezier(0.77,0,0.18,1),
+filter 1.6s ease;
 
 background:
 repeating-linear-gradient(
@@ -287,9 +287,9 @@ radial-gradient(
   transform:scale(1.04);
 
   transition:
-    opacity 2.8s ease,
-    transform 2.8s ease,
-    filter 2.8s ease;
+opacity 1.2s ease,
+transform 1.2s ease,
+filter 1.2s ease;
 }
 
 .main-content.visible{
@@ -634,7 +634,7 @@ setTimeout(() => {
     .getElementById("openingScreen")
     .style.display = "none";
 
-}, 1700);
+}, 1200);
 
   document
     .querySelector(".tap-text")
@@ -655,7 +655,7 @@ setTimeout(() => {
     .querySelector(".main-content")
     .classList.add("show-animations");
 
-}, 1100);
+}, 700);
 
 }
 
