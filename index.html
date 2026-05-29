@@ -58,9 +58,9 @@ inset 0 80px 120px rgba(0,0,0,0.7);
   z-index:5;
 
   transition:
-transform 3.2s cubic-bezier(0.22,1,0.36,1),
-width 3.2s cubic-bezier(0.22,1,0.36,1),
-filter 3s ease;
+transform 2.8s cubic-bezier(0.22,1,0.36,1),
+opacity 2.2s ease,
+filter 2.5s ease;
 
 background:
 repeating-linear-gradient(
@@ -83,13 +83,7 @@ filter:
   contrast(1.02)
   saturate(0.92);
   overflow:hidden;
-
-clip-path:polygon(
-  0 0,
-  100% 0,
-  100% 100%,
-  0 100%
-);
+will-change:transform, opacity;
 }
 
 /* FABRIC FOLDS */
@@ -132,49 +126,18 @@ clip-path:polygon(
 
 /* OPEN EFFECT */
 
-/* LEFT CURTAIN OPEN */
-
 .opening-screen.open .left-curtain{
 
-  width:38%;
+  transform:translateX(-28%);
 
-  transform:translateX(-20%);
-
-  clip-path:polygon(
-    0 0,
-    100% 0,
-
-    100% 28%,
-    78% 46%,
-    74% 52%,
-    78% 58%,
-
-    100% 78%,
-    100% 100%,
-    0 100%
-  );
+  opacity:0;
 }
 
 .opening-screen.open .right-curtain{
 
-  width:38%;
+  transform:translateX(28%);
 
-  transform:translateX(20%);
-
-  clip-path:polygon(
-    0 0,
-    100% 0,
-
-    100% 100%,
-    0 100%,
-
-    0 78%,
-    22% 58%,
-    26% 52%,
-    22% 46%,
-
-    0 28%
-  );
+  opacity:0;
 }
 
 /* =========================
@@ -664,6 +627,14 @@ function openCurtains(){
   document
     .getElementById("openingScreen")
     .classList.add("open");
+
+setTimeout(() => {
+
+  document
+    .getElementById("openingScreen")
+    .style.display = "none";
+
+}, 2900);
 
   document
     .querySelector(".tap-text")
