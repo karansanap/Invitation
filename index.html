@@ -83,6 +83,13 @@ filter:
   contrast(1.02)
   saturate(0.92);
   overflow:hidden;
+
+clip-path:polygon(
+  0 0,
+  100% 0,
+  100% 100%,
+  0 100%
+);
 }
 
 /* FABRIC FOLDS */
@@ -129,28 +136,45 @@ filter:
 
 .opening-screen.open .left-curtain{
 
-  width:34%;
+  width:38%;
 
-  transform:
-    translateX(-22%)
-    scaleX(0.72);
+  transform:translateX(-20%);
 
-  border-radius:
-    0 0 70px 0;
+  clip-path:polygon(
+    0 0,
+    100% 0,
+
+    100% 28%,
+    78% 46%,
+    74% 52%,
+    78% 58%,
+
+    100% 78%,
+    100% 100%,
+    0 100%
+  );
 }
-
-/* RIGHT CURTAIN OPEN */
 
 .opening-screen.open .right-curtain{
 
-  width:34%;
+  width:38%;
 
-  transform:
-    translateX(22%)
-    scaleX(0.72);
+  transform:translateX(20%);
 
-  border-radius:
-    0 0 0 70px;
+  clip-path:polygon(
+    0 0,
+    100% 0,
+
+    100% 100%,
+    0 100%,
+
+    0 78%,
+    22% 58%,
+    26% 52%,
+    22% 46%,
+
+    0 28%
+  );
 }
 
 /* =========================
