@@ -58,9 +58,9 @@ inset 0 80px 120px rgba(0,0,0,0.7);
   z-index:5;
 
   transition:
-transform 2.8s cubic-bezier(0.77,0,0.18,1),
-width 2.8s cubic-bezier(0.77,0,0.18,1),
-filter 2.8s ease;
+transform 3.2s cubic-bezier(0.22,1,0.36,1),
+width 3.2s cubic-bezier(0.22,1,0.36,1),
+filter 3s ease;
 
 background:
 repeating-linear-gradient(
@@ -93,14 +93,18 @@ filter:
   inset:0;
 
   background:
-linear-gradient(
-  90deg,
-  rgba(255,255,255,0.05),
-  rgba(0,0,0,0.12),
-  rgba(255,255,255,0.03)
-);
+  radial-gradient(
+    circle at center,
+    rgba(0,0,0,0.22) 0%,
+    rgba(0,0,0,0.08) 28%,
+    rgba(255,255,255,0.03) 48%,
+    rgba(0,0,0,0.12) 70%,
+    transparent 100%
+  );
 
   mix-blend-mode:soft-light;
+
+  transition:all 2.8s ease;
 }
 
 /* LEFT */
@@ -121,38 +125,32 @@ linear-gradient(
 
 /* OPEN EFFECT */
 
-/* LEFT CURTAIN */
+/* LEFT CURTAIN OPEN */
 
 .opening-screen.open .left-curtain{
 
-  transform:translateX(-18%);
+  width:34%;
 
-  clip-path:polygon(
-    0 0,
-    100% 0,
-    82% 38%,
-    78% 52%,
-    84% 70%,
-    100% 100%,
-    0 100%
-  );
+  transform:
+    translateX(-22%)
+    scaleX(0.72);
+
+  border-radius:
+    0 0 70px 0;
 }
 
-/* RIGHT CURTAIN */
+/* RIGHT CURTAIN OPEN */
 
 .opening-screen.open .right-curtain{
 
-  transform:translateX(18%);
+  width:34%;
 
-  clip-path:polygon(
-    0 0,
-    100% 0,
-    100% 100%,
-    0 100%,
-    18% 70%,
-    22% 52%,
-    18% 38%
-  );
+  transform:
+    translateX(22%)
+    scaleX(0.72);
+
+  border-radius:
+    0 0 0 70px;
 }
 
 /* =========================
