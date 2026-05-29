@@ -46,54 +46,6 @@ box-shadow:
 inset 0 80px 120px rgba(0,0,0,0.7);
 }
 
-.spotlight{
-
-  position:absolute;
-
-  top:-20%;
-  left:-30%;
-
-  width:60%;
-  height:140%;
-
-  background:
-  radial-gradient(
-    ellipse at center,
-    rgba(255,255,255,0.10) 0%,
-    rgba(255,255,255,0.04) 30%,
-    rgba(255,255,255,0.00) 70%
-  );
-
-  transform:
-    rotate(-18deg);
-
-  filter:blur(20px);
-
-  opacity:0.7;
-
-  pointer-events:none;
-
-  animation:
-    spotlightMove 8s ease-in-out infinite alternate;
-
-  z-index:2;
-}
-
-@keyframes spotlightMove{
-
-  0%{
-    transform:
-      translateX(-10%)
-      rotate(-18deg);
-  }
-
-  100%{
-    transform:
-      translateX(120%)
-      rotate(-8deg);
-  }
-}
-
 /* =========================
    REAL THEATER CURTAINS
 ========================= */
@@ -148,70 +100,34 @@ linear-gradient(
   mix-blend-mode:soft-light;
 }
 
-.left-curtain::after,
-.right-curtain::after{
+/* LEFT */
 
-  content:'';
-
-  position:absolute;
-
-  top:52%;
-
-  width:5px;
-  height:120px;
-
-  background:#d6b36a;
-
-  border-radius:10px;
-
-  opacity:0;
-
-  transition:opacity 1s ease;
-
-  box-shadow:
-    0 0 10px rgba(255,215,120,0.45);
-
-  z-index:10;
+.left-curtain{
+  left:0;
+  border-radius:0 0 60px 0;
 }
 
-.left-curtain::after{
-  right:12px;
-}
+/* RIGHT */
 
-.right-curtain::after{
-  left:12px;
+.right-curtain{
+  right:0;
+  border-radius:0 0 0 60px;
 }
-
 
 /* OPEN EFFECT */
 
 .opening-screen.open .left-curtain{
 
-  width:24%;
-
-  transform:
-    translateX(-10%)
-    skewY(5deg);
-
-  border-radius:
-    0 0 60px 0;
+  width:22%;
+transform:translateX(-8%);
+  
 }
 
 .opening-screen.open .right-curtain{
 
-  width:24%;
-
-  transform:
-    translateX(10%)
-    skewY(-5deg);
-
-  border-radius:
-    0 0 0 60px;
-}
-
-.opening-screen.open .left-curtain::after,
-.opening-screen.open .right-curtain::after{
-  opacity:1;
+  width:22%;
+transform:translateX(8%);
+   
 }
 
 /* =========================
@@ -657,7 +573,6 @@ radial-gradient(
 
 <div class="opening-screen" id="openingScreen">
 
-<div class="spotlight"></div>
   <div class="curtain left-curtain"></div>
 
 <div class="curtain right-curtain"></div>
