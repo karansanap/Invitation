@@ -428,8 +428,38 @@ transform:none;
 /* CONTENT */
 
 .ganpati{
-  width:90px;
-  margin-top:40px;
+  width:260px;
+  max-width:82%;
+
+  display:block;
+
+  margin:
+    20px auto 0;
+
+  object-fit:contain;
+
+  filter:
+    drop-shadow(
+      0 8px 20px rgba(180,90,40,0.18)
+    );
+
+  animation:
+    ganpatiFloat 4s ease-in-out infinite;
+}
+
+@keyframes ganpatiFloat{
+
+  0%{
+    transform:translateY(0px);
+  }
+
+  50%{
+    transform:translateY(-7px);
+  }
+
+  100%{
+    transform:translateY(0px);
+  }
 }
 
 .ganesh-text{
@@ -566,9 +596,9 @@ transform:none;
 
 <img 
 class="ganpati"
-src="https://cdn-icons-png.flaticon.com/512/720/720106.png"
+src="ganpati.png""
 alt="Ganpati"
->
+/>
 
 <div class="ganesh-text">
 ॥ Shree Ganeshaya Namah ॥
