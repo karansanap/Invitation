@@ -36,7 +36,7 @@ body{
   z-index:9999;
   overflow:hidden;
 
-  background:black;
+  background:#000;
 
   perspective:1200px;
 
@@ -44,133 +44,105 @@ body{
 }
 
 /* =========================
-   REALISTIC ROYAL CURTAINS
-========================= */
-/* =========================
    REAL THEATER CURTAINS
 ========================= */
 
 .curtain{
   position:absolute;
   top:0;
-
   width:50%;
   height:100%;
+  z-index:5;
 
-  overflow:hidden;
-
-  z-index:2;
-
-  transition:
-    width 2.8s cubic-bezier(0.77,0,0.175,1),
-    transform 2.8s cubic-bezier(0.77,0,0.175,1);
+  transition:all 2.5s ease-in-out;
 
   background:
-  linear-gradient(
+  repeating-linear-gradient(
     90deg,
-
-    #120000 0%,
-    #2a0000 5%,
-    #7a0000 10%,
-    #d10000 15%,
-    #4a0000 20%,
-    #180000 25%,
-
-    #8f0000 30%,
-    #e00000 35%,
-    #5c0000 40%,
-    #150000 45%,
-
-    #990000 50%,
-    #ff1a1a 55%,
-    #6a0000 60%,
-    #1a0000 65%,
-
-    #8c0000 70%,
-    #d10000 75%,
-    #520000 80%,
-    #180000 85%,
-
-    #7a0000 92%,
-    #120000 100%
+    #3b0000 0px,
+    #6d0000 25px,
+    #b30000 55px,
+    #ff2a2a 70px,
+    #8a0000 95px,
+    #3b0000 120px
   );
 
-  background-size:90px 100%;
-
-  filter:
-    contrast(1.15)
-    saturate(1.2);
-
   box-shadow:
-    inset -35px 0 55px rgba(0,0,0,0.55),
-    inset 35px 0 45px rgba(255,255,255,0.06),
-    inset 0 0 45px rgba(0,0,0,0.5),
-    0 0 40px rgba(0,0,0,0.4);
+    inset -20px 0 30px rgba(0,0,0,0.5),
+    inset 20px 0 30px rgba(255,255,255,0.08);
+
+  overflow:hidden;
 }
 
-/* LEFT CURTAIN */
+/* FABRIC FOLDS */
+
+.curtain::before{
+  content:'';
+  position:absolute;
+  inset:0;
+
+  background:
+  repeating-linear-gradient(
+    90deg,
+    rgba(255,255,255,0.10) 0px,
+    rgba(255,255,255,0.02) 18px,
+    rgba(0,0,0,0.18) 38px,
+    rgba(255,255,255,0.03) 58px
+  );
+
+  mix-blend-mode:soft-light;
+}
+
+/* LEFT */
 
 .left-curtain{
   left:0;
-
-  border-right:
-    2px solid rgba(255,240,200,0.35);
+  border-radius:0 0 60px 0;
 }
 
-/* RIGHT CURTAIN */
+/* RIGHT */
 
 .right-curtain{
   right:0;
-
-  border-left:
-    2px solid rgba(255,240,200,0.35);
+  border-radius:0 0 0 60px;
 }
 
-/* =========================
-   CURTAIN TIE BANDS
-========================= */
+/* OPEN EFFECT */
 
-.left-curtain::before,
-.right-curtain::before{
+.opening-screen.open .left-curtain{
 
-  content:'';
+  width:26%;
 
-  position:absolute;
+  transform:
+    translateX(-5%)
+    skewY(6deg);
 
-  top:52%;
-
-  width:10px;
-  height:120px;
-
-  background:#7a0000;
-
-  box-shadow:
-    0 0 15px rgba(255,0,0,0.4);
-
-  opacity:0;
-
-  transition:opacity 1s ease;
+  clip-path:
+    polygon(
+      0 0,
+      100% 0,
+      82% 45%,
+      92% 100%,
+      0 100%
+    );
 }
 
-/* LEFT BAND */
+.opening-screen.open .right-curtain{
 
-.left-curtain::before{
-  right:18px;
-  border-radius:10px;
-}
+  width:26%;
 
-/* RIGHT BAND */
+  transform:
+    translateX(5%)
+    skewY(-6deg);
 
-.right-curtain::before{
-  left:18px;
-  border-radius:10px;
-}
-
-/* SHOW BAND AFTER OPEN */
-
-.opening-screen.open .left-curtain::before,
-.opening-screen.open .right-curtain::before{
-  opacity:1;
+  clip-path:
+    polygon(
+      0 0,
+      100% 0,
+      100% 100%,
+      8% 100%,
+      18% 45%
+    );
 }
 
 /* =========================
@@ -712,7 +684,7 @@ function openCurtains(){
     .querySelector(".main-content")
     .classList.add("show-animations");
 
-}, 1400);
+}, 2200);
 
 }
 
