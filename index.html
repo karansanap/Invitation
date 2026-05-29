@@ -108,6 +108,7 @@ linear-gradient(
 .left-curtain{
   left:0;
   border-radius:0 0 60px 0;
+  transform-origin:left center;
 }
 
 /* RIGHT */
@@ -115,6 +116,7 @@ linear-gradient(
 .right-curtain{
   right:0;
   border-radius:0 0 0 60px;
+  transform-origin:right center;
 }
 
 /* OPEN EFFECT */
@@ -137,28 +139,26 @@ transform:translateX(8%);
    OPEN ANIMATION
 ========================= */
 
+/* LEFT CURTAIN OPEN */
+
 .opening-screen.open .left-curtain{
 
-  width:18%;
-
   transform:
-    translateX(-12%)
-    skewY(3deg)
-    scaleX(0.92);
+    translateX(-42%)
+    scaleX(0.9);
 
-  border-radius:0 0 90px 0;
+  border-radius:0 0 120px 0;
 }
+
+/* RIGHT CURTAIN OPEN */
 
 .opening-screen.open .right-curtain{
 
-  width:18%;
-
   transform:
-    translateX(12%)
-    skewY(-3deg)
-    scaleX(0.92);
+    translateX(42%)
+    scaleX(0.9);
 
-  border-radius:0 0 0 90px;
+  border-radius:0 0 0 120px;
 }
 
 /* =========================
