@@ -57,7 +57,10 @@ inset 0 80px 120px rgba(0,0,0,0.7);
   height:100%;
   z-index:5;
 
-  transition:all 2.5s ease-in-out;
+  transition:
+transform 2.8s cubic-bezier(0.77,0,0.18,1),
+width 2.8s cubic-bezier(0.77,0,0.18,1),
+filter 2.8s ease;
 
 background:
 repeating-linear-gradient(
@@ -136,30 +139,26 @@ transform:translateX(8%);
 
 .opening-screen.open .left-curtain{
 
-  width:22%;
+  width:18%;
 
   transform:
-    translateX(-8%)
-    skewY(6deg);
+    translateX(-12%)
+    skewY(3deg)
+    scaleX(0.92);
 
-  border-right:none;
-
-  border-radius:
-    0 0 40px 0;
+  border-radius:0 0 90px 0;
 }
 
 .opening-screen.open .right-curtain{
 
-  width:22%;
+  width:18%;
 
   transform:
-    translateX(8%)
-    skewY(-6deg);
+    translateX(12%)
+    skewY(-3deg)
+    scaleX(0.92);
 
-  border-left:none;
-
-  border-radius:
-    0 0 0 40px;
+  border-radius:0 0 0 90px;
 }
 
 /* =========================
