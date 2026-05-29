@@ -36,15 +36,7 @@ body{
   z-index:9999;
   overflow:hidden;
 
-  background:
-  radial-gradient(
-    circle at center,
-    rgba(80,0,0,0.25),
-    black 70%
-  );
-
-  box-shadow:
-    inset 0 0 180px rgba(0,0,0,0.9);
+  background:black;
 
   perspective:1200px;
 
@@ -103,7 +95,7 @@ body{
     #120000 100%
   );
 
-  background-size:120px 100%;
+  background-size:90px 100%;
 
   filter:
     contrast(1.15)
@@ -135,72 +127,82 @@ body{
 }
 
 /* =========================
-   OPEN ANIMATION
+   CURTAIN TIE BANDS
 ========================= */
 
-.opening-screen.open .left-curtain{
-
-  width:15%;
-
-  transform:
-    skewY(5deg);
-
-  border-right:none;
-}
-
-.opening-screen.open .right-curtain{
-
-  width:15%;
-
-  transform:
-    skewY(-5deg);
-
-  border-left:none;
-}
-
-/* =========================
-   CURTAIN ROPES
-========================= */
-
-.left-curtain::after,
-.right-curtain::after{
+.left-curtain::before,
+.right-curtain::before{
 
   content:'';
 
   position:absolute;
 
-  width:4px;
+  top:52%;
+
+  width:10px;
   height:120px;
 
-  background:gold;
+  background:#7a0000;
 
-  top:55%;
+  box-shadow:
+    0 0 15px rgba(255,0,0,0.4);
 
   opacity:0;
 
   transition:opacity 1s ease;
-
-  box-shadow:
-    0 0 10px rgba(255,215,0,0.6);
 }
 
-/* LEFT ROPE */
+/* LEFT BAND */
 
-.left-curtain::after{
-  right:12px;
+.left-curtain::before{
+  right:18px;
+  border-radius:10px;
 }
 
-/* RIGHT ROPE */
+/* RIGHT BAND */
 
-.right-curtain::after{
-  left:12px;
+.right-curtain::before{
+  left:18px;
+  border-radius:10px;
 }
 
-/* SHOW AFTER OPEN */
+/* SHOW BAND AFTER OPEN */
 
-.opening-screen.open .left-curtain::after,
-.opening-screen.open .right-curtain::after{
+.opening-screen.open .left-curtain::before,
+.opening-screen.open .right-curtain::before{
   opacity:1;
+}
+
+/* =========================
+   OPEN ANIMATION
+========================= */
+
+.opening-screen.open .left-curtain{
+
+  width:22%;
+
+  transform:
+    translateX(-8%)
+    skewY(6deg);
+
+  border-right:none;
+
+  border-radius:
+    0 0 40px 0;
+}
+
+.opening-screen.open .right-curtain{
+
+  width:22%;
+
+  transform:
+    translateX(8%)
+    skewY(-6deg);
+
+  border-left:none;
+
+  border-radius:
+    0 0 0 40px;
 }
 
 /* =========================
@@ -320,7 +322,13 @@ body{
 
   position:relative;
 
-  background:#f7f2ea;
+  background:
+radial-gradient(
+  circle at center,
+  #fffaf4 0%,
+  #f7f0e8 55%,
+  #e8ddd2 100%
+);
 
   overflow:hidden;
 
@@ -335,11 +343,11 @@ body{
 
   margin:auto;
 
-  opacity:0.01;
+  opacity:0;
 
   filter:
-    brightness(0.2)
-    blur(24px);
+    brightness(0.7)
+    blur(10px);
 
   transform:scale(1.04);
 
