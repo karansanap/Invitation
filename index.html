@@ -57,10 +57,9 @@ inset 0 80px 120px rgba(0,0,0,0.7);
   height:100%;
   z-index:5;
 
-  transition:
-transform 1.6s cubic-bezier(0.77,0,0.18,1),
-width 1.6s cubic-bezier(0.77,0,0.18,1),
-filter 1.6s ease;
+  transform 2.2s cubic-bezier(0.65,0,0.35,1),
+width 2.2s cubic-bezier(0.65,0,0.35,1),
+filter 2.2s ease;
 
 background:
 repeating-linear-gradient(
@@ -128,16 +127,12 @@ will-change:transform, opacity;
 
 .opening-screen.open .left-curtain{
 
-  transform:translateX(-28%);
-
-  opacity:0;
+  transform:translateX(-55%);
 }
 
 .opening-screen.open .right-curtain{
 
-  transform:translateX(28%);
-
-  opacity:0;
+  transform:translateX(55%);
 }
 
 /* =========================
@@ -634,7 +629,7 @@ setTimeout(() => {
     .getElementById("openingScreen")
     .style.display = "none";
 
-}, 1200);
+}, 1700);
 
   document
     .querySelector(".tap-text")
@@ -655,7 +650,7 @@ setTimeout(() => {
     .querySelector(".main-content")
     .classList.add("show-animations");
 
-}, 700);
+}, 350);
 
 }
 
