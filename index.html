@@ -68,22 +68,22 @@ opacity 0.8s ease;
   overflow:hidden;
 
   transition:
-    transform 2.4s cubic-bezier(0.22,1,0.36,1),
-    width 2.4s cubic-bezier(0.22,1,0.36,1),
+    transform 2.4s cubic-bezier(0.16,1,0.3,1),
+    width 2.4s cubic-bezier(0.16,1,0.3,1),
     filter 2s ease;
 
   background:
-    repeating-linear-gradient(
-      90deg,
-      #2b0005 0px,
-      #4d000b 12px,
-      #740012 24px,
-      #950018 36px,
-      #6e0011 48px,
-      #430008 60px
-    );
+repeating-linear-gradient(
+  90deg,
+  #3f0008 0px,
+  #5a000d 6px,
+  #740012 12px,
+  #8a0018 18px,
+  #690010 24px,
+  #4d000b 30px
+);
 
-  background-size:60px 100%;
+background-size:24px 100%;
 
   box-shadow:
     inset -8px 0 18px rgba(0,0,0,0.35),
@@ -101,13 +101,13 @@ opacity 0.8s ease;
   inset:0;
 
   background:
-    repeating-linear-gradient(
-      90deg,
-      rgba(255,255,255,0.06) 0px,
-      rgba(255,255,255,0.01) 14px,
-      rgba(0,0,0,0.16) 28px,
-      rgba(255,255,255,0.03) 42px
-    );
+  repeating-linear-gradient(
+    90deg,
+    rgba(255,255,255,0.08) 0px,
+    rgba(255,255,255,0.02) 6px,
+    rgba(0,0,0,0.22) 14px,
+    rgba(255,255,255,0.03) 22px
+  );
 
   mix-blend-mode:soft-light;
 }
@@ -150,24 +150,28 @@ opacity 0.8s ease;
 
 .opening-screen.open .left-curtain{
 
-  width:14%;
+  width:10%;
 
   transform:
-    translateX(-8%)
-    skewY(2deg);
+    translateX(-2%)
+    scaleX(0.25)
+    rotate(-1deg);
 
-  filter:brightness(0.82);
+  filter:
+    brightness(0.85);
 }
 
 .opening-screen.open .right-curtain{
 
-  width:14%;
+  width:10%;
 
   transform:
-    translateX(8%)
-    skewY(-2deg);
+    translateX(2%)
+    scaleX(0.25)
+    rotate(1deg);
 
-  filter:brightness(0.82);
+  filter:
+    brightness(0.85);
 }
 
 /* =========================
