@@ -649,8 +649,17 @@ rgba(255,255,255,0.22);
 /* SAVE DATE */
 
 .save-date-section{
-  margin-top:100px;
-  padding:20px 0 50px;
+  background:
+    linear-gradient(
+      to bottom,
+      #faf7f0,
+      #f6efe2
+    );
+
+  padding:80px 20px;
+  text-align:center;
+  position:relative;
+  overflow:hidden;
 }
 
 .scratch-card{
@@ -659,7 +668,7 @@ rgba(255,255,255,0.22);
   max-width:600px;
   height:170px;
   margin:auto;
-
+touch-action:none;
   border-radius:24px;
 
   background:
@@ -682,6 +691,8 @@ rgba(255,255,255,0.22);
   width:100%;
   height:100%;
   z-index:5;
+
+  touch-action:none;   /* prevents page scrolling */
 }
 
 .scratch-cover-text{
@@ -841,8 +852,9 @@ D/o Mr. Rakesh Jhaveri <br>
 </div>
 
 </div>
+</section>
 
-<!-- SAVE THE DATE SECTION -->
+
 
 <section class="save-date-section">
 
@@ -902,7 +914,6 @@ D/o Mr. Rakesh Jhaveri <br>
 
 </section>
 
-</section>
 
 <!-- MUSIC BUTTON -->
 
@@ -988,6 +999,8 @@ canvas.addEventListener("pointerup",()=>{
 canvas.addEventListener("pointermove",(e)=>{
 
   if(!scratching) return;
+
+  e.preventDefault();
 
   const rect = canvas.getBoundingClientRect();
 
