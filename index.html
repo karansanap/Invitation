@@ -53,7 +53,8 @@ opacity 0.8s ease;
 
   background:transparent;
 
-  pointer-events:auto;
+  pointer-events:none;
+
   box-shadow:none;
 }
 
@@ -67,7 +68,7 @@ opacity 0.8s ease;
   top:0;
   width:50%;
   height:100%;
-  z-index:20;
+  z-index:5;
   overflow:hidden;
 
   transition:
@@ -100,8 +101,8 @@ background-size:24px 100%;
   position:absolute;
 
   top:52%;
-  left:25%;
-width:50%;
+  left:12%;
+width:76%;
 transform:none;
   height:8px;
 
@@ -207,21 +208,17 @@ transform:none;
 
 .opening-screen.open .left-curtain{
 
-  width:28%;
+  width:80px;
 
-transform:
-scaleX(1)
-rotate(-1deg);
+  transform:none;
 
 }
 
 .opening-screen.open .right-curtain{
 
-  width:28%;
+  width:80px;
 
-transform:
-scaleX(1)
-rotate(1deg);
+  transform:none;
 
 }
 
@@ -377,7 +374,7 @@ margin:0;
 .main-content::before{
   content:'';
   position:absolute;
-  inset:0;
+  inset:6px;
 
   border:1px solid rgba(90,120,90,0.12);
 
