@@ -548,18 +548,10 @@ rgba(255,255,255,0.22);
 }
 
 .invite-text{
-  margin-top:20px;
-
-  font-size:13px;
-  line-height:1.8;
-
-  color:#654646;
-
-  font-weight:500;
-
-  max-width:85%;
-  margin-left:auto;
-  margin-right:auto;
+  font-size:14px;
+  line-height:1.7;
+  color:#6f5656;
+  font-weight:400;
 }
 
 .names{
@@ -576,14 +568,11 @@ rgba(255,255,255,0.22);
 }
 
 .with-text{
-  font-size:24px;
-  font-weight:600;
-
-  margin:20px 0 45px;
-
-  color:#6b1d35;
-
-  letter-spacing:1px;
+  font-size:20px;
+  font-weight:400;
+  letter-spacing:2px;
+  color:#7a4a5a;
+  margin:30px 0 55px;
 }
 
 .parents{
@@ -649,12 +638,134 @@ rgba(255,255,255,0.22);
   }
 
   .parents{
-    font-size:22px;
+    font-size:15px;
   }
 
   .ganesh-text{
     font-size:24px;
   }
+}
+
+/* SAVE DATE */
+
+.save-date-section{
+  margin-top:100px;
+  padding:20px 0 50px;
+}
+
+.scratch-card{
+  position:relative;
+  width:100%;
+  max-width:600px;
+  height:170px;
+  margin:auto;
+
+  border-radius:24px;
+
+  background:
+  linear-gradient(
+    135deg,
+    #d7b176,
+    #f0cf95,
+    #c99b57
+  );
+
+  overflow:hidden;
+
+  box-shadow:
+  0 10px 30px rgba(0,0,0,.12);
+}
+
+#scratchCanvas{
+  position:absolute;
+  inset:0;
+  width:100%;
+  height:100%;
+  z-index:5;
+}
+
+.scratch-cover-text{
+  position:absolute;
+  inset:0;
+
+  display:flex;
+  align-items:center;
+  justify-content:center;
+
+  font-size:22px;
+  color:white;
+
+  letter-spacing:2px;
+}
+
+.revealed-content{
+  display:none;
+  margin-top:30px;
+}
+
+.date-card{
+
+  background:#fffdf9;
+
+  border:2px solid #dec18c;
+
+  border-radius:24px;
+
+  padding:24px;
+
+  width:100%;
+
+  max-width:600px;
+
+  margin:auto;
+}
+
+.save-text{
+  color:#7c9364;
+  letter-spacing:4px;
+  font-size:18px;
+}
+
+.date-text{
+  font-family:'Great Vibes', cursive;
+  color:#a21d4d;
+  font-size:58px;
+  margin-top:10px;
+}
+
+.countdown{
+  display:flex;
+  justify-content:center;
+  gap:14px;
+  margin-top:30px;
+  flex-wrap:wrap;
+}
+
+.time-box{
+  width:75px;
+}
+
+.time-box span{
+  display:block;
+
+  border:1px solid #dec18c;
+
+  border-radius:18px;
+
+  padding:18px 0;
+
+  font-size:30px;
+
+  color:#a21d4d;
+
+  background:white;
+}
+
+.time-box small{
+  display:block;
+  margin-top:10px;
+  letter-spacing:2px;
+  color:#7c9364;
 }
 
 </style>
@@ -731,6 +842,66 @@ D/o Mr. Rakesh Jhaveri <br>
 
 </div>
 
+<!-- SAVE THE DATE SECTION -->
+
+<section class="save-date-section">
+
+  <div id="scratchWrapper">
+
+    <div class="scratch-card">
+
+      <canvas id="scratchCanvas"></canvas>
+
+      <div class="scratch-cover-text">
+        ✦ SCRATCH TO REVEAL ✦
+      </div>
+
+    </div>
+
+  </div>
+
+  <div id="revealedContent" class="revealed-content">
+
+    <div class="date-card">
+
+      <div class="save-text">
+        SAVE THE DATE
+      </div>
+
+      <div class="date-text">
+        19<sup>th</sup> July 2026
+      </div>
+
+    </div>
+
+    <div class="countdown">
+
+      <div class="time-box">
+        <span id="days">00</span>
+        <small>DAYS</small>
+      </div>
+
+      <div class="time-box">
+        <span id="hours">00</span>
+        <small>HOURS</small>
+      </div>
+
+      <div class="time-box">
+        <span id="minutes">00</span>
+        <small>MINUTES</small>
+      </div>
+
+      <div class="time-box">
+        <span id="seconds">00</span>
+        <small>SECONDS</small>
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
 </section>
 
 <!-- MUSIC BUTTON -->
@@ -777,7 +948,136 @@ document
   .getElementById("openingScreen")
   .addEventListener("click", openCurtains);
 
+/* SCRATCH CARD */
+
+const canvas = document.getElementById("scratchCanvas");
+const ctx = canvas.getContext("2d");
+
+function setupScratch(){
+
+  canvas.width = canvas.offsetWidth;
+  canvas.height = canvas.offsetHeight;
+
+  ctx.fillStyle = "#d4af37";
+  ctx.fillRect(0,0,canvas.width,canvas.height);
+
+  ctx.globalCompositeOperation = "destination-out";
+}
+
+setupScratch();
+
+let scratching = false;
+
+function scratch(x,y){
+
+  ctx.beginPath();
+  ctx.arc(x,y,28,0,Math.PI*2);
+  ctx.fill();
+
+  checkReveal();
+}
+
+canvas.addEventListener("pointerdown",()=>{
+  scratching=true;
+});
+
+canvas.addEventListener("pointerup",()=>{
+  scratching=false;
+});
+
+canvas.addEventListener("pointermove",(e)=>{
+
+  if(!scratching) return;
+
+  const rect = canvas.getBoundingClientRect();
+
+  scratch(
+    e.clientX - rect.left,
+    e.clientY - rect.top
+  );
+});
+
+function checkReveal(){
+
+  const pixels =
+    ctx.getImageData(
+      0,
+      0,
+      canvas.width,
+      canvas.height
+    ).data;
+
+  let cleared = 0;
+
+  for(let i=3;i<pixels.length;i+=4){
+    if(pixels[i] === 0) cleared++;
+  }
+
+  const percent =
+    cleared /
+    (pixels.length/4);
+
+  if(percent > 0.40){
+
+    document.getElementById(
+      "scratchWrapper"
+    ).style.display = "none";
+
+    document.getElementById(
+      "revealedContent"
+    ).style.display = "block";
+
+    startCountdown();
+
+    confettiBurst();
+  }
+}
+
+function startCountdown(){
+
+  const weddingDate =
+    new Date("July 19, 2026 00:00:00");
+
+  setInterval(()=>{
+
+    const now = new Date();
+
+    const diff =
+      weddingDate - now;
+
+    document.getElementById("days").innerText =
+      Math.floor(diff/(1000*60*60*24));
+
+    document.getElementById("hours").innerText =
+      Math.floor(diff/(1000*60*60)%24);
+
+    document.getElementById("minutes").innerText =
+      Math.floor(diff/(1000*60)%60);
+
+    document.getElementById("seconds").innerText =
+      Math.floor(diff/1000%60);
+
+  },1000);
+}
+
+function confettiBurst(){
+
+  confetti({
+    particleCount: 120,
+    spread: 90,
+    origin:{ x:0.2, y:0.6 }
+  });
+
+  confetti({
+    particleCount: 120,
+    spread: 90,
+    origin:{ x:0.8, y:0.6 }
+  });
+
+}
+
 </script>
 
+<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
 </body>
 </html>
