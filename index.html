@@ -67,7 +67,7 @@ opacity 0.8s ease;
   top:0;
   width:50%;
   height:100%;
-  z-index:99999;
+  z-index:20;
   overflow:hidden;
 
   transition:
@@ -100,12 +100,10 @@ background-size:24px 100%;
   position:absolute;
 
   top:52%;
-  left:15%;
-
-  width:70%;
+  left:25%;
+width:50%;
+transform:none;
   height:8px;
-
-  transform:scaleX(0.7);
 
   opacity:0;
 
@@ -209,21 +207,21 @@ background-size:24px 100%;
 
 .opening-screen.open .left-curtain{
 
-  width:22%;
+  width:28%;
 
-  transform:
-  scaleX(0.55)
-  rotate(-1deg);
+transform:
+scaleX(1)
+rotate(-1deg);
 
 }
 
 .opening-screen.open .right-curtain{
 
-  width:22%;
+  width:28%;
 
-  transform:
-  scaleX(0.55)
-  rotate(1deg);
+transform:
+scaleX(1)
+rotate(1deg);
 
 }
 
@@ -379,7 +377,7 @@ margin:0;
 .main-content::before{
   content:'';
   position:absolute;
-  inset:4px;
+  inset:0;
 
   border:1px solid rgba(90,120,90,0.12);
 
