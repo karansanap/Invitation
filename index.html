@@ -53,8 +53,7 @@ opacity 0.8s ease;
 
   background:transparent;
 
-  pointer-events:none;
-
+  pointer-events:auto;
   box-shadow:none;
 }
 
@@ -101,29 +100,31 @@ background-size:24px 100%;
 
   position:absolute;
 
-  top:55%;
-  left:0;
+  top:52%;
+  left:15%;
 
-  width:100%;
+  width:70%;
   height:8px;
+
+  transform:scaleX(0.7);
 
   opacity:0;
 
   border-radius:20px;
 
   background:
-    repeating-linear-gradient(
-      45deg,
-      #d4af37 0px,
-      #f0d46a 4px,
-      #b8860b 8px,
-      #d4af37 12px
-    );
+  repeating-linear-gradient(
+    90deg,
+    #f4d46a 0px,
+    #d4af37 3px,
+    #b8860b 6px,
+    #f4d46a 9px
+  );
 
   box-shadow:
     0 0 6px rgba(212,175,55,0.6);
 
-  transition:opacity 0.6s ease;
+  transition:opacity .6s ease;
 }
 
 .curtain-tie::before,
@@ -209,22 +210,20 @@ background-size:24px 100%;
 
 .opening-screen.open .left-curtain{
 
-  width:18%;
+  width:16%;
 
   transform:
-  translateX(-45%)
-  scaleX(0.45)
+  scaleX(0.42)
   rotate(-1deg);
 
 }
 
 .opening-screen.open .right-curtain{
 
-  width:18%;
+  width:16%;
 
   transform:
-  translateX(45%)
-  scaleX(0.45)
+  scaleX(0.42)
   rotate(1deg);
 
 }
