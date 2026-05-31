@@ -48,7 +48,9 @@ transition:
 opacity 0.8s ease;
 }
 
-
+.opening-screen.open{
+  opacity:0;
+}
 
 /* =========================
    REAL THEATRE CURTAINS
@@ -939,7 +941,7 @@ setTimeout(() => {
 
   screen.remove();
 
-}, 2400);
+}, 800);
 
 }
 
@@ -1079,30 +1081,32 @@ function confettiBurst(){
 
 function firecrackerBurst(){
 
-  confetti({
-    particleCount:150,
-    spread:120,
-    startVelocity:55,
-    origin:{ x:0.2, y:0.5 }
-  });
+  const duration = 2500;
+  const end = Date.now() + duration;
 
-  confetti({
-    particleCount:150,
-    spread:120,
-    startVelocity:55,
-    origin:{ x:0.8, y:0.5 }
-  });
-
-  setTimeout(() => {
+  (function frame() {
 
     confetti({
-      particleCount:220,
-      spread:180,
-      startVelocity:65,
-      origin:{ x:0.5, y:0.3 }
+      particleCount: 8,
+      angle: 60,
+      spread: 80,
+      origin: { x: Math.random(), y: Math.random() * 0.5 },
+      startVelocity: 60
     });
 
-  },300);
+    confetti({
+      particleCount: 8,
+      angle: 120,
+      spread: 80,
+      origin: { x: Math.random(), y: Math.random() * 0.5 },
+      startVelocity: 60
+    });
+
+    if (Date.now() < end) {
+      requestAnimationFrame(frame);
+    }
+
+  }());
 
 }
 
