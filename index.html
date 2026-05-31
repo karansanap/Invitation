@@ -20,10 +20,19 @@
 body{
   overflow-x:hidden;
   font-family:'Cormorant Garamond', serif;
-  background:#f8f3eb;
+
+  background:
+  linear-gradient(
+    135deg,
+    #fffdf8 0%,
+    #f8f1e5 35%,
+    #f4ead9 70%,
+    #efe0c8 100%
+  );
+
   color:#5c2c2c;
 
-  -webkit-tap-highlight-color: transparent;
+  -webkit-tap-highlight-color:transparent;
 }
 
 /* =========================
@@ -335,15 +344,6 @@ transform:none;
 
   position:relative;
 
-  background:
-linear-gradient(
-135deg,
-#fffdf8 0%,
-#f8f1e5 35%,
-#f4ead9 70%,
-#efe0c8 100%
-);
-
 width:100%;
   overflow:hidden;
   padding:45px 30px 70px;
@@ -647,12 +647,7 @@ rgba(255,255,255,0.22);
 /* SAVE DATE */
 
 .save-date-section{
-  background:
-    linear-gradient(
-      to bottom,
-      #faf7f0,
-      #f6efe2
-    );
+  background:transparent;
 
   padding:80px 20px;
   text-align:center;
@@ -790,6 +785,17 @@ touch-action:none;
 <body>
 
 <div id="fireworks"></div>
+<div class="flower flower1">🌸</div>
+<div class="flower flower2">🌼</div>
+<div class="flower flower3">🍃</div>
+<div class="flower flower4">🌹</div>
+
+<div class="flower flower5">🌸</div>
+<div class="flower flower6">🌼</div>
+<div class="flower flower7">🍃</div>
+<div class="flower flower8">🌹</div>
+
+<div class="butterfly">🦋</div>
 
 <!-- OPENING SCREEN -->
 
@@ -813,18 +819,6 @@ touch-action:none;
 <!-- MAIN CONTENT -->
 
 <section class="main-content">
-
-<div class="flower flower1">🌸</div>
-<div class="flower flower2">🌼</div>
-<div class="flower flower3">🍃</div>
-<div class="flower flower4">🌹</div>
-
-<div class="flower flower5">🌸</div>
-<div class="flower flower6">🌼</div>
-<div class="flower flower7">🍃</div>
-<div class="flower flower8">🌹</div>
-
-<div class="butterfly">🦋</div>
 
 <img 
 class="ganpati"
@@ -948,9 +942,7 @@ firecrackerBurst();
       .querySelector(".main-content")
       .classList.add("visible");
 
-    document
-      .querySelector(".main-content")
-      .classList.add("show-animations");
+    document.body.classList.add("show-animations");
 
   }, 180);
 
