@@ -391,7 +391,7 @@ rgba(255,255,255,0.22);
 
   pointer-events:none;
 
-  animation: falling linear infinite;
+  animation:none;
 
   transition:opacity 1.5s ease;
 }
@@ -459,7 +459,11 @@ rgba(255,255,255,0.22);
   transition:opacity 1.5s ease;
 }
 
-.show-animations .flower,
+.show-animations .flower{
+  opacity:1;
+  animation: falling linear infinite;
+}
+
 .show-animations .butterfly{
   opacity:1;
 }
