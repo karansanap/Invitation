@@ -941,6 +941,87 @@ touch-action:none;
   }
 
 }
+/* FAMILY PRESENCE SECTION */
+
+.family-presence-section{
+  padding:40px 20px 90px;
+  text-align:center;
+}
+
+.family-presence-card{
+
+  max-width:700px;
+  margin:auto;
+
+  padding:55px 25px;
+
+  border:2px solid rgba(212,175,55,0.35);
+
+  border-radius:32px;
+
+  background:
+    rgba(255,255,255,0.18);
+
+  box-shadow:
+    0 8px 25px rgba(0,0,0,0.05);
+
+  position:relative;
+}
+
+.family-presence-card::before{
+  content:'';
+
+  position:absolute;
+  inset:10px;
+
+  border:1px solid rgba(212,175,55,0.25);
+
+  border-radius:24px;
+
+  pointer-events:none;
+}
+
+.family-heading{
+
+  font-size:16px;
+  letter-spacing:4px;
+
+  color:#8a8b67;
+
+  margin-bottom:35px;
+}
+
+.family-divider{
+
+  font-size:34px;
+
+  color:#c9a35c;
+
+  margin-bottom:35px;
+}
+
+.family-names{
+
+  font-size:28px;
+
+  line-height:2;
+
+  color:#4f3c35;
+}
+
+@media(max-width:768px){
+
+  .family-heading{
+    font-size:13px;
+    letter-spacing:3px;
+  }
+
+  .family-names{
+    font-size:20px;
+    line-height:2;
+  }
+
+}
 
 </style>
 </head>
@@ -1105,6 +1186,25 @@ D/o Mr. Rakesh Jhaveri <br>
     <p class="presence-text">
       Because meeting two souls requires twice the fun — and you!
     </p>
+
+  </div>
+
+</section>
+
+<section class="family-presence-section">
+
+  <div class="family-presence-card">
+
+    <div class="family-heading">
+      AWAITING YOUR GRACIOUS PRESENCE
+    </div>
+
+    <div class="family-divider">✧</div>
+
+    <div class="family-names">
+      Mr. Rakesh Jhaveri<br><br>
+      Mrs. Alpa Jhaveri
+    </div>
 
   </div>
 
