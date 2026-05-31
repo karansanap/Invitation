@@ -722,25 +722,8 @@ touch-action:none;
   inset:0;
   width:100%;
   height:100%;
-  z-index:15;
-
-  touch-action:none;   /* prevents page scrolling */
-}
-
-.scratch-cover-text{
-  position:absolute;
-  inset:0;
-
-  display:flex;
-  align-items:center;
-  justify-content:center;
-
-  font-size:22px;
-  color:white;
-  letter-spacing:2px;
-
   z-index:10;
-  pointer-events:none;
+  touch-action:none;
 }
 
 .revealed-content{
@@ -904,11 +887,7 @@ D/o Mr. Rakesh Jhaveri <br>
 
     <div class="scratch-card">
 
-      <canvas id="scratchCanvas"></canvas>
-
-      <div class="scratch-cover-text">
-        ✦ SCRATCH TO REVEAL ✦
-      </div>
+      <canvas id="scratchCanvas"></canvas>   
 
     </div>
 
@@ -1009,13 +988,25 @@ const ctx = canvas.getContext("2d");
 
 function setupScratch(){
 
-  canvas.width = canvas.offsetWidth;
-  canvas.height = canvas.offsetHeight;
-
   ctx.fillStyle = "#d4af37";
-  ctx.fillRect(0,0,canvas.width,canvas.height);
+ctx.fillRect(0,0,canvas.width,canvas.height);
 
-  ctx.globalCompositeOperation = "destination-out";
+/* WRITE TEXT ON SCRATCH LAYER */
+ctx.globalCompositeOperation = "source-over";
+
+ctx.fillStyle = "#ffffff";
+ctx.font = "600 24px Cormorant Garamond";
+ctx.textAlign = "center";
+ctx.textBaseline = "middle";
+
+ctx.fillText(
+  "✦ SCRATCH TO REVEAL ✦",
+  canvas.width / 2,
+  canvas.height / 2
+);
+
+/* NOW ENABLE SCRATCHING */
+ctx.globalCompositeOperation = "destination-out";
 }
 
 setupScratch();
