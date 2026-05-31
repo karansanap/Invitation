@@ -776,14 +776,6 @@ touch-action:none;
 
 <div class="opening-screen" id="openingScreen">
 
-  <div class="curtain left-curtain">
-  <div class="curtain-tie"></div>
-</div>
-
-<div class="curtain right-curtain">
-  <div class="curtain-tie"></div>
-</div>
-
   <div class="tap-text">
     <div class="tap-circle">❈</div>
     <p>Open Invitation</p>
@@ -937,7 +929,7 @@ firecrackerBurst();
 
 setTimeout(() => {
 
-  screen.classList.add("opened");
+  screen.remove();
 
 }, 2400);
 
