@@ -49,14 +49,6 @@ opacity 0.8s ease;
 }
 
 
-.opening-screen.opened{
-
-  background:transparent;
-
-  pointer-events:none;
-
-  box-shadow:none;
-}
 
 /* =========================
    REAL THEATRE CURTAINS
@@ -924,7 +916,7 @@ function openCurtains(){
   const screen = document.getElementById("openingScreen");
 
   screen.classList.add("open");
-
+firecrackerBurst();
   document.querySelector(".tap-text").style.display = "none";
 
   document.querySelector(".music-btn").style.cssText =
@@ -947,7 +939,7 @@ setTimeout(() => {
 
   screen.classList.add("opened");
 
-}, 2500);
+}, 2400);
 
 }
 
@@ -1082,6 +1074,35 @@ function confettiBurst(){
     spread: 90,
     origin:{ x:0.8, y:0.6 }
   });
+
+}
+
+function firecrackerBurst(){
+
+  confetti({
+    particleCount:150,
+    spread:120,
+    startVelocity:55,
+    origin:{ x:0.2, y:0.5 }
+  });
+
+  confetti({
+    particleCount:150,
+    spread:120,
+    startVelocity:55,
+    origin:{ x:0.8, y:0.5 }
+  });
+
+  setTimeout(() => {
+
+    confetti({
+      particleCount:220,
+      spread:180,
+      startVelocity:65,
+      origin:{ x:0.5, y:0.3 }
+    });
+
+  },300);
 
 }
 
