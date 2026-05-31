@@ -55,6 +55,7 @@ opacity 0.8s ease;
 }
 
 .opening-screen.open{
+background:transparent;
   opacity:0;
 }
 
@@ -1096,32 +1097,47 @@ function confettiBurst(){
 
 function firecrackerBurst(){
 
-  const duration = 2500;
-  const end = Date.now() + duration;
+  const container =
+    document.getElementById("fireworks");
 
-  (function frame() {
+  const fireworks =
+    new Fireworks.default(container, {
 
-    confetti({
-      particleCount: 8,
-      angle: 60,
-      spread: 80,
-      origin: { x: Math.random(), y: Math.random() * 0.5 },
-      startVelocity: 60
+      rocketsPoint: 50,
+
+      hue: {
+        min: 20,
+        max: 60
+      },
+
+      delay: {
+        min: 20,
+        max: 40
+      },
+
+      speed: 3,
+
+      acceleration: 1.05,
+
+      friction: 0.98,
+
+      gravity: 1.4,
+
+      particles: 120,
+
+      traceLength: 8,
+
+      explosion: 8
+
     });
 
-    confetti({
-      particleCount: 8,
-      angle: 120,
-      spread: 80,
-      origin: { x: Math.random(), y: Math.random() * 0.5 },
-      startVelocity: 60
-    });
+  fireworks.start();
 
-    if (Date.now() < end) {
-      requestAnimationFrame(frame);
-    }
+  setTimeout(() => {
 
-  }());
+    fireworks.stop();
+
+  }, 2500);
 
 }
 
