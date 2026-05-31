@@ -819,8 +819,37 @@ touch-action:none;
 }
 
 .event-gallery{
+
   max-width:700px;
   margin:auto;
+
+  padding:20px;
+
+  border:2px solid rgba(212,175,55,0.45);
+
+  border-radius:28px;
+
+  background:
+    rgba(255,255,255,0.25);
+
+  box-shadow:
+    0 8px 25px rgba(0,0,0,0.06);
+
+  position:relative;
+}
+
+.event-gallery::before{
+
+  content:'';
+
+  position:absolute;
+  inset:8px;
+
+  border:1px solid rgba(212,175,55,0.35);
+
+  border-radius:20px;
+
+  pointer-events:none;
 }
 
 .event-img{
@@ -828,7 +857,7 @@ touch-action:none;
   display:block;
   border-radius:18px;
 
-  margin-bottom:14px; /* small space between images */
+  margin-bottom:18px; /* small space between images */
 
   box-shadow:
     0 6px 18px rgba(0,0,0,.10);
@@ -846,8 +875,36 @@ touch-action:none;
 }
 
 .presence-card{
+
   max-width:700px;
   margin:auto;
+
+  padding:60px 25px;
+
+  border:2px solid rgba(212,175,55,0.45);
+
+  border-radius:28px;
+
+  background:
+  rgba(255,255,255,0.25);
+
+  box-shadow:
+    0 8px 25px rgba(0,0,0,0.06);
+
+  position:relative;
+}
+
+.presence-card::before{
+  content:'';
+
+  position:absolute;
+  inset:8px;
+
+  border:1px solid rgba(212,175,55,0.35);
+
+  border-radius:20px;
+
+  pointer-events:none;
 }
 
 .presence-title{
