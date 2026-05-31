@@ -1103,31 +1103,41 @@ function firecrackerBurst(){
   const fireworks =
     new Fireworks.default(container, {
 
-      rocketsPoint: 50,
+      rocketsPoint: {
+        min: 45,
+        max: 55
+      },
 
       hue: {
-        min: 20,
-        max: 60
+        min: 35,
+        max: 50
       },
 
       delay: {
-        min: 20,
-        max: 40
+        min: 8,
+        max: 15
       },
 
-      speed: 3,
+      speed: 4,
 
-      acceleration: 1.05,
+      acceleration: 1.12,
 
-      friction: 0.98,
+      friction: 0.95,
 
-      gravity: 1.4,
+      gravity: 1.2,
 
-      particles: 120,
+      particles: 180,
 
-      traceLength: 8,
+      traceLength: 12,
 
-      explosion: 8
+      traceSpeed: 10,
+
+      explosion: 10,
+
+      brightness: {
+        min: 70,
+        max: 100
+      }
 
     });
 
@@ -1137,7 +1147,7 @@ function firecrackerBurst(){
 
     fireworks.stop();
 
-  }, 2500);
+  }, 2200);
 
 }
 
