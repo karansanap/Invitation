@@ -36,7 +36,13 @@ body{
   z-index:9999;
   overflow:hidden;
 
-  background:#000;
+  background:
+  radial-gradient(
+    circle at center,
+    #4b0015 0%,
+    #250008 60%,
+    #000 100%
+  );
 
   perspective:1200px;
 
@@ -769,10 +775,19 @@ touch-action:none;
   color:#7c9364;
 }
 
+#fireworks{
+  position:fixed;
+  inset:0;
+  z-index:10000;
+  pointer-events:none;
+}
+
 </style>
 </head>
 
 <body>
+
+<div id="fireworks"></div>
 
 <!-- OPENING SCREEN -->
 
@@ -1113,5 +1128,8 @@ function firecrackerBurst(){
 </script>
 
 <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/fireworks-js@2.10.8/dist/index.umd.js"></script>
+
 </body>
 </html>
