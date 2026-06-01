@@ -1522,6 +1522,8 @@ function openCurtains(){
 
   screen.classList.add("open");
 firecrackerBurst();
+startMusic();
+
   document.querySelector(".tap-text").style.display = "none";
 
   document.querySelector(".music-btn").style.cssText =
@@ -1751,11 +1753,52 @@ function firecrackerBurst(){
 
 }
 
+const music = document.getElementById("bgMusic");
+const musicBtn = document.querySelector(".music-btn");
+
+let isPlaying = false;
+
+function startMusic(){
+
+  music.play()
+    .then(() => {
+
+      isPlaying = true;
+      musicBtn.innerHTML = "🔊";
+
+    })
+    .catch(err => console.log(err));
+
+}
+
+musicBtn.addEventListener("click", () => {
+
+  if(isPlaying){
+
+    music.pause();
+    musicBtn.innerHTML = "🔇";
+
+  }else{
+
+    music.play();
+    musicBtn.innerHTML = "🔊";
+
+  }
+
+  isPlaying = !isPlaying;
+
+});
+
 </script>
 
 <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
 
 <script src="https://cdn.jsdelivr.net/npm/fireworks-js@2.10.8/dist/index.umd.js"></script>
+
+
+<audio id="bgMusic" loop>
+  <source src="song_jse.mp3" type="audio/mpeg">
+</audio>
 
 </body>
 </html>
