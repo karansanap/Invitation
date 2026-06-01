@@ -827,21 +827,28 @@ touch-action:none;
 
 .event-frame{
 
-  background:#fffdf8;
+  background:
+  linear-gradient(
+    145deg,
+    #fffef9,
+    #faf3e3
+  );
 
-  border:12px solid #d4af37;
+  padding:14px;
 
-  border-radius:20px;
+  border-radius:28px;
 
-  padding:10px;
-
-  margin-bottom:40px;
-
-  box-shadow:
-    0 12px 30px rgba(0,0,0,0.12),
-    inset 0 0 0 2px rgba(255,255,255,0.6);
+  border:3px solid #d4af37;
 
   position:relative;
+
+  overflow:hidden;
+
+  box-shadow:
+    0 15px 35px rgba(0,0,0,0.10),
+    0 5px 12px rgba(212,175,55,0.15);
+
+  margin-bottom:25px;
 }
 
 .event-frame::before{
@@ -852,11 +859,25 @@ touch-action:none;
 
   inset:6px;
 
-  border:1px solid rgba(255,255,255,0.7);
+  border:1px solid rgba(212,175,55,0.45);
 
-  border-radius:12px;
+  border-radius:20px;
 
   pointer-events:none;
+}
+
+.event-frame::after{
+
+  content:'✦';
+
+  position:absolute;
+
+  top:10px;
+  right:14px;
+
+  color:#d4af37;
+
+  font-size:18px;
 }
 
 .event-img{
@@ -865,7 +886,52 @@ touch-action:none;
 
   display:block;
 
-  border-radius:10px;
+  border-radius:18px;
+
+  border:6px solid white;
+
+  box-shadow:
+    0 8px 18px rgba(0,0,0,0.08);
+}
+
+.event-divider{
+
+  width:80%;
+
+  margin:35px auto 45px;
+
+  position:relative;
+
+  height:1px;
+
+  background:
+  linear-gradient(
+    to right,
+    transparent,
+    rgba(212,175,55,0.7),
+    transparent
+  );
+}
+
+.event-divider::after{
+
+  content:'✦';
+
+  position:absolute;
+
+  left:50%;
+  top:50%;
+
+  transform:
+    translate(-50%,-50%);
+
+  background:#f8f1e5;
+
+  padding:0 12px;
+
+  color:#d4af37;
+
+  font-size:20px;
 }
 
 /* SPACE BELOW EVERY EVENT IMAGE */
@@ -1389,6 +1455,7 @@ D/o Mr. Rakesh Jhaveri <br>
     <div class="event-space">
       <a href="#" class="event-btn">Get Directions</a>
     </div>
+<div class="event-divider"></div>
 
     <div class="event-frame">
       <img src="Eventtwo.jpg" alt="Event 2" class="event-img">
@@ -1397,6 +1464,7 @@ D/o Mr. Rakesh Jhaveri <br>
     <div class="event-space">
       <a href="#" class="event-btn">Get Directions</a>
     </div>
+<div class="event-divider"></div>
 
     <div class="event-frame">
       <img src="Eventthree.jpg" alt="Event 3" class="event-img">
@@ -1405,6 +1473,7 @@ D/o Mr. Rakesh Jhaveri <br>
     <div class="event-space">
       <a href="#" class="event-btn">Get Directions</a>
     </div>
+<div class="event-divider"></div>
 
     <div class="event-frame">
       <img src="Eventfour.jpg" alt="Event 4" class="event-img">
