@@ -1094,6 +1094,77 @@ touch-action:none;
   font-size:22px;
 }
 
+.event-details{
+
+  margin:20px auto 10px;
+
+  max-width:620px;
+
+  padding:22px;
+
+  border:1px solid rgba(212,175,55,.45);
+
+  border-radius:22px;
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(255,255,255,.85),
+      rgba(250,243,227,.9)
+    );
+
+  box-shadow:
+    0 6px 18px rgba(0,0,0,.05);
+}
+
+.detail-item{
+  margin-bottom:16px;
+}
+
+.detail-item:last-child{
+  margin-bottom:0;
+}
+
+.detail-label{
+
+  display:block;
+
+  font-size:14px;
+
+  letter-spacing:3px;
+
+  text-transform:uppercase;
+
+  color:#b8860b;
+
+  margin-bottom:6px;
+
+  font-weight:600;
+}
+
+.detail-value{
+
+  display:block;
+
+  font-size:20px;
+
+  color:#5c2c2c;
+
+  line-height:1.6;
+}
+
+@media(max-width:768px){
+
+  .detail-value{
+    font-size:17px;
+  }
+
+  .detail-label{
+    font-size:12px;
+  }
+
+}
+
 </style>
 </head>
 
@@ -1218,6 +1289,29 @@ touch-action:none;
     <div class="event-frame">
       <img src="Eventone.jpg" alt="Event 1" class="event-img">
     </div>
+
+<div class="event-details">
+
+  <div class="detail-item">
+    <span class="detail-label">Theme</span>
+    <span class="detail-value">Bandhni Theme</span>
+  </div>
+
+  <div class="detail-item">
+    <span class="detail-label">Dress Code</span>
+    <span class="detail-value">Colourful Hue of Bandhni</span>
+  </div>
+
+  <div class="detail-item">
+    <span class="detail-label">Address</span>
+    <span class="detail-value">
+      B/1101 Paradise Grandeur,<br>
+      Beside New Viva College,<br>
+      Virar West, Mumbai – 401303
+    </span>
+  </div>
+
+</div>
 
     <div class="event-space">
   <a
