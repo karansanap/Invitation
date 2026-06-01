@@ -340,63 +340,43 @@ transform:none;
 
 .main-content{
 
-  min-height:auto;
-  padding:30px 25px 40px;
-
-  position:relative;
-
-width:100%;
-  overflow:hidden;
-
+  padding:25px 20px 35px;
 
   text-align:center;
 
-  max-width:none;
-width:100%;
-margin:0;
-
-  transition:opacity 0.8s ease;
+  position:relative;
 }
 
-
-
-.main-content::before{
-  content:'';
-  position:absolute;
-  inset:12px;
-
-  border:2px solid rgba(212,175,55,.65);
-  border-radius:35px;
-
-  background:
-  rgba(255,255,255,0.15);
-
-  box-shadow:
-    inset 0 0 25px rgba(212,175,55,.08),
-    0 0 20px rgba(212,175,55,.08);
-
-  z-index:0;
-}
-
+.main-content::before,
 .main-content::after{
-  content:'';
+  display:none;
+}
 
-  position:absolute;
+.invite-frame{
 
-  inset:24px;
+  max-width:700px;
+  margin:auto;
 
-  border:1px solid rgba(212,175,55,.35);
+  padding:10px;
+
+  border:3px solid #d4af37;
 
   border-radius:28px;
 
-  pointer-events:none;
+  background:#fffdf8;
 
-  z-index:0;
+  box-shadow:
+    0 12px 35px rgba(0,0,0,.08),
+    0 0 15px rgba(212,175,55,.12);
 }
 
-.main-content > *{
-  position:relative;
-  z-index:2;
+.invite-image{
+
+  width:100%;
+
+  display:block;
+
+  border-radius:18px;
 }
 
 /* FLOWERS */
@@ -557,93 +537,6 @@ margin:0;
   }
 }
 
-/* CONTENT */
-
-.ganpati{
-
-  width:90px;
-
-  max-width:42%;
-
-  display:block;
-
-  margin:
-    6px auto 2px;
-
-  mix-blend-mode:multiply;
-
-  opacity:0.96;
-
-  border-radius:20px;
-
-  filter:
-    contrast(1.05)
-    brightness(0.98);
-
-}
-
-@keyframes ganpatiFloat{
-
-  0%{
-    transform:translateY(0px);
-  }
-
-  50%{
-    transform:translateY(-7px);
-  }
-
-  100%{
-    transform:translateY(0px);
-  }
-}
-
-.ganesh-text{
-  margin-top:8px;
-  margin-bottom:18px;
-
-  font-size:18px;
-  color:#8b1e3f;
-}
-
-.invite-text{
-  font-size:14px;
-  line-height:1.7;
-  color:#6f5656;
-  font-weight:400;
-}
-
-.names{
-  margin-top:24px;
-  line-height:1;
-}
-
-.names h1{
-  font-family:'Great Vibes', cursive;
-  font-size:60px;
-  font-weight:400;
-  color:#b21e4b;
-  line-height:0.95;
-}
-
-.with-text{
-  font-size:20px;
-  font-weight:400;
-  letter-spacing:2px;
-  color:#7a4a5a;
-  margin:20px 0 30px;
-}
-
-.parents{
-  margin-top:12px;
-
-  font-size:10px;
-
-  line-height:1.6;
-
-  padding:0 10px;
-
-  color:#5e4a4a;
-}
 
 /* MUSIC BUTTON */
 
@@ -1256,46 +1149,6 @@ touch-action:none;
   }
 
 }
-.corner{
-
-  position:absolute;
-
-  font-size:34px;
-
-  color:#d4af37;
-
-  z-index:3;
-}
-
-.tl{
-  top:18px;
-  left:18px;
-}
-
-.tr{
-  top:18px;
-  right:18px;
-}
-
-.bl{
-  bottom:18px;
-  left:18px;
-}
-
-.br{
-  bottom:18px;
-  right:18px;
-}
-.royal-divider{
-
-  margin:18px 0 25px;
-
-  font-size:20px;
-
-  letter-spacing:12px;
-
-  color:#d4af37;
-}
 
 </style>
 </head>
@@ -1338,47 +1191,15 @@ touch-action:none;
 
 <section class="main-content">
 
-<div class="corner tl">❈</div>
-<div class="corner tr">❈</div>
-<div class="corner bl">❈</div>
-<div class="corner br">❈</div>
-<img 
-class="ganpati"
-src="Ganpati.png"
-alt="Ganpati"
-/>
+  <div class="invite-frame">
+    <img
+      src="invite.jpg"
+      alt="Wedding Invitation"
+      class="invite-image"
+    >
+  </div>
 
-<div class="ganesh-text">
-॥ Shree Ganeshaya Namah ॥
-</div>
-<div class="royal-divider">
-✦ ✦ ✦
-</div>
-<div class="invite-text">
-We cordially invite you to witness the beginning of our forever and celebrate the wedding ceremony of
-</div>
-
-<div class="names">
-
-<h1>Karan</h1>
-
-<div class="parents">
-S/o Mr. Sudhir Sanap <br>
-& Mrs. Sneha Sanap
-</div>
-
-<div class="with-text">with</div>
-
-<h1>Pankti</h1>
-
-<div class="parents">
-D/o Mr. Rakesh Jhaveri <br>
-& Mrs. Alpa Jhaveri
-</div>
-
-</div>
 </section>
-
 
 
 <section class="save-date-section">
