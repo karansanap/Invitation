@@ -340,13 +340,13 @@ transform:none;
 
 .main-content{
 
-  min-height:100vh;
+  min-height:auto;
+  padding:30px 25px 40px;
 
   position:relative;
 
 width:100%;
   overflow:hidden;
-  padding:45px 30px 70px;
 
 
   text-align:center;
@@ -540,7 +540,7 @@ rgba(255,255,255,0.22);
 
 .ganpati{
 
-  width:115px;
+  width:90px;
 
   max-width:42%;
 
@@ -609,7 +609,7 @@ rgba(255,255,255,0.22);
   font-weight:400;
   letter-spacing:2px;
   color:#7a4a5a;
-  margin:30px 0 55px;
+  margin:20px 0 30px;
 }
 
 .parents{
@@ -1236,6 +1236,54 @@ touch-action:none;
 
 }
 
+.scroll-btn{
+
+  position:fixed;
+
+  left:50%;
+  bottom:110px;
+
+  transform:translateX(-50%);
+
+  width:58px;
+  height:58px;
+
+  border:none;
+
+  border-radius:50%;
+
+  background:
+  linear-gradient(
+    135deg,
+    #d7b176,
+    #c99b57
+  );
+
+  color:white;
+
+  font-size:28px;
+
+  cursor:pointer;
+
+  z-index:50000;
+
+  box-shadow:
+    0 8px 20px rgba(0,0,0,.15);
+
+  animation:bounceArrow 2s infinite;
+}
+
+@keyframes bounceArrow{
+
+  0%,100%{
+    transform:translateX(-50%) translateY(0);
+  }
+
+  50%{
+    transform:translateX(-50%) translateY(-8px);
+  }
+}
+
 </style>
 </head>
 
@@ -1506,6 +1554,9 @@ D/o Mr. Rakesh Jhaveri <br>
 
 </section>
 
+<button class="scroll-btn" onclick="scrollToDate()">
+  ↓
+</button>
 <!-- MUSIC BUTTON -->
 
 <button class="music-btn">
@@ -1746,6 +1797,16 @@ function firecrackerBurst(){
     fireworks.stop();
 
   }, 2200);
+
+}
+
+function scrollToDate(){
+
+  document
+    .querySelector('.save-date-section')
+    .scrollIntoView({
+      behavior:'smooth'
+    });
 
 }
 
