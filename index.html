@@ -1148,6 +1148,57 @@ touch-action:none;
 
 }
 
+.second-invite{
+  margin-top:40px;
+}
+
+.second-invite .invite-frame{
+
+  border-color:#c99b57;
+
+  box-shadow:
+    0 15px 35px rgba(0,0,0,.08),
+    0 0 18px rgba(201,155,87,.18);
+}
+
+.invite-divider{
+
+  width:70%;
+  height:1px;
+
+  margin:35px auto;
+
+  background:
+    linear-gradient(
+      to right,
+      transparent,
+      rgba(212,175,55,.8),
+      transparent
+    );
+
+  position:relative;
+}
+
+.invite-divider::after{
+
+  content:'❈';
+
+  position:absolute;
+
+  left:50%;
+  top:50%;
+
+  transform:translate(-50%,-50%);
+
+  background:#f8f1e5;
+
+  padding:0 12px;
+
+  color:#d4af37;
+
+  font-size:22px;
+}
+
 </style>
 </head>
 
@@ -1190,11 +1241,19 @@ touch-action:none;
 <section class="main-content">
 
   <div class="invite-frame">
-    <img
-      src="invite.png"
-      alt="Wedding Invitation"
-      class="invite-image"
-    >
+    <img src="invite.png"
+         alt="Wedding Invitation"
+         class="invite-image">
+  </div>
+
+</section>
+<div class="invite-divider"></div>
+<section class="main-content second-invite">
+
+  <div class="invite-frame">
+    <img src="invite2.png"
+         alt="Wedding Details"
+         class="invite-image">
   </div>
 
 </section>
