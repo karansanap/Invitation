@@ -819,52 +819,88 @@ touch-action:none;
 }
 
 .event-gallery{
-
   max-width:700px;
   margin:auto;
+}
 
-  padding:20px;
+/* EACH EVENT LOOKS LIKE A FRAMED PHOTO */
 
-  border:2px solid rgba(212,175,55,0.45);
+.event-frame{
 
-  border-radius:28px;
+  background:#fffdf8;
 
-  background:
-    rgba(255,255,255,0.25);
+  border:12px solid #d4af37;
+
+  border-radius:20px;
+
+  padding:10px;
+
+  margin-bottom:40px;
 
   box-shadow:
-    0 8px 25px rgba(0,0,0,0.06);
+    0 12px 30px rgba(0,0,0,0.12),
+    inset 0 0 0 2px rgba(255,255,255,0.6);
 
   position:relative;
 }
 
-.event-gallery::before{
+.event-frame::before{
 
   content:'';
 
   position:absolute;
-  inset:8px;
 
-  border:1px solid rgba(212,175,55,0.35);
+  inset:6px;
 
-  border-radius:20px;
+  border:1px solid rgba(255,255,255,0.7);
+
+  border-radius:12px;
 
   pointer-events:none;
 }
 
 .event-img{
+
   width:100%;
+
   display:block;
-  border-radius:18px;
 
-  margin-bottom:18px; /* small space between images */
-
-  box-shadow:
-    0 6px 18px rgba(0,0,0,.10);
+  border-radius:10px;
 }
 
-.event-img:last-child{
-  margin-bottom:0;
+/* SPACE BELOW EVERY EVENT IMAGE */
+
+.event-space{
+  margin-bottom:45px;
+}
+
+/* BUTTON BETWEEN EVENTS */
+
+.event-btn{
+
+  display:inline-block;
+
+  margin-top:25px;
+
+  padding:16px 38px;
+
+  border-radius:40px;
+
+  background:
+  linear-gradient(
+    135deg,
+    #d7b176,
+    #c99b57
+  );
+
+  color:#fff;
+
+  text-decoration:none;
+
+  font-size:20px;
+
+  box-shadow:
+    0 8px 20px rgba(0,0,0,.12);
 }
 
 /* AWAITING PRESENCE */
@@ -1346,13 +1382,37 @@ D/o Mr. Rakesh Jhaveri <br>
 
   <div class="event-gallery">
 
-    <img src="Eventone.jpg" alt="Event 1" class="event-img">
+    <div class="event-frame">
+      <img src="Eventone.jpg" alt="Event 1" class="event-img">
+    </div>
 
-    <img src="Eventtwo.jpg" alt="Event 2" class="event-img">
+    <div class="event-space">
+      <a href="#" class="event-btn">Get Directions</a>
+    </div>
 
-    <img src="Eventthree.jpg" alt="Event 3" class="event-img">
+    <div class="event-frame">
+      <img src="Eventtwo.jpg" alt="Event 2" class="event-img">
+    </div>
 
-    <img src="Eventfour.jpg" alt="Event 4" class="event-img">
+    <div class="event-space">
+      <a href="#" class="event-btn">Get Directions</a>
+    </div>
+
+    <div class="event-frame">
+      <img src="Eventthree.jpg" alt="Event 3" class="event-img">
+    </div>
+
+    <div class="event-space">
+      <a href="#" class="event-btn">Get Directions</a>
+    </div>
+
+    <div class="event-frame">
+      <img src="Eventfour.jpg" alt="Event 4" class="event-img">
+    </div>
+
+    <div class="event-space">
+      <a href="#" class="event-btn">Get Directions</a>
+    </div>
 
   </div>
 
