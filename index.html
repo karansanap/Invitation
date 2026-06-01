@@ -363,12 +363,33 @@ margin:0;
 .main-content::before{
   content:'';
   position:absolute;
-  inset:6px;
+  inset:12px;
 
-  border:2px solid rgba(212,175,55,0.35);
+  border:2px solid rgba(212,175,55,.65);
+  border-radius:35px;
 
-background:
-rgba(255,255,255,0.22);
+  background:
+  rgba(255,255,255,0.15);
+
+  box-shadow:
+    inset 0 0 25px rgba(212,175,55,.08),
+    0 0 20px rgba(212,175,55,.08);
+
+  z-index:0;
+}
+
+.main-content::after{
+  content:'';
+
+  position:absolute;
+
+  inset:24px;
+
+  border:1px solid rgba(212,175,55,.35);
+
+  border-radius:28px;
+
+  pointer-events:none;
 
   z-index:0;
 }
@@ -1235,6 +1256,46 @@ touch-action:none;
   }
 
 }
+.corner{
+
+  position:absolute;
+
+  font-size:34px;
+
+  color:#d4af37;
+
+  z-index:3;
+}
+
+.tl{
+  top:18px;
+  left:18px;
+}
+
+.tr{
+  top:18px;
+  right:18px;
+}
+
+.bl{
+  bottom:18px;
+  left:18px;
+}
+
+.br{
+  bottom:18px;
+  right:18px;
+}
+.royal-divider{
+
+  margin:18px 0 25px;
+
+  font-size:20px;
+
+  letter-spacing:12px;
+
+  color:#d4af37;
+}
 
 </style>
 </head>
@@ -1277,6 +1338,10 @@ touch-action:none;
 
 <section class="main-content">
 
+<div class="corner tl">❈</div>
+<div class="corner tr">❈</div>
+<div class="corner bl">❈</div>
+<div class="corner br">❈</div>
 <img 
 class="ganpati"
 src="Ganpati.png"
@@ -1286,7 +1351,9 @@ alt="Ganpati"
 <div class="ganesh-text">
 ॥ Shree Ganeshaya Namah ॥
 </div>
-
+<div class="royal-divider">
+✦ ✦ ✦
+</div>
 <div class="invite-text">
 We cordially invite you to witness the beginning of our forever and celebrate the wedding ceremony of
 </div>
