@@ -232,7 +232,7 @@ transform:none;
 
 .tap-text{
   position:absolute;
-  top:50%;
+  top:45%;
   left:50%;
 
   transform:translate(-50%,-50%);
@@ -253,17 +253,14 @@ transform:none;
 
 .tap-circle{
 
-  width:140px;
-  height:140px;
+  width:80px;
+  height:80px;
 
   display:flex;
   align-items:center;
   justify-content:center;
 
-  margin:auto;
-
-  font-size:58px;
-  font-weight:300;
+  font-size:34px;
 
   color:#ffe7b3;
 
@@ -272,38 +269,20 @@ transform:none;
   background:
     radial-gradient(
       circle,
-      rgba(255,215,120,0.22),
-      rgba(255,255,255,0.04)
+      rgba(255,215,120,0.18),
+      rgba(255,255,255,0.03)
     );
 
-  border:
-    1px solid rgba(255,230,180,0.28);
+  border:1px solid rgba(255,230,180,0.22);
 
   box-shadow:
-    0 0 18px rgba(255,215,120,0.18),
-    0 0 50px rgba(255,215,120,0.12),
-    inset 0 0 22px rgba(255,255,255,0.08);
+    0 0 12px rgba(255,215,120,0.12),
+    inset 0 0 12px rgba(255,255,255,0.05);
 
-  text-shadow:
-    0 0 14px rgba(255,220,150,0.55);
-
-  animation:
-    royalPulse 3s ease-in-out infinite;
+  animation:royalPulse 3s ease-in-out infinite;
 }
 
-.tap-text p{
 
-  margin-top:18px;
-
-  font-size:24px;
-
-  letter-spacing:4px;
-
-  color:#fff8e8;
-
-  text-shadow:
-    0 0 12px rgba(255,255,255,0.35);
-}
 
 @keyframes royalPulse{
 
@@ -1265,7 +1244,6 @@ touch-action:none;
 
   <div class="tap-text">
     <div class="tap-circle">❈</div>
-    <p>Open Invitation</p>
   </div>
 
 <div class="invite-message">
