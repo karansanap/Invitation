@@ -1212,6 +1212,140 @@ touch-action:none;
 
 }
 
+/* MEET THE COUPLE */
+
+.couple-gallery{
+
+  padding:80px 20px;
+  text-align:center;
+
+  background:
+  linear-gradient(
+    180deg,
+    #fffdf8,
+    #f8f1e5
+  );
+}
+
+.gallery-title{
+
+  font-family:'Great Vibes', cursive;
+
+  font-size:72px;
+
+  color:#8b1e3f;
+
+  margin-bottom:60px;
+}
+
+.diamond-collage{
+
+  display:flex;
+  flex-wrap:wrap;
+
+  justify-content:center;
+
+  gap:18px;
+
+  max-width:900px;
+
+  margin:auto;
+}
+
+.diamond-img{
+
+  width:120px;
+  height:120px;
+
+  object-fit:cover;
+
+  transform:rotate(45deg);
+
+  border:5px solid white;
+
+  cursor:pointer;
+
+  transition:.4s;
+
+  box-shadow:
+    0 10px 25px rgba(0,0,0,.12);
+}
+
+.diamond-img.large{
+
+  width:180px;
+  height:180px;
+}
+
+.diamond-img:hover{
+
+  transform:
+    rotate(45deg)
+    scale(1.08);
+}
+
+/* LIGHTBOX */
+
+.photo-modal{
+
+  display:none;
+
+  position:fixed;
+
+  inset:0;
+
+  background:
+    rgba(0,0,0,.95);
+
+  z-index:999999;
+
+  align-items:center;
+
+  justify-content:center;
+}
+
+.photo-modal img{
+
+  max-width:95%;
+  max-height:90%;
+
+  border-radius:15px;
+
+  box-shadow:
+    0 0 30px rgba(255,255,255,.15);
+}
+
+.close-photo{
+
+  position:absolute;
+
+  top:20px;
+  right:30px;
+
+  font-size:50px;
+
+  color:white;
+
+  cursor:pointer;
+}
+
+@media(max-width:768px){
+
+  .gallery-title{
+    font-size:58px;
+  }
+
+  .diamond-img{
+    width:85px;
+    height:85px;
+  }
+
+  .diamond-img.large{
+    width:125px;
+    height:125px;
+  }
+}
+
 </style>
 </head>
 
@@ -1535,7 +1669,7 @@ The greatest gift to our celebration will be the honour of your presence and ble
   </div>
 
 </section>
-
+<div class="invite-divider"></div>
 <section class="couple-signature">
 
   <div class="signature-love">
@@ -1560,6 +1694,39 @@ The greatest gift to our celebration will be the honour of your presence and ble
   </div>
 
 </section>
+
+<div class="invite-divider"></div>
+
+<section class="couple-gallery">
+
+  <h2 class="gallery-title">Meet the Couple</h2>
+
+  <div class="diamond-collage">
+
+    <img src="IMG-20250216-WA0058.jpg" class="diamond-img">
+    <img src="IMG-20250928-WA0036.jpg" class="diamond-img large">
+    <img src="IMG-20251020-WA0025.jpg" class="diamond-img">
+    <img src="IMG-20251020-WA0462.jpg" class="diamond-img">
+    <img src="IMG-20251022-WA0077.jpg" class="diamond-img large">
+    <img src="IMG-20260103-WA0068.jpg" class="diamond-img">
+    <img src="IMG-20260130-WA0087.jpg" class="diamond-img">
+    <img src="IMG-20260302-WA0107.jpg" class="diamond-img">
+    <img src="IMG_20260511_204448_199.webp" class="diamond-img">
+    <img src="RGN00759.jpg" class="diamond-img">
+
+  </div>
+
+</section>
+
+<!-- LIGHTBOX -->
+
+<div id="photoModal" class="photo-modal">
+
+  <span class="close-photo">&times;</span>
+
+  <img id="modalImg">
+
+</div>
 
 <!-- MUSIC BUTTON -->
 
@@ -1852,7 +2019,47 @@ document.querySelector(".music-btn").addEventListener("click", () => {
 
 <script src="https://cdn.jsdelivr.net/npm/fireworks-js@2.10.8/dist/index.umd.js"></script>
 
+<script>
 
+const modal =
+document.getElementById("photoModal");
+
+const modalImg =
+document.getElementById("modalImg");
+
+document
+.querySelectorAll(".diamond-img")
+.forEach(img=>{
+
+  img.addEventListener("click",()=>{
+
+    modal.style.display="flex";
+
+    modalImg.src=img.src;
+
+  });
+
+});
+
+document
+.querySelector(".close-photo")
+.addEventListener("click",()=>{
+
+  modal.style.display="none";
+
+});
+
+modal.addEventListener("click",(e)=>{
+
+  if(e.target===modal){
+
+    modal.style.display="none";
+
+  }
+
+});
+
+</script>
 
 </body>
 </html>
