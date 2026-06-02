@@ -1243,112 +1243,84 @@ touch-action:none;
   max-width:950px;
   margin:80px auto;
 
-  display:grid;
+  display:flex;
+  flex-wrap:wrap;
+  justify-content:center;
 
-  grid-template-columns:
-    repeat(4,1fr);
-
-  grid-auto-rows:170px;
-
-  gap:14px;
-
-  transform:rotate(-7deg);
-
-  transform-origin:center;
+  gap:18px;
 }
 
-.diamond-img{
+.diamond{
+
+  width:150px;
+  height:150px;
+
+  overflow:hidden;
+
+  transform:rotate(45deg);
+
+  border:5px solid #fff;
+
+  box-shadow:
+    0 12px 28px rgba(0,0,0,.18);
+
+  transition:.4s ease;
+}
+
+.diamond-large{
+
+  width:220px;
+  height:220px;
+}
+
+.diamond img{
 
   width:100%;
   height:100%;
 
   object-fit:cover;
 
-  border-radius:18px;
-
-  border:6px solid #fff;
-
-  transform:none;
-
-  box-shadow:
-    0 15px 35px rgba(0,0,0,.18);
+  transform:
+    rotate(-45deg)
+    scale(1.45);
 
   transition:.4s ease;
 }
 
-.diamond-img:hover{
+.diamond:hover{
 
-  transform:scale(1.04);
-
-  box-shadow:
-    0 15px 35px rgba(0,0,0,.18);
+  transform:
+    rotate(45deg)
+    scale(1.05);
 }
 
-/* CUSTOM COLLAGE SHAPES */
+/* staggered layout like reference */
 
-.diamond-img:nth-child(1){
-  grid-column:1 / span 2;
-  grid-row:1 / span 2;
-}
+.diamond:nth-child(2),
+.diamond:nth-child(5),
+.diamond:nth-child(8){
 
-.diamond-img:nth-child(2){
-  grid-column:3;
-  grid-row:1;
-}
-
-.diamond-img:nth-child(3){
-  grid-column:4;
-  grid-row:1 / span 2;
-}
-
-.diamond-img:nth-child(4){
-  grid-column:3;
-  grid-row:2;
-}
-
-.diamond-img:nth-child(5){
-  grid-column:1;
-  grid-row:3 / span 2;
-}
-
-.diamond-img:nth-child(6){
-  grid-column:2 / span 2;
-  grid-row:3;
-}
-
-.diamond-img:nth-child(7){
-  grid-column:4;
-  grid-row:3;
-}
-
-.diamond-img:nth-child(8){
-  grid-column:2;
-  grid-row:4;
-}
-
-.diamond-img:nth-child(9){
-  grid-column:3 / span 2;
-  grid-row:4 / span 2;
-}
-
-.diamond-img:nth-child(10){
-  grid-column:1 / span 2;
-  grid-row:5;
+  margin-top:90px;
 }
 
 @media(max-width:768px){
 
-  .diamond-collage{
-
-    grid-template-columns:repeat(2,1fr);
-
-    grid-auto-rows:120px;
-
-    transform:rotate(-5deg);
-
-    gap:10px;
+  .diamond{
+    width:95px;
+    height:95px;
   }
 
+  .diamond-large{
+    width:140px;
+    height:140px;
+  }
+
+  .diamond:nth-child(2),
+  .diamond:nth-child(5),
+  .diamond:nth-child(8){
+
+    margin-top:55px;
+  }
 }
 
 /* LIGHTBOX */
@@ -1770,19 +1742,47 @@ The greatest gift to our celebration will be the honour of your presence and ble
 
   <div class="diamond-collage">
 
-    <img src="IMG-20250216-WA0058.jpg" class="diamond-img">
-    <img src="IMG-20250928-WA0036.jpg" class="diamond-img large">
-    <img src="IMG-20251020-WA0025.jpg" class="diamond-img">
-    <img src="IMG-20251020-WA0462.jpg" class="diamond-img">
-    <img src="IMG-20251022-WA0077.jpg" class="diamond-img large">
-    <img src="IMG-20260103-WA0068.jpg" class="diamond-img">
-    <img src="IMG-20260130-WA0087.jpg" class="diamond-img">
-    <img src="IMG-20260302-WA0107.jpg" class="diamond-img">
-    <img src="IMG_20260511_204448_199.webp" class="diamond-img">
-    <img src="RGN00759.jpg" class="diamond-img">
-
+  <div class="diamond">
+    <img src="IMG-20250216-WA0058.jpg">
   </div>
 
+  <div class="diamond diamond-large">
+    <img src="IMG-20250928-WA0036.jpg">
+  </div>
+
+  <div class="diamond">
+    <img src="IMG-20251020-WA0025.jpg">
+  </div>
+
+  <div class="diamond">
+    <img src="IMG-20251020-WA0462.jpg">
+  </div>
+
+  <div class="diamond diamond-large">
+    <img src="IMG-20251022-WA0077.jpg">
+  </div>
+
+  <div class="diamond">
+    <img src="IMG-20260103-WA0068.jpg">
+  </div>
+
+  <div class="diamond">
+    <img src="IMG-20260130-WA0087.jpg">
+  </div>
+
+  <div class="diamond">
+    <img src="IMG-20260302-WA0107.jpg">
+  </div>
+
+  <div class="diamond">
+    <img src="IMG_20260511_204448_199.webp">
+  </div>
+
+  <div class="diamond">
+    <img src="RGN00759.jpg">
+  </div>
+
+</div>
 </section>
 
 <!-- LIGHTBOX -->
