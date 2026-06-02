@@ -1240,20 +1240,22 @@ touch-action:none;
 
 .diamond-collage{
 
-  max-width:950px;
-  margin:80px auto;
+  max-width:700px;
+  margin:50px auto;
 
   display:flex;
   flex-wrap:wrap;
   justify-content:center;
 
-  gap:18px;
+  gap:0;
 }
 
 .diamond{
 
-  width:150px;
-  height:150px;
+  width:140px;
+  height:140px;
+
+  margin:-18px;
 
   overflow:hidden;
 
@@ -1262,15 +1264,15 @@ touch-action:none;
   border:5px solid #fff;
 
   box-shadow:
-    0 12px 28px rgba(0,0,0,.18);
-
-  transition:.4s ease;
+    0 10px 25px rgba(0,0,0,.15);
 }
 
 .diamond-large{
 
-  width:220px;
-  height:220px;
+  width:210px;
+  height:210px;
+
+  margin:-30px;
 }
 
 .diamond img{
@@ -1297,11 +1299,14 @@ cursor:pointer;
 
 /* staggered layout like reference */
 
-.diamond:nth-child(2),
-.diamond:nth-child(5),
-.diamond:nth-child(8){
+.diamond:nth-child(1),
+.diamond:nth-child(4),
+.diamond:nth-child(7),
+.diamond:nth-child(10){
 
-  margin-top:90px;
+  transform:
+    translateY(50px)
+    rotate(45deg);
 }
 
 @media(max-width:768px){
@@ -1309,18 +1314,23 @@ cursor:pointer;
   .diamond{
     width:95px;
     height:95px;
+    margin:-12px;
   }
 
   .diamond-large{
-    width:140px;
-    height:140px;
+    width:145px;
+    height:145px;
+    margin:-18px;
   }
 
-  .diamond:nth-child(2),
-  .diamond:nth-child(5),
-  .diamond:nth-child(8){
+  .diamond:nth-child(1),
+  .diamond:nth-child(4),
+  .diamond:nth-child(7),
+  .diamond:nth-child(10){
 
-    margin-top:55px;
+    transform:
+      translateY(30px)
+      rotate(45deg);
   }
 }
 
