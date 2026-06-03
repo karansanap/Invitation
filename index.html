@@ -1411,6 +1411,27 @@ cursor:pointer;
   }
 }
 
+.scratch-preview{
+
+  position:absolute;
+  inset:0;
+
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+
+  z-index:1;
+
+  background:#fffdf9;
+}
+
+#scratchCanvas{
+  position:absolute;
+  inset:0;
+  z-index:10;
+}
+
 </style>
 </head>
 
@@ -1483,10 +1504,21 @@ cursor:pointer;
 
     <div class="scratch-card">
 
-      <canvas id="scratchCanvas"></canvas>   
+  <div class="scratch-preview">
 
+    <div class="save-text">
+      SAVE THE DATE
     </div>
 
+    <div class="date-text">
+      26<sup>th</sup> November 2026
+    </div>
+
+  </div>
+
+  <canvas id="scratchCanvas"></canvas>
+
+</div>
   </div>
 
   <div id="revealedContent" class="revealed-content">
