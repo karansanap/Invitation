@@ -19,6 +19,7 @@
 
 body{
   overflow-x:hidden;
+overscroll-behavior-y:contain;
 
   font-family:'Cormorant Garamond', serif;
 
@@ -36,10 +37,10 @@ body{
   -webkit-tap-highlight-color:transparent;
 }
 
-body.lock-scroll{
-  overflow:hidden;
-}
 
+html{
+  background:#fffdf8;
+}
 
 /* =========================
    OPENING SCREEN
@@ -50,6 +51,8 @@ body.lock-scroll{
   inset:0;
   z-index:9999;
   overflow:hidden;
+overscroll-behavior:none;
+  touch-action:none;
 
   background:
   radial-gradient(
@@ -1441,7 +1444,7 @@ cursor:pointer;
 </style>
 </head>
 
-<body class="lock-scroll">
+<body>
 
 <div id="fireworks"></div>
 <div class="flower flower1">🌸</div>
