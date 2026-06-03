@@ -19,7 +19,6 @@
 
 body{
   overflow-x:hidden;
-overscroll-behavior:none;
 
   font-family:'Cormorant Garamond', serif;
 
@@ -36,6 +35,11 @@ overscroll-behavior:none;
 
   -webkit-tap-highlight-color:transparent;
 }
+
+body.lock-scroll{
+  overflow:hidden;
+}
+
 
 /* =========================
    OPENING SCREEN
@@ -1437,7 +1441,7 @@ cursor:pointer;
 </style>
 </head>
 
-<body>
+<body class="lock-scroll">
 
 <div id="fireworks"></div>
 <div class="flower flower1">🌸</div>
@@ -1874,8 +1878,7 @@ The greatest gift to our celebration will be the honour of your presence and ble
 
 function openCurtains(){
 
-document.body.style.overflowY = "auto";
-
+document.body.classList.remove("lock-scroll");
   const screen = document.getElementById("openingScreen");
 
   screen.classList.add("open");
