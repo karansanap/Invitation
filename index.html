@@ -19,6 +19,9 @@
 
 body{
   overflow-x:hidden;
+overflow-y:hidden;
+overscroll-behavior:none;
+
   font-family:'Cormorant Garamond', serif;
 
   background:
@@ -1871,6 +1874,8 @@ The greatest gift to our celebration will be the honour of your presence and ble
 
 
 function openCurtains(){
+
+document.body.style.overflowY = "auto";
 
   const screen = document.getElementById("openingScreen");
 
