@@ -1454,6 +1454,22 @@ cursor:pointer;
   letter-spacing:1px;
 }
 
+.event-flow a{
+
+  color:#8b1e3f;
+
+  text-decoration:none;
+
+  transition:.3s;
+}
+
+.event-flow a:hover{
+
+  color:#d4af37;
+
+  transform:translateY(-2px);
+}
+
 .flow-dot{
 
   color:#d4af37;
@@ -1488,6 +1504,10 @@ cursor:pointer;
   .flow-dot{
     font-size:16px;
   }
+}
+
+html{
+  scroll-behavior:smooth;
 }
 
 </style>
@@ -1627,21 +1647,26 @@ cursor:pointer;
   <h2 class="events-title">Events Schedule</h2>
 
 <div class="event-flow">
-  <span>Vadi</span>
+
+  <a href="#vadi">Vadi</a>
+
   <span class="flow-dot">✦</span>
 
-  <span>Haldi</span>
+  <a href="#haldi">Haldi</a>
+
   <span class="flow-dot">✦</span>
 
-  <span>Mandvo</span>
+  <a href="#mandvo">Mandvo</a>
+
   <span class="flow-dot">✦</span>
 
-  <span>Wedding</span>
+  <a href="#wedding">Wedding</a>
+
 </div>
 
   <div class="event-gallery">
 
-    <div class="event-frame">
+    <div id="vadi" class="event-frame">
       <img src="Eventone.jpg" alt="Event 1" class="event-img">
     </div>
 
@@ -1680,7 +1705,7 @@ cursor:pointer;
 </div>
 <div class="event-divider"></div>
 
-    <div class="event-frame">
+    <div id="haldi" class="event-frame">
       <img src="pink.png" alt="Event 2" class="event-img">
     </div>
 
@@ -1723,7 +1748,7 @@ cursor:pointer;
 
 <div class="event-divider"></div>
 
-    <div class="event-frame">
+    <div id="mandvo" class="event-frame">
       <img src="Eventthree.jpg" alt="Event 3" class="event-img">
     </div>
 
@@ -1765,7 +1790,7 @@ cursor:pointer;
 </div>
 <div class="event-divider"></div>
 
-    <div class="event-frame">
+    <div id="wedding" class="event-frame">
       <img src="wedding.png" alt="Event 4" class="event-img">
     </div>
 
